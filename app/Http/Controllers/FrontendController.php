@@ -17,7 +17,16 @@ class FrontendController extends Controller
     function accueil(){
 
         try {
-            return view("accueil");
+            return view("frontend.accueil");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    function inscription(){
+
+        try {
+            return view("frontend.inscription");
         } catch (\Throwable $th) {
             //throw $th;
         }

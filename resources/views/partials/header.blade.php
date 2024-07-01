@@ -25,7 +25,7 @@
         <div class="header-lower">
             <div class="outer-box clearfix">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="{{ asset("storage/assets/logo/logo_envol.png")}}")}}" alt=""></a></figure>
+                    <figure class="logo"><a href="index.html"><img src="{{ asset("storage/assets/logo/Logo-site1.jpg")}}" alt=""></a></figure>
                 </div>
                 <div class="menu-area clearfix">
                     <!--Mobile Navigation Toggler-->
@@ -110,7 +110,7 @@
                                         <li><a href="#">A propos de Groupe Envol SARL</a></li>
                                         <li><a href="#">Notre Equipe</a></li>
                                         <li><a href="#">FAQ’s</a></li>
-                                        <li><a href="#">RTL Home</a></li>
+                                       
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">NOS SERVICES</a>
@@ -125,7 +125,7 @@
                                 </li> 
 
                                 @guest
-                                <li><a href="#">Login</a></li>   
+                                <li><a href="{{ route("inscription") }}">Inscription / Connexion</a></li>   
                                 @endguest
                                 
 
@@ -169,9 +169,9 @@
     <div class="sticky-header">
         <div class="auto-container">
             <div class="outer-box clearfix">
-                <div class="logo-box pull-left">
+                {{-- <div class="logo-box pull-left">
                     <figure class="logo"><a href="#"><img src="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" alt=""></a></figure>
-                </div>
+                </div> --}}
                 <div class="menu-area clearfix pull-right">
                     <nav class="main-menu clearfix">
                         <!--Keep This Empty / Menu will come through Javascript-->
@@ -206,7 +206,7 @@
     <div class="close-btn"><i class="fas fa-times"></i></div>
     
     <nav class="menu-box">
-        <div class="nav-logo"><a href="#"><img src="{{ asset("storage/assets_vendor/images/logo-2.png")}}" alt="" title=""></a></div>
+        <div class="nav-logo"><a href="#"><img src="{{ asset("storage/assets/logo/Logo-site1.jpg")}}" alt="" title=""></a></div>
         <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
         <div class="contact-info">
             <h4>Contact Info</h4>
