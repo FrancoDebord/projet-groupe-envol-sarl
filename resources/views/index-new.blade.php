@@ -6,7 +6,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+<meta name="app_url" content="{{\Request::getSchemeAndHttpHost(); }}/" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 <title>
     @yield('title',"Groupe Envol --Accueil")
 </title>
@@ -21,7 +22,10 @@
 <link href="{{ asset("storage/assets_vendor/css/font-awesome-all.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/flaticon.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/owl.css")}}" rel="stylesheet">
-<link href="{{ asset("storage/assets_vendor/css/bootstrap.css")}}" rel="stylesheet">
+{{-- <link href="{{ asset("storage/assets_vendor/css/bootstrap.css")}}" rel="stylesheet"> --}}
+<link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-5.3.3/css/bootstrap.min.css") }}">
+<link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-toggle/css/bootstrap5-toggle.min.css") }}">
+<link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-select/css/bootstrap-select.min.css") }}">
 <link href="{{ asset("storage/assets_vendor/css/jquery.fancybox.min.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/animate.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/color.css")}}" rel="stylesheet">
@@ -29,6 +33,8 @@
 <link href="{{ asset("storage/assets_vendor/css/elpath.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/style.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/responsive.css")}}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset("storage/assets/css/style_custom.css") }}"/>
 
 @yield('css')
 
@@ -202,14 +208,18 @@
         <!--Scroll to top-->
         <button class="scroll-top scroll-to-target" data-target="html">
             <span class="fal fa-long-arrow-up"></span>
+        </div>
         </button>
-    </div>
 
 
     <!-- jequery plugins -->
+    {{-- <script src="{{ asset("storage/assets/js/jquery.min.3.7.1.js")}}"></script> --}}
     <script src="{{ asset("storage/assets_vendor/js/jquery.js")}}"></script>
+    <script src="{{ asset("storage/assets/bootstrap-5.3.3/js/bootstrap.min.js")}}"></script>
+    <script src="{{ asset("storage/assets/bootstrap-select/js/bootstrap-select.js") }}"></script>
+    <script src="{{ asset("storage/assets/bootstrap-toggle/js/bootstrap5-toggle.jquery.min.js") }}"></script>
+    {{-- <script src="{{ asset("storage/assets_vendor/js/bootstrap.min.js")}}"></script> --}}
     <script src="{{ asset("storage/assets_vendor/js/popper.min.js")}}"></script>
-    <script src="{{ asset("storage/assets_vendor/js/bootstrap.min.js")}}"></script>
     <script src="{{ asset("storage/assets_vendor/js/owl.js")}}"></script>
     <script src="{{ asset("storage/assets_vendor/js/wow.js")}}"></script>
     <script src="{{ asset("storage/assets_vendor/js/validation.js")}}"></script>

@@ -11,3 +11,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [FrontendController::class,"accueil"])->name("accueil");
 Route::get('/inscription', [FrontendController::class,"inscription"])->name("inscription");
 
+require __DIR__.'/requete_ajax_frontend.php';
