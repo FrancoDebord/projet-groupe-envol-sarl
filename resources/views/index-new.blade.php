@@ -25,7 +25,7 @@
 {{-- <link href="{{ asset("storage/assets_vendor/css/bootstrap.css")}}" rel="stylesheet"> --}}
 <link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-5.3.3/css/bootstrap.min.css") }}">
 <link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-toggle/css/bootstrap5-toggle.min.css") }}">
-<link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-select/css/bootstrap-select.min.css") }}">
+{{-- <link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-select/css/bootstrap-select.min.css") }}"> --}}
 <link href="{{ asset("storage/assets_vendor/css/jquery.fancybox.min.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/animate.css")}}" rel="stylesheet">
 <link href="{{ asset("storage/assets_vendor/css/color.css")}}" rel="stylesheet">
@@ -216,7 +216,7 @@
     {{-- <script src="{{ asset("storage/assets/js/jquery.min.3.7.1.js")}}"></script> --}}
     <script src="{{ asset("storage/assets_vendor/js/jquery.js")}}"></script>
     <script src="{{ asset("storage/assets/bootstrap-5.3.3/js/bootstrap.min.js")}}"></script>
-    <script src="{{ asset("storage/assets/bootstrap-select/js/bootstrap-select.js") }}"></script>
+    {{-- <script src="{{ asset("storage/assets/bootstrap-select/js/bootstrap-select.js") }}"></script> --}}
     <script src="{{ asset("storage/assets/bootstrap-toggle/js/bootstrap5-toggle.jquery.min.js") }}"></script>
     {{-- <script src="{{ asset("storage/assets_vendor/js/bootstrap.min.js")}}"></script> --}}
     <script src="{{ asset("storage/assets_vendor/js/popper.min.js")}}"></script>

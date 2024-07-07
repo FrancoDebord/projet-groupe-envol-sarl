@@ -25,15 +25,21 @@ return new class extends Migration
             $table->string("ville_residence");
             $table->string("quartier_residence");
             $table->string("pays_nationalite");
-            $table->string("telephone");
-            $table->string("email");
+            $table->string("telephone_client");
+            $table->string("email_client");
             $table->string("situation_matrimoniale");
-            $table->enum("niveau_francais",["basic","intermediaire","avance"]);
-            $table->enum("niveau_anglais",["basic","intermediaire","avance"]);
+            $table->enum("niveau_francais",["basique","intermediaire","avance"]);
+            $table->enum("niveau_anglais",["basique","intermediaire","avance"]);
             $table->string("diplome_plus_eleve");
             $table->string("profession");
             $table->string("nb_annees_experience");
             $table->integer("nb_personnes_voyage")->nullable();
+            $table->integer("note_information_id")->index();
+            $table->integer("consentement_signe_id")->index();
+            $table->integer("user_id")->index();
+            $table->string("piece_identite")->nullable();
+            $table->string("attestation_diplome_plus_eleve")->nullable();
+            $table->string("releves_notes_diplome_plus_eleve")->nullable();
             $table->timestamps();
         });
     }

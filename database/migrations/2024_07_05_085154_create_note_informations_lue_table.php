@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('documents_clients_services', function (Blueprint $table) {
+        Schema::create('note_informations_lue', function (Blueprint $table) {
             $table->id();
-            $table->string("nom_document");
-            $table->string("fichier_pdf");
-            $table->string("service_name")->nullable();
-            $table->integer("service_id")->index()->nullable();
-            $table->integer("client_id");
+            $table->date("date_lecture");
+            $table->time("heure_lecture");
+            $table->boolean("note_lue")->default(false);
+            $table->boolean("note_information_telechargee")->default(false);
+            $table->ipAddress("adresse_ip_ordinateur")->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('documents_clients_services');
+        Schema::dropIfExists('note_informations_lue');
     }
 };

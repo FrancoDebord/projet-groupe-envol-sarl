@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pays extends Model
+class NoteInformationLue extends Model
 {
     use HasFactory;
 
-    protected $table="pays";
+    protected $table="note_informations_lue";
+
     protected $guarded = ["create_at","updated_at"];
 }

@@ -1,0 +1,630 @@
+<?php 
+
+return [
+
+    "form.login"=>"Connectez-vous s'il vous plaît!",
+    "form.login.email"=>"Votre adresse Email",
+    "form.login.name"=>"Nom ou Pseudo",
+    "form.login.password"=>"Votre mot de passe",
+    "form.login.remember"=>"Se souvenir de moi",
+    "form.login.forgot-password"=>"Mot de passe oublié ?",
+    "form.login.button-login"=>"Se connecter",
+    "form.login.loginwith"=>"Se connecter avec ",
+    "form.login.notaccount"=>"Vous n'avez pas de compte ?",
+    "form.login.register"=>"Créer un compte",
+    "form.login.subtitlepage"=>"Accès à notre système RH",
+    "form.login.titlepage"=>"CREC-LSHTM --Se connecter",
+    
+    
+    "form.register.titlepage"=>"CREC-LSHTM --Créer un compte",
+    "form.register.confirm-password"=>"Confirmer le mot de passe",
+    "form.register.register-with"=>"S'enregistrer avec",
+    "form.register.already-account"=>"Vous avez déjà un compte ?",
+    "form.register.phone-number"=>"Numéro de téléphone",
+
+
+    "form.forgot-password.titlepage"=>"CREC-LSHTM --Mot de passe oublié",
+    "form.forgot-password.indication-msg"=>"Veuillez entrer votre email pour obtenir un lien de réinitialisation de mot de passe",
+    "form.forgot-password.indication-msg2"=>"Veuillez définir un nouveau mot de passe ici",
+    "form.forgot-password.button-submit"=>"Envoyez le lien par mail",
+    "form.forgot-password.remember-password-text"=>"Vous vous souvenez de votre mot de passe ?",
+
+    "reset-password.button-submit"=>"Réinitialiser le mot de passe",
+
+    "word.or"=>"ou",
+    "select.languages.info"=>"Sélectionner une langue.",
+
+
+    "page.accueil.titlepage"=>"CREC/LSHTM RH System --Accueil",
+    "page.accueil.profile-detail"=>"CREC/LSHTM RH System --Détail Profil",
+    "page.accueil.profile"=>"CREC/LSHTM RH System -- Profil",
+    "page.accueil.profile.print-training-log"=>"Imprimer Training Log",
+    "page.accueil.profile.print-training-history"=>"Imprimer Training Log",
+    "page.accueil.profile-document"=>"CREC/LSHTM RH System -- Dossier du personnel",
+    "page.accueil.contenu-formation"=>"CREC/LSHTM RH System -- Ajouter du contenu à la formation",
+    "page.accueil.mode-formation"=>"CREC/LSHTM RH System -- Finalisation de la création de la formation",
+    "page.accueil.question-formation"=>"CREC/LSHTM RH System -- Créer des questions sur la formation",
+    "page.accueil.create-formation"=>"CREC/LSHTM RH System -- Créer une nouvelle formation",
+    "page.accueil.overview-formation"=>"CREC/LSHTM RH System -- Vue d'ensemble de la formation",
+    "page.accueil.add-employee"=>"CREC/LSHTM RH System -- Enregistrer un personnel",
+    "page.accueil.employee-grid"=>"CREC/LSHTM RH System -- Personnels vus en grille",
+    "page.accueil.employee-office"=>"CREC/LSHTM RH System -- Personnels par  bureau",
+    "page.accueil.employee-team"=>"CREC/LSHTM RH System -- Personnels par  département",
+    "page.accueil.employee"=>"CREC/LSHTM RH System -- Liste du Personnel ",
+    "page.accueil.company-info"=>"CREC/LSHTM RH System -- Informations sur le Test Facility ",
+
+    "welcome.message"=>"Bienvenue, cher(e) :name",
+    "employees"=>"Employé(s)",
+    "departements"=>"Département(s)",
+    "leaves"=>"Congé(s)",
+    "utilisateurs"=>"Utilisateur(s)",
+
+    "sidebar.menu.dashboard"=>"Tableau de bord",
+    "sidebar.menu.employees"=>"Employés",
+    "sidebar.menu.calendar"=>"Agenda",
+    "sidebar.menu.company"=>"La société",
+    "sidebar.menu.leave"=>"Congés/Absence",
+    "sidebar.menu.training"=>"Formations",
+    "sidebar.menu.training-sessions"=>"Session de formation",
+    "sidebar.menu.my-trainings"=>"Mes Formations",
+    "sidebar.menu.creer-sessions"=>"Créer Session",
+    "sidebar.menu.reinitialiser-inscription-pour-tous"=>"Réinitialiser toute inscription précédente",
+    "sidebar.menu.anti-dater-formations"=>"Antidater des formations",
+    "sidebar.menu.creer-nouvelle-sessions-btn"=>"Créer une nouvelle Session de formation",
+    "sidebar.menu.reinitialiser-sessions-btn"=>"Cliquer pour Réinitialiser toutes les inscriptions précédentes",
+    "sidebar.menu.sessions.intitule-session"=>"Titre de la session",
+    "sidebar.menu.sessions.start-date"=>"Date de début",
+    "sidebar.menu.sessions.end-date"=>"Date de fin",
+    "sidebar.menu.sessions.formations-concernees"=>"Formations programmées",
+    "sidebar.menu.sessions.no-sessions-yet"=>"Aucune session de formation n'est encore créée...",
+    "sidebar.menu.sessions.formations-concernees-intitule"=>":nb_trainings formation(s)",
+
+    "sidebar.menu.trainings.pratique-score"=>"Notes de pratique",
+    "sidebar.menu.trainings.observations"=>"Score des observations",
+    "sidebar.menu.trainings.avis-facility-manager"=>"Avis du Facility Manager",
+    "sidebar.menu.trainings.print-list-participants"=>"Imprimer Liste Participants Formation",
+    "sidebar.menu.trainings.historique-formation-personnel"=>"Hist. formation",
+    "sidebar.menu.training-gerer"=>"Gérer Formations",
+    "sidebar.menu.review"=>"Les revues",
+    "sidebar.menu.report"=>"Les rapports",
+    "sidebar.menu.manage"=>"Gérer",
+    "sidebar.menu.settings"=>"Paramètres",
+    "sidebar.menu.profile"=>"Profil",
+    "sidebar.menu.myprofile"=>"Mon profil",
+    "sidebar.menu.logout"=>"Se deconnecter",
+    "sidebar.menu.home"=>"Accueil",
+    
+    
+    "employee.people"=>"Personne(s)",
+    "employee.table.name"=>"Nom & Prenom",
+    "employee.table.jobtitle"=>"Fonction",
+    "employee.table.departement"=>"Département",
+    "employee.table.office"=>"Bureau",
+    "employee.table.mailpro"=>"Mail pro",
+    "employee.table.under_contrat"=>"Contrat ",
+    "employee.table.caption"=>"Vue d'ensemble du personnel",
+
+
+    "employee.bar.all"=>"Tous",
+    "employee.bar.team"=>"Départements",
+    "employee.bar.office"=>"Bureaux",
+    "employee.bar.add-person"=>"Ajouter un employé",
+    "employee.bar.add-members"=>"Ajouter des membres",
+
+
+    "employee.creat-new-office"=>"Créer un nouveau bureau",
+    "employee.creat-office-button"=>"Créer le bureau",
+    "button.Cancel"=>"Annuler",
+    "button.close"=>"Fermer",
+    "employee.office.members"=>"Membres",
+
+
+    "employee.create.employee"=>"Ajouter des employés",
+    "employee.create.basics-details"=>"Détails basiques",
+    "employee.create.organize"=>"Organisé et sécurisé.",
+    "employee.create.firstname"=>"Prénom",
+    "employee.create.lastname"=>"Nom",
+    "employee.create.personal_email"=>"Adresse mail personnelle",
+    "employee.create.professional_email"=>"Adresse mail professionnelle",
+    "employee.create.telephone_secondaire"=>"Téléphone secondaire",
+    "employee.create.date_naissance"=>"Date de naissance",
+    "employee.create.genre"=>"Civilité",
+    "employee.create.sexe.homme"=>"Homme",
+    "employee.create.sexe.femme"=>"Femme",
+
+    "employee.create.employment-details"=>"Détails au niveau du service",
+    "employee.create.employment-details-info"=>"Quelques détails basiques.",
+    
+    "employee.create.departement_id"=>"Département de cet employé",
+    "employee.create.job_title"=>"Titre du poste",
+    "employee.create.date_prise_service"=>"Date de prise de service",
+    "employee.create.type_contrat"=>"Type de contrat",
+    "employee.create.internship"=>"Stage",
+
+    "employee.create.social-media"=>"Liens vers les réseaux sociaux",
+    "employee.create.social-media-info"=>"Ajoutez vos réseaux sociaux à votre compte.",
+
+    "employee.create.salary-details"=>"Détails du salaire",
+    "employee.create.salary-details-info"=>"Stocké de façon sécurisée, uniquement visible aux  Super Admins, Payroll Admins et aux employés concernés.",
+    "employee.create.salary-currency"=>"Monnaie",
+    "employee.create.salary-frequency"=>"Fréquence de paiement",
+    "employee.create.salary-frequency-daily"=>"Journalière",
+    "employee.create.salary-frequency-weekly"=>"Hebdomadaire",
+    "employee.create.salary-frequency-monthly"=>"Mensuelle",
+    "employee.create.salary-frequency-annually"=>"Annuelle",
+    "employee.create.salary.date_premier_paiement"=>"Date de premier paiement du salaire",
+    "employee.create.salary.amount"=>"Salaire (Montant)",
+    "employee.create.salary.submit"=>"Ajouter cet employé",
+    "employee.create.select-user"=>"Le compte utilisateur concerné",
+
+    "employee.create.office"=>"Bureau affecté",
+    "employee.create.office_none"=>"Aucun Bureau affecté (TéléTravail) ",
+    "employee.create.user_id_none"=>"N'a pas encore de compte utilisateur",
+    "employee.create.contract_active"=>"Le contrat est-t'il toujours actif ?",
+    "yes"=>"Oui",
+    "no"=>"Non",
+
+
+    "employee.create.relationship-details"=>"Détails des relations professionnelles",
+    "employee.create.relationship-details-info"=>"Qui rend compte à cet employé ? A qui est-il supposé rendre compte à son tour ?",
+    "employee.create.report_to"=>"A qui cet employé rend-t-il compte ?",
+    "employee.create.who_report_to"=>"Qui rend compte à cet employé ?",
+
+    "employee.create.photo_employee"=>"Ajouter une photo",
+    "employee.create.your_photo"=>"Votre photo",
+    "employee.create.photo_employee-info"=>"Important pour compléter le profil",
+
+    "employee.add-members-team"=>"Ajouter des membres à l'équipe",
+    "employee.add-members-team-warning"=>"Si vous assignez un nouveau département à un employé, le système va déplacer cet employé de son ancien département et va le mettre dans le nouveau département que vous êtes sur le point de sélectionner. Soyez sûr que vous avez compris",
+    "employee.button-add"=>"Ajouter",
+    "employee.add-members-team.select"=>"Sélectionner les employés à assigner à ce département",
+
+
+    "employee.created-successfully"=>"Employé créé avec succès....",
+    "employee.not-created-reason"=>"L'employé n'a pu être créé pour la raison :  :error",
+    "employee.matricule-already-taken"=>"Le MATRICULE que vous avez attribué est déjà pris par quelqu'un d'autre...",
+    "employee.mail-already-taken"=>"Le MAIL professionel que vous avez attribué est déjà pris par quelqu'un d'autre...",
+    "employee.mail-personal-already-taken"=>"Le MAIL personnel que vous avez attribué est déjà pris par quelqu'un d'autre...",
+    "employee.telephone-whatsapp-already-taken"=>"Le numéro WhatsApp que vous avez attribué est déjà pris par quelqu'un d'autre...",
+    "employee.telephone-secondary-already-taken"=>"Le numéro secondaire que vous avez attribué est déjà pris par quelqu'un d'autre...",
+    "employee.update-successfully-done"=>"Mise à jour effectuée avec succès....",
+    "employee.update-not-done"=>"La mise à jour ne s'est pas bien effectuée....",
+    "employee.update-not-done-reason"=>"La mise à jour ne s'est pas bien effectuée pour la raison suivante : :error",
+    "employee.added-to-department-successfully"=>"Personnel(s) ajouté(s) à leur nouveau département :department avec succès...",
+    "employee.department-not-exist"=>"Le nouveau département que vous voulez assigner au personnel n'existe pas... ",
+
+    "employee.office_name"=>"Nom du bureau ",
+    "employee.office.created"=>"Le nouveau bureau a été créé avec succès... ",
+    "employee.office.not_created"=>"Le nouveau bureau N'A PAS été créé... Quelque chose s'est mal passé ",
+    "employee.office.not_created_reason"=>"Le nouveau bureau N'A PAS été créé pour la raison suivante : :error ",
+    
+    
+    "employee.edit_office"=>"Editer le bureau ",
+    "employee.apply"=>"Appliquer ",
+    "employee.office.not_exist"=>"Le bureau que vous voulez éditer n'existe pas...",
+    "employee.office.already_exist"=>"Le nom de bureau que vous attribué est déjà en utilisation...",
+    
+    "employee.office.updated"=>"Le nouveau bureau a été modifié avec succès... ",
+    "employee.office.not_updated"=>"Le nouveau bureau N'A PAS été modifié... Quelque chose s'est mal passé ",
+    "employee.office.not_updated_reason"=>"Le nouveau bureau N'A PAS été modifié pour la raison suivante : :error ",
+
+
+    "employee.contract_active"=>" Actif ",
+    "employee.contract_inactive"=>" Inactif ",
+
+    "employee.bar.add-members-office"=>"Ajouter de nouveaux membres à ce bureau",
+
+    "employee.add-members-office"=>"Ajouter des membres au bureau",
+    "employee.add-members-office-warning"=>"Si vous assignez un nouveau bureau à un employé, le système va déplacer cet employé de son ancien bureau et va le mettre dans le nouveau bureau que vous êtes sur le point de sélectionner. Soyez sûr que vous avez compris",
+    "employee.add-members-office.select"=>"Sélectionner les employés à assigner à ce bureau",
+    "employee.added-to-office-successfully"=>"Personnel(s) ajouté(s) à leur nouveau bureau :office avec succès...",
+    "employee.office-not-exist"=>"Le nouveau bureau que vous voulez assigner au personnel n'existe pas... ",
+
+
+
+    "employee.team_name"=>"Nom du département ",
+    "employee.edit_team"=>"Editer le département ",
+    "employee.team.not_exist"=>"Le département que vous voulez éditer n'existe pas...",
+    "employee.team.already_exist"=>"Le nom de département que vous attribué est déjà en utilisation...",
+    
+    "employee.team.updated"=>"Le nouveau département a été modifié avec succès... ",
+    "employee.team.not_updated"=>"Le nouveau département N'A PAS été modifié... Quelque chose s'est mal passé ",
+    "employee.team.not_updated_reason"=>"Le nouveau département N'A PAS été modifié pour la raison suivante : :error ",
+
+
+
+    "select"=>"Sélectionner...",
+
+    "company"=>"La structure ",
+    "company.register_number"=>"Numéro d'enregistrement ",
+    "company.incorpation_date"=>"Date d'incorporation ",
+    "company.vat_number"=>"Numéro VAT ",
+    "company.add_document"=>"Ajouter un nouveau document ",
+    "company.documents_added"=>"Document(s) ajouté(s) ",
+
+    "company.type_document"=>"Type",
+    "company.name_document"=>"Nom",
+    "company.date_document"=>"Date",
+    "company.size_document"=>"Taille",
+    "company.status_document"=>"Statut",
+    "company.no_department_yet"=>"Aucun chef de département n'est encore sélectionné",
+    "company.overview"=>"Vue d'ensemble",
+    "company.manage_teams"=>" Gérer les équipes",
+    "company.people_directory"=>" Dossier des employés",
+
+
+    "profile.employment.add-to-team"=>" Ajouter :nom dans une autre équipe",
+    "profile.employment.new-team"=>" Nouvelle équipe",
+    "profile.employment.visite-office"=>" Visiter l'installation d'essai",
+    "profile.employment.profiles-team-manager"=>" Le responsable de :name",
+    "profile.employment.change-manager"=>"Changer Responsable",
+
+    "employee.create.who_report_to_name"=>"Qui rend compte à :name ?",
+    "profile.employment.add-people"=>"Ajouter d'autres",
+    "profile.employment.promote-team-lead"=>"Promotion Manager de :departement",
+    "profile.employment.working-week"=>"Semaine de travail",
+    "profile.employment.working-week-dates"=>"Sélectionner les jours de travail de la structure",
+
+    "profile.employment.working-week-dates.mon"=>"Lun",
+    "profile.employment.working-week-dates.tue"=>"Mar",
+    "profile.employment.working-week-dates.wed"=>"Mer",
+    "profile.employment.working-week-dates.thu"=>"Jeu",
+    "profile.employment.working-week-dates.fri"=>"Ven",
+    "profile.employment.working-week-dates.sat"=>"Sam",
+    "profile.employment.working-week-dates.sun"=>"Dim",
+
+    "profile.employment-tab-infos"=>"Emploi",
+    "profile.detail-tab-infos"=>"Détails",
+    "profile.document-tab-infos"=>"Document",
+    "profile.training-log-tab-infos"=>"Training Log",
+    "profile.training-follow-up-tab-infos"=>"Training FU",
+    "profile.reviews-tab-infos"=>"Revues",
+    "profile.settings-tab-infos"=>"Paramètres",
+
+
+    "profile.employment.assign-manager"=>"A qui cet employé devra-t-il rendre compte ?",
+    "profile.employment.change-manager-successful"=>"Le responsable hiérarchique a été bien changé pour :name ",
+    "profile.employment.personnel-not-exist"=>"Le personnel que vous voulez modifier n'existe pas/plus",
+
+    "profile.employment.add-subordinates"=>"Ajouter des employés qui rendent compte à cet employé",
+    "profile.employment.add-subordinates-button"=>"Appliquer les modifications",
+    "profile.employment.add-subordinates.first-update.fails"=>"Impossible de supprimer l'ancienne attribution de hiérarchie..",
+    "profile.employment.add-subordinates.update-success-for"=>"Supérieur hiérarchique changé avec succès pour :name",
+    "profile.employment.add-subordinates.update-error-for"=>"Supérieur hiérarchique pas changé avec succès pour :name",
+
+    "profile.employment.team-changed-successfully"=>"Département changé avec succès pour :name",
+    "profile.employment.team-not-changed-successfully"=>"Département pas changé avec succès pour :name",
+    "exception-error"=>"Une exception a été levée:  :error",
+    "dialog.confirm.change-team-personnel"=>"Êtes-vous sûr de vouloir changer de département à cet employé ?",
+
+    "department"=>"Département :",
+    "dialog.confirm.promote-lead-personnel"=>"Êtes-vous sûr de vouloir promouvoir cet employé à la tête du département ? Remplacer :actuel_chef_departement ?",
+    "employee.promoted-successfully"=>"Promotion effectuée avec succès à la tête du département: :department pour l'employé/",
+    "employee.not-promoted-successfully"=>"La promotion n'a pu être effectuée, suite à un problème interne...",
+
+    "profile.document.add-document"=>"Ajouter Document",
+    "profile.document.add-document-form"=>" Ajouter",
+    "profile.document.upload-document"=>" Télécharger Document",
+    "profile.document.upload-document-successful"=>" Document ajouté avec succès...",
+    "profile.document.upload-document-not-successful"=>" Document non ajouté avec succès... ",
+    "profile.document.upload-document-not-successful-reason"=>" Document non ajouté avec succès pour la raison suivante : :error ",
+
+    "profile.document.document-name"=>" Nom du document",
+    "profile.document.document-status"=>" Statut",
+    "profile.document.document-delete"=>" Supprimer",
+    "profile.document.document-delete-successfully"=>" Supprimé avec succès",
+    "profile.document.document-delete-not-successfully"=>"La suppression n'a pas pu être effectué avec succès",
+    "profile.document.document-delete-not-successfully-reason"=>" La suppression n'a pas pu être effectué avec succès pour la raison : :error",
+
+
+    "profile.document.download-personal-folder-button"=>" Télécharger :classeur",
+
+    
+    "formation.page"=>" Formations",
+    "formation.create"=>" Créer Formation",
+    "formation.create.sections"=>" Ajouter du contenu à la formation",
+    "formation.create.questions"=>" Créer les questions",
+    "formation.inscribe_students"=>" Inscrire des apprenants",
+    "formation.give.code"=>" Donner un code à cette formation",
+    "formation.give.title"=>" Donner un titre à cette formation",
+    "formation.create-modify"=>"Valider",
+
+    "formation.infos-basics"=>"Informations basiques sur la formation",
+    "formation.infos-basics-give"=>"Donnez les détails",
+    "formation.duree-formation"=>"Durée de la formation",
+    "formation.time-unity"=>"Unité de temps",
+    "formation.min"=>"Minute(s)",
+    "formation.hour"=>"Heure(s)",
+    "formation.day"=>"Jour(s)",
+    "formation.week"=>"Semaine(s)",
+    "formation.month"=>"Mois",
+    "formation.year"=>"Année(s)",
+
+    "formation.next-add-modules-chapters"=>"Etape suivante (Ajouter des modules,des chapitres...)",
+    "formation.previous-add-modules-chapters"=>"Etape précédente (Ajouter des modules,des chapitres...)",
+    "formation.next-add-questions"=>"Etape Suivante (Ajouter des Questions...)",
+    "formation.previous-add-questions"=>"Etape Précédente (Ajouter des Questions...)",
+    "formation.previous-training-step"=>"Etape Précédente (Infos formation...)",
+
+    "formation.trainer"=>"Sélectionner le ou les formateurs principaux",
+    "formation.trainer-assistants"=>"Sélectionner le ou les formateurs assistants",
+    "formation.departements_concernes"=>"Sélectionner les départements concernés",
+    "formation.postes_concernes"=>"Sélectionner les postes concernés",
+    "formation.cout_formation"=>"Combien coûte cette formation ?",
+    "formation.score_minimum"=>"Quel est le score minimum pour passer cette formation ? en %",
+    "formation.duree_validite_certificat_annee"=>"Quelle est la durée de validité de ce certificat ? en Années",
+    "formation.duree_composition_minute"=>"Quelle est la durée d'une évaluation en minute ?",
+    "formation.nombre_questions_max_evaluation"=>"Nombre maximum de questions par évaluation",
+    "formation.nbre_max_attempts_evaluation"=>"Nombre maximum d'essai par évaluation",
+    "formation.devise_cout"=>"Spécifiez la monnaie utilisée",
+    "formation.need-practice"=>"Cette formation requiert-elle de la pratique après être suivie ?",
+    "formation.need-observations"=>"Cette formation requiert-elle des observations après être suivie ?",
+    "formation.infos-potentiels-inscrits"=>"Informations sur les potentiels inscrits à la formation",
+    "formation.update-successful"=>"Mise à jour effectuée sur la formation avec succès",
+    "formation.created-successful"=>"Formation créée avec succès",
+
+    "formation.section.require_evaluation"=>"Exiger une évaluation pour cette section (Cocher si oui)",
+    "formation.section.require_evaluation_notee"=>"Cette évaluation sera prise en compte dans le score final",
+
+    "formation.chapitre.require_evaluation"=>"Exiger une évaluation pour ce chapitre (Cocher si oui)",
+    "formation.chapitre.require_evaluation_notee"=>"Cette évaluation sera prise en compte dans le score final",
+
+    "formation.module.require_evaluation"=>"Exiger une évaluation pour ce module (Cocher si oui)",
+    "formation.module.require_evaluation_notee"=>"Cette évaluation sera prise en compte dans le score final",
+
+    "formation.semaine.require_evaluation"=>"Exiger une évaluation pour cette semaine (Cocher si oui)",
+    "formation.semaine.require_evaluation_notee"=>"Cette évaluation sera prise en compte dans le score final",
+
+    "formation.section.this_section_will_be_assessed"=>"Il y a aura évaluation pour cette section",
+    "formation.section.this_section_will_not_be_assessed"=>"Il n'y aura pas d'évaluation à la fin de cette section",
+    "formation.section.this_section_will_be_assessed_score_counted"=>"Le Score de cette évaluation va compter",
+    "formation.section.this_section_will_not_be_assessed_score_not_counted"=>"Le Score de cette évaluation ne va pas compter",
+
+
+    "formation.sessions.list-formations"=>"Liste des formations programmées",
+    "formation.sessions.ouvrir"=>"Ouvrir la session",
+    "formation.sessions.fermer"=>"Fermer la session",
+
+    "formation.select-training"=>"Sélectionner une formation",
+    "formation.add-section-title"=>"Ajouter une section au chapitre",
+    "formation.add-session-formation-title"=>"Créer une session de formations",
+    "formation.add-section-give-a-title"=>"Donnez un titre à la section",
+    "formation.add-session-formation-give-a-title"=>"Donnez un titre à cette session de formations",
+    "formation.add-section-add-video"=>"Ajoutez la vidéo de la formation",
+    "formation.add-section-add-video-title"=>"Ajoutez le fichier de sous-titres de la vidéo (VTT)",
+    "formation.add-section-add-key-points"=>"Les points clés à retenir dans cette section",
+    "formation.add-section-button"=>"Ajouter / Modifier la section",
+    "formation.add-sessions-formation-button"=>"Ajouter / Modifier la session",
+    "formation.add-section-button-discard"=>"Fermer sans enregistrer",
+    "formation.sections-list.title"=>"La liste des sections de ce chapitre",
+    "formation.section-modify"=>"Modifier cette section",
+    "formation.video-of-section"=>"Vidéo de la section",
+    "formation.browser-message-not-support-video"=>"Votre navigateur ne supporte pas la technologie des vidéos.",
+    "formation.resume-of-section"=>"Résumé en texte de la section",
+    "formation.no-section-created-yet"=>"Aucune section n'a encore ajoutée à ce chapitre.",
+    "formation.no-chapter-created-yet"=>"Aucun chapitre n'a encore ajouté à ce module.",
+    "formation.no-module-created-yet"=>"Aucun module n'a encore ajouté à cette semaine.",
+    "formation.no-semaine-created-yet"=>"Aucune semaine de formation n'a encore ajoutée à cette formation.",
+    "formation.click-button-to-create"=>"Cliquez sur \" Ajouter une section \" pour le faire.",
+    
+    "formation.chapitre.add-modify"=>"Ajouter / modifier un chapitre",
+    "formation.chapitre.add-title"=>"Donnez un titre à ce chapitre",
+    "formation.chapitre.objectifs"=>"Quels sont les objectifs à atteindre dans ce chapitre",
+    "formation.chapitre.add-pdf"=>"Ajoutez un fichier(PDF) pour ce chapitre (Facultatif)",
+    "formation.chapitre.add-button"=>"Ajouter / Modifier le chapitre",
+    
+    
+    "formation.module.add-modify"=>"Ajouter / modifier un  module de formation",
+    "formation.module.add-title"=>"Donnez un titre à ce module",
+    "formation.module.decrire"=>"Décrivez un peu ce module",
+    "formation.module.add-file"=>"Ajoutez un fichier pour ce module (Facultatif)",
+    "formation.module.add-button"=>"Ajouter / Modifier le module",
+    
+    
+    "formation.semaine.add-modify"=>"Ajouter / modifier une semaine de formation",
+    "formation.semaine.add-title"=>"Donnez un titre à cette semaine",
+    "formation.semaine.objectifs"=>"Quels sont les objectifs à atteindre cette semaine ?",
+    "formation.semaine.add-file"=>"Ajoutez un fichier pour cette semaine (Facultatif)",
+    "formation.semaine.add-button"=>"Ajouter / Modifier la semaine",
+
+
+    "formation.semaine-formation"=>"Semaine de formation",
+    "formation.semaine-formation.select"=>"-- Sélectionner une semaine--",
+    "formation.module-formation"=>"Les modules de la semaine",
+    "formation.module-formation.select"=>"-- Sélectionner un module --",
+    "formation.chapitre-module"=>"Les chapitres du module ",
+    "formation.chapitre-module.select"=>"-- Sélectionner un chapitre --",
+
+    "formation.infos-structure-cours"=>" Infos sur la structure du cours",
+
+    "formation.questions.none-yet"=>" Aucune question n'a encore été ajoutée à cette formation.",
+    "formation.questions.add-new"=>" Ajouter une nouvelle question/Modifier",
+    "formation.questions.reset-form"=>" Réinitialiser le formulaire",
+    "formation.questions.intitule_question"=>" Ajouter un libellé à la question",
+    "formation.questions.type_question"=>" Type de question",
+    "formation.questions.type_question.radio"=>" Choix Unique",
+    "formation.questions.type_question.checkbox"=>" Choix Multiples",
+    "formation.questions.type_question.yes_no"=>" Oui/Non",
+    "formation.questions.type_question.true_false"=>" Vrai/Faux",
+    "formation.questions.add-options-button"=>"Options de réponse",
+    "formation.questions.bonne_reponse"=>"Choisir la/les bonne(s) réponse(s)",
+    "formation.questions.add-options-button-label"=>"Cliquer le bouton",
+
+    "formation.questions.training_week"=>" Choisir la semaine concernée",
+    "formation.questions.training_module"=>" Choisir le module concerné",
+    "formation.questions.training_chapter"=>" Choisir le chapitre concerné",
+    "formation.questions.training_section"=>" Choisir la section concernée",
+    "formation.questions.type_evaluation"=>" Type d'évaluation",
+
+    "formation.questions.type_evaluation.evaluation_finale"=>" Evaluation finale (certificat)",
+    "formation.questions.type_evaluation.application"=>" Test de compréhension",
+    "formation.questions.type_evaluation.les_deux"=>" Tous les deux (Test & Evaluation finale)",
+
+    "formation.questions.point_accorde"=>" Point accordé",
+    "formation.questions.options-reponses-title"=>"Veuillez fournir ici les options de réponse",
+    "formation.questions.options-reponses-label"=>"Saisir ici l'option de réponse",
+    "formation.questions.options-reponses.good-answer"=>"Bonne réponse ?",
+    "formation.questions.options-reponses-button-submit"=>"Ajouter l'option",
+    "formation.questions.options-reponses-table-label-col"=>"Libellé de l'option",
+
+    "formation.questions.options.already-exist"=>"Vous avez déja ajouté cette option. Cliquez là-dessus dans le tableau pour l'éditer...",
+    "formation.questions.options.added-successfully"=>"Option ajoutée avec succès...",
+    "formation.questions.options.added-error-reason"=>"Une error est survenue lors de l'ajout...:error",
+    "formation.questions.options.deleted-successfully"=>"Option supprimée avec succès...",
+    "formation.questions.options.deleted-error"=>"Une erreur est survenue...",
+    "formation.questions.options.deleted-error-reason"=>"Une erreur est survenue...:error",
+    "formation.questions.options.retrieve-options-error-reason"=>"Une erreur est survenue lors du retrait de la liste des options...:error",
+
+    "formation.questions.create-error"=>"Une erreur est survenue lors de la création de la question...",
+    "formation.questions.create-options-reponses-not-provided"=>"Les options de réponses ne sont pas fournies...",
+    "formation.questions.created-successfully"=>"Question ajoutée/modifiée avec succès...",
+    "formation.mode-updated-successfully"=>"Le mode de la formation a été mis à jour avec succès...",
+    "formation.mode-updated-error"=>"Une erreur est survenue lors de la mise à jour du mode de cette formation...",
+    "formation.questions.reset-successfully"=>"Formulaire réinitialisé avec succès...",
+
+    "formation.questions.list.title"=>"Détails de la question...",
+    "formation.questions.list-no-training-selected"=>"Veuillez d'abord sélectionner une formation...",
+    "formation.questions.bonne_reponses-list"=>"Bonnes réponses fournies",
+
+    "formation.questions.training-concerned"=>" Formation concernée",
+    "formation.questions.training_week-concerned"=>" Semaine de formation concernée",
+    "formation.questions.training_module-concerned"=>" Module de formation concerné",
+    "formation.questions.training_chapter-concerned"=>" Chapitre concerné",
+    "formation.questions.training_section-related"=>" Section concernée",
+
+    "formation.questions-zone-title"=>" Mettez ici les informations sur la question",
+
+
+    "formation.next-add-mode"=>"Etape Suivante (Finition...)",
+    "formation.next-summary"=>"Vue d'ensemble de la formation",
+    "formation.mode.cover-image"=>"Image de couverture pour la formation",
+    "formation.mode.mark-mode"=>"Marquez cette formation comme en mode :",
+    "formation.mode.portee_formation"=>"Cette formation est ouverte à :",
+
+    "formation.title-of-training"=>"Titre de la formation ",
+
+    "formation.enter.practice-score"=>"Pratique ",
+    "formation.enter.observations-score"=>"Observations ",
+    "formation.students"=>":nb_termine sur :nb_inscrits ont terminé la formation ",
+    "formation.students-title"=>"Liste des étudiants ayant terminé avec succès la partie théorique de la formation",
+    "formation.score-theorique"=>"Score théorique",
+    "formation.score-pratique-title"=>"Score Pratique",
+    "formation.score-trainers-comment"=>"Avis Formateur",
+    "formation.score-fms-comment"=>"Avis FM",
+    "formation.title-formation"=>"Titre de la formation",
+    "formation.code-formation"=>"Code formation",
+    "formation.score-pratique"=>"Attribuer le Score Pratique",
+    "formation.overall-score"=>"Score général",
+    "formation.no-student-have-completed"=>"Personne n'a encore terminé la formation...Ou cette formation ne requiert pas de pratique et/ou pas d'observation.",
+    "formation.you-have-not-completed-any-training"=>"Vous n'avez encore terminé aucune formation pour le moment...",
+    "formation.not-exist"=>"La formation que vous avez sélectionnée n'existe pas...",
+    "formation.reset-training-session"=>"Réinitialiser la formation",
+    "formation.grant-practice-score"=>"Attribuer le score de la pratique",
+    "formation.avis-formateur"=>"Avis du formateur",
+    
+    "formation.avis-formateur.en-attente"=>"En attente",
+    "formation.avis-formateur.valide"=>"Validé",
+    "formation.avis-formateur.reinitialise"=>"Réinitialisé",
+
+    "formation.level-achieved.en-attente"=>"En attente",
+    "formation.level-achieved.forme"=>"Formé",
+    "formation.level-achieved.competent"=>"Compétent",
+    "formation.level-achieved.trainer"=>"Formateur",
+
+    "formation.avis-formateur.submit-button"=>"Enregistrer",
+    "formation.avis-formateur.grant-observations-scores"=>"Enregistrer les scores",
+    
+    
+    
+    "menu_backend.dashboard"=>"Tableau de bord",
+    "menu_backend.gestion-personnel"=>"Gestion du personnel",
+    "menu_backend.add-personnel"=>"Ajouter un personnel",
+    "menu_backend.list-employes"=>"Liste des employés",
+    "menu_backend.list-employes-departement"=>"Liste des employés par département",
+    "menu_backend.list-employes-office"=>"Liste des employés par bureau",
+    "menu_backend.list-employes-grid"=>"Liste des employés en grille",
+    "menu_backend.profil-personnel"=>"Profil du personnel",
+    "menu_backend.details-professionels"=>"Détails professionels du personnel",
+    "menu_backend.details-personnels"=>"Détails personnels de l'employé",
+    "menu_backend.dossier-personnel"=>"Dossier du personnel",
+    "menu_backend.telecharger-dossier-personnel"=>"Télécharger Dossier du personnel",
+    "menu_backend.training-log"=>"Training Log",
+    "menu_backend.training-fu"=>"Training FU",
+    "menu_backend.revue"=>"Revue",
+
+    "menu_backend.test-facility"=>"L'installation d'essai",
+    "menu_backend.test-facility-info"=>"Information sur l'installation d'essai",
+    "menu_backend.training"=>"Gestion des formations",
+
+    "menu_backend.training.content"=>"Ajouter du contenu à une formation",
+    "menu_backend.training.questions"=>"Gérer les questions pour l'évaluation finale",
+    "menu_backend.training.inscrire-etudiant"=>"Envoyer de mail aux potentiels participants de la formation",
+    "menu_backend.training.overview-training"=>"Vue d'ensemble de la formation",
+
+    
+    "menu_backend.training.session-training"=>"Créer et Gérer les sessions de formation",
+    "menu_backend.training.session-training-reset"=>"Réinitialiser les sessions de formation",
+    "menu_backend.training.frontend"=>"Aller sur la page frontend des formations",
+
+
+    "menu_backend.training-create"=>"Créer une formation",
+    "menu_backend.training-manage"=>"Gérer les formations (Scores,commentaires,....)",
+    "menu_backend.training-score-pratique"=>"Les scores des pratiques",
+    "menu_backend.training-score-observation"=>"Les scores des observations",
+    "menu_backend.training-avis-fm"=>"Avis de la TFM",
+
+    "menu_backend.system-users"=>"Gestion des utilisateurs système",
+    "menu_backend.system-users-add"=>"Ajouter un nouvel utilisateur",
+    "menu_backend.system-users-manage-account-role"=>"Gérer les rôles des utilisateurs (droits,...)",
+    "menu_backend.system-users-manage-leadership-role"=>"Rôle Leadership (droits,...)",
+    "menu_backend.system-users-manage-super-admin-role"=>"Rôles des Super Admin (droits,...)",
+    "menu_backend.parametres"=>"Paramètres",
+
+
+    "menu_backend.gestion_departement"=>"Gestion des Départements & Postes",
+    "menu_backend.gestion_departement.manage"=>"Gérer les Départements (Unités de travail) au CREC/LSHTM",
+    "menu_backend.gestion_departement.position"=>"Gérer les Postes au CREC/LSHTM",
+
+
+    "menu_backend.gestion_departement.add-new-title"=>"Ajouter un nouveau / Modifier un Département",
+    "menu_backend.gestion_departement.add-new-title.intitule-departement"=>"Comment s'appelle ce Département ?",
+    "menu_backend.gestion_departement.add-new-title.description-departement"=>"Donnez plus de détails sur ce Département... Le but..",
+    "menu_backend.gestion_departement.add-new-title.description-departement.placeholder"=>"Quel est le but visé par ce département",
+    "menu_backend.gestion_departement.chef-departement"=>"Sélectionner le Superviseur du Département",
+    "menu_backend.gestion_departement.cover_image_departement"=>"Image de couverture du Département",
+    "menu_backend.gestion_departement.submit-button"=>"Sauvegarder les informations",
+
+    "menu_backend.gestion_departement.lib_departement"=>"Nom du département",
+    "menu_backend.gestion_departement.chef_departement.table"=>"Nom du chef département",
+    "menu_backend.gestion_departement.chef_departement.table.not-yet"=>"Pas encore pourvu",
+    "menu_backend.gestion_departement.add-new-button"=>"Ajouter un nouveau Département",
+
+    "menu_backend.gestion_departement.poste.add-new-button"=>"Ajouter un nouveau Poste",
+    "menu_backend.gestion_departement.poste.libelle_poste"=>"Intitulé du Poste",
+    "menu_backend.gestion_departement.poste.poste_superieur"=>"Poste supérieur hiérarchique",
+    "menu_backend.gestion_poste.add-new-title"=>"Ajouter un nouveau / Modifier un Poste",
+
+
+    "menu_backend.gestion_poste.add-new-title"=>"Ajouter un nouveau / Modifier un Poste",
+    "menu_backend.gestion_poste.add-new-title.intitule-poste"=>"Comment s'appelle ce Poste ?",
+    "menu_backend.gestion_poste.add-new-title.description-poste"=>"Donnez plus de détails sur ce Poste... Le but..",
+    "menu_backend.gestion_poste.add-new-title.description-poste.placeholder"=>"Quel est le but visé par ce Poste ?",
+    "menu_backend.gestion_poste.departement_concerne"=>"Département concerné par ce poste",
+    "menu_backend.gestion_poste.niveau_poste"=>"Niveau de ce Poste dans l'Organigramme",
+    "menu_backend.gestion_poste.cover_image_poste"=>"Image de couverture du Poste",
+    "menu_backend.gestion_poste.fiche_poste"=>"Fiche de Description de Poste",
+
+
+    "liaison-formation-personnel.tab-title"=>"Lier des Formations au Profil du Personnel",
+    "liaison-formation-personnel.choose-personnel"=>"Sélectionner un Personnel",
+    "liaison-formation-personnel.choose-trainings"=>"Sélectionner les formations à faire par ces Personnels",
+    "liaison-formation-personnel.choose-trainings.table-col1"=>"Cocher",
+    "liaison-formation-personnel.choose-trainings.table-col2"=>"Titre de la Formation",
+    "liaison-formation-personnel.choose-trainings.table-col3"=>"Statut",
+    "liaison-formation-personnel.confirm-formation-submit"=>"Sauvegarder",
+    "liaison-formation-personnel.attribuer-submit"=>"Recommander cette formation",
+    "liaison-formation-personnel.annuler-submit"=>"Annuler cette recommandation",
+    "liaison-formation-personnel.formation-deja-suivie"=>"Formation déjà suivie",
+
+
+];

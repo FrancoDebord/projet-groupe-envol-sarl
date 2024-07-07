@@ -5,7 +5,7 @@
             @csrf
             <div class="row">
                 <div id="editor" class="col-12 col-md-10 offset-md-1"></div>
-                <div class="col-12 col-md-10 offset-md-1 mt-3" id="div_note_information">
+                <div class="col-12  mt-3" id="div_note_information">
                     <h2 class="text-center">Formulaire d’information pour l’immigration et le recrutement</h2>
                     <p class="paragraphe_note_information mt-4">
                         Le Groupe Envol SARL est une société à responsabilité limitée,
@@ -102,7 +102,10 @@
 
                     <ul class="list-group mt-3 ">
                         <li class="list-group-item list-group-item-info">
-                          <input class="form-check-input me-1 btn-lg form-control-lg" required type="checkbox" name="note_information_lue" value="" id="note_information_lue">
+                            @php
+                                $note_information_deja_lue = session()->get("note_information_lue");
+                            @endphp
+                          <input class="form-check-input me-1 btn-lg form-control-lg" {{ $note_information_deja_lue == 1?"checked disabled":"" }}  type="checkbox" name="note_information_lue"  id="note_information_lue">
                           <label class="form-check-label mt-3" for="note_information_lue">Oui, j'ai lu et j'ai compris le contenu de la Note d'information ci-dessus affichée.</label>
                         </li>
                       

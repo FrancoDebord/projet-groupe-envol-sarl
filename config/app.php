@@ -78,11 +78,11 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'fr'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'fr_FR'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY',"base64:pRE8uVfAZ2/9lZIBJ9RVUzG6rmogj2P/qbahnyGOJHQ="),
 
     'previous_keys' => [
         ...array_filter(
