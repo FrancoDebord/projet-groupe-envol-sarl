@@ -205,9 +205,9 @@
                                 <strong>Veuillez entrer votre Nom et Prénom pour la signature du consentement </strong> <strong class="text-danger">(*)</strong>
                             </label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="nom_consentement" value="{{ $nom_consentement }}" {{ $nom_consentement != null?"readonly":"" }} id="nom_consentement" placeholder="Nom de famille" aria-label="Nom de famille">
+                                <input type="text" class="form-control identite_consentement" name="nom_consentement" value="{{ $nom_consentement }}" {{ $nom_consentement != null?"readonly":"" }} id="nom_consentement" placeholder="Nom de famille" aria-label="Nom de famille">
                                 {{-- <span class="input-group-text"></span> --}}
-                                <input type="text" class="form-control" name="prenom_consentement" value="{{ $prenom_consentement }}" {{ $prenom_consentement != null?"readonly":"" }}  id="prenom_consentement" placeholder="Prénom" aria-label="Prénom">
+                                <input type="text" class="form-control identite_consentement" name="prenom_consentement" value="{{ $prenom_consentement }}" {{ $prenom_consentement != null?"readonly":"" }}  id="prenom_consentement" placeholder="Prénom" aria-label="Prénom">
 
                                 @error('nom_consentement')
                                     <div class="">
@@ -247,10 +247,17 @@
                     </table>
                 </div>
                 <div class="col-12 col-md-10 offset-md-1 mt-4 text-center">
+
                     <button type="submit" class="btn btn-outline-info" id="download-consentement-suivant">
-                        <i class="fa fa-download">&nbsp;</i>
+                        <i class="fa fa-hand-point-right">&nbsp;</i>
                         Valider pour signer le consentement & Continuer
                     </button>
+                    
+                    <a href="{{ route("ImprimerConsentementHTML") }}" class="btn btn-outline-danger" id="telecharger-consentement" target="_blank">
+                        <i class="fa fa-download">&nbsp;</i>
+                        Télécharger le consentement
+                    </a>
+                   
                 </div>
             </div>
         </form>

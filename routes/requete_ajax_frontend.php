@@ -62,4 +62,4 @@ Route::prefix("ajax")->group(function(){
 //   }
 
 
-// http://127.0.0.1:8000/ajax/paiement-reussi?transaction_id=6259609635428457
+//http://127.0.0.1:8000/ajax/paiement-reussi?transaction_id=1023688432083245

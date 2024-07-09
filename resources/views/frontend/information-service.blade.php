@@ -21,7 +21,11 @@
                 </div>
 
 
-
+                @php
+                    $donnees_informations_detaillees = session()->has('donnees_informations_service')
+                        ? session()->get('donnees_informations_service')
+                        : null;
+                @endphp
                 <div class="col-12 col-sm-6 mt-3">
                     <fieldset>
                         <legend>Veuillez fournir les pièces suivantes</legend>
@@ -37,6 +41,17 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+                            @if (!empty($donnees_informations_detaillees))
+                                <div class="mt-3">
+
+                                    <span class="alert alert-light " style="font-size: 10px">
+                                        <a
+                                            href="{{ route('VisualiserPdfDocument', ['document' => $donnees_informations_detaillees['piece_identite']]) }}">Voir
+                                            {{ $donnees_informations_detaillees['piece_identite'] }}</a>
+                                    </span>
+                                </div>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="attestation_diplome_plus_eleve" class="form-label">Attestation de votre diplôme
@@ -50,6 +65,17 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+                            @if (!empty($donnees_informations_detaillees))
+                                <div class="mt-3" style="font-size: 10px">
+
+                                    <span class="alert alert-light">
+                                        <a
+                                            href="{{ route('VisualiserPdfDocument', ['document' => $donnees_informations_detaillees['attestation_diplome_plus_eleve']]) }}">Voir
+                                            {{ $donnees_informations_detaillees['attestation_diplome_plus_eleve'] }}</a>
+                                    </span>
+                                </div>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="releves_notes_diplome_plus_eleve" class="form-label">Relevé de notes de votre
@@ -63,6 +89,17 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+                            @if (!empty($donnees_informations_detaillees) && array_key_exists("releves_notes_diplome_plus_eleve",$donnees_informations_detaillees))
+                                <div class="mt-3" style="font-size: 10px">
+
+                                    <span class="alert alert-light">
+                                        <a
+                                            href="{{ route('VisualiserPdfDocument', ['document' => $donnees_informations_detaillees['releves_notes_diplome_plus_eleve']]) }}">Voir
+                                            {{ $donnees_informations_detaillees['releves_notes_diplome_plus_eleve'] }}</a>
+                                    </span>
+                                </div>
+                            @endif
                         </div>
                     </fieldset>
                 </div>
@@ -76,9 +113,34 @@
 
                                 @php
                                     $service_inscription = old('service_inscription');
+
+                                    if (!$service_inscription) {
+                                        if ($donnees_informations_detaillees) {
+                                            $service_inscription =
+                                                $donnees_informations_detaillees['service_inscription'];
+                                        }
+                                    }
+
+                                    $compteur_service = 1;
                                 @endphp
+
+                                @forelse ($all_services_actifs as $service)
+
+                               
                                 <div class="form-check">
-                                    {{-- <input class="form-check-input service_inscription" type="radio" name="service_inscription" id="service_inscription_1" value="conseil et assistance voyage" /> --}}
+                                    <input class="form-check-input" type="radio" name="service_inscription"
+                                        id="service_inscription_{{ $compteur_service }}" value="{{ $service->id }}"
+                                        {{ $service_inscription == $service->id ? 'checked' : '' }} />
+                                    <label class="form-check-label" for="service_inscription_{{ $compteur_service++ }}">
+                                        {{  $service->nom_service }}
+                                    </label>
+                                </div>
+
+                                @empty
+                                    <p class="alert alert-info p-2 text-center">Aucun service actif pour le moment.</p>
+                                @endforelse
+                                {{-- <div class="form-check">
+
                                     <input class="form-check-input" type="radio" name="service_inscription"
                                         id="service_inscription_1" value="conseil et assistance voyage"
                                         {{ $service_inscription == 'conseil et assistance voyage' ? 'checked' : '' }} />
@@ -87,14 +149,13 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    {{-- <input class="form-check-input service_inscription" type="radio" name="service_inscription" id="service_inscription_2" value="intermediation de recrutement" /> --}}
                                     <input class="form-check-input" type="radio" name="service_inscription"
                                         id="service_inscription_2" value="intermediation de recrutement"
                                         {{ $service_inscription == 'intermediation de recrutement' ? 'checked' : '' }} />
                                     <label class="form-check-label" for="service_inscription_2">
                                         Intermédiation de recrutement
                                     </label>
-                                </div>
+                                </div> --}}
 
                                 @error('service_inscription')
                                     <div class="form-check">

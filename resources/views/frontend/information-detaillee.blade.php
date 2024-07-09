@@ -231,8 +231,8 @@
                         class="from-control form-select show-tick @error('pays_nationalite') is-invalid @enderror">
                         <option value="">Sélectionner une option</option>
                         @forelse ($list_pays as $pays)
-                            <option value="{{ $pays->id }}"
-                                {{ $pays_nationalite == $pays->id ? 'selected' : '' }}>
+                            <option value="{{ $pays->pays_name }}"
+                                {{ $pays_nationalite == $pays->pays_name ? 'selected' : '' }}>
                                 {{ $pays->pays_name }}</option>
                         @empty
                         @endforelse
@@ -353,7 +353,7 @@
                         class="from-control form-select show-tick @error('pays_naissance') is-invalid @enderror">
                         <option value="">Sélectionner une option</option>
                         @forelse ($list_pays as $pays)
-                            <option value="{{ $pays->id }}" {{ $pays_naissance == $pays->id ? 'selected' : '' }}>
+                            <option value="{{ $pays->pays_name }}" {{ $pays_naissance == $pays->pays_name ? 'selected' : '' }}>
                                 {{ $pays->pays_name }}</option>
                         @empty
                         @endforelse
@@ -417,7 +417,7 @@
                         class="from-control form-select show-tick @error('pays_residence') is-invalid @enderror">
                         <option value="">Sélectionner une option</option>
                         @forelse ($list_pays as $pays)
-                            <option value="{{ $pays->id }}" {{ $pays_residence == $pays->id ? 'selected' : '' }}>
+                            <option value="{{ $pays->pays_name }}" {{ $pays_residence == $pays->pays_name ? 'selected' : '' }}>
                                 {{ $pays->pays_name }}</option>
                         @empty
                         @endforelse

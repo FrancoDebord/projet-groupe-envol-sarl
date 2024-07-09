@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('client_services', function (Blueprint $table) {
             $table->id();
-            $table->string("code_client")->unique();
+            // $table->string("code_client")->unique()->nullable();
             $table->boolean("avez_vous_un_passeport");
             $table->string("nom");
             $table->string("prenom");

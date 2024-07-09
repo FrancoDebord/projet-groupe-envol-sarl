@@ -115,12 +115,19 @@
                                 </li>
                                 <li class="dropdown"><a href="#">NOS SERVICES</a>
                                     <ul>
-                                        <li><a href="#">Conseils et assistance Visa-voyage</a></li>
+
+                                        @forelse ($all_services as $service)
+                                            
+                                        <li><a href="#">{{ $service->nom_service }}</a></li>
+                                        @empty
+                                            
+                                        @endforelse
+                                        {{-- <li><a href="#">Conseils et assistance Visa-voyage</a></li>
                                         <li><a href="#">Intermédiation de récrutement</a></li>
                                         <li><a href="#">Négoces</a></li>
                                         <li><a href="#">Bourses d'étude et de formation</a></li>
                                         <li><a href="#">Vente de billet d'avion</a></li>
-                                        <li><a href="#">Assurance de voyage</a></li>
+                                        <li><a href="#">Assurance de voyage</a></li> --}}
                                     </ul>
                                 </li> 
 

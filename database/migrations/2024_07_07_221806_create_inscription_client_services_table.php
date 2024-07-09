@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('inscriptions_clients_services', function (Blueprint $table) {
             $table->id();
+            $table->string("code_inscription")->unique()->nullable();
             $table->date("date_inscription");
             $table->time("heure_inscription");
             $table->integer("note_information_id")->index();
@@ -22,7 +23,12 @@ return new class extends Migration
             $table->string("releves_notes_diplome_plus_eleve")->nullable();
             $table->integer("client_id")->index();
             $table->string("pays_destination")->nullable();
-            $table->string("service_souscrit");
+            $table->enum("statut_paiement",["payé","remboursé","non effectué","en cours"])->nullable();
+            $table->bigInteger("kkiapay_transaction_id")->index();
+            $table->bigInteger("kkiapay_external_transaction_id");
+            $table->string("service_souscrit")->nullable();;
+            $table->integer("service_id")->index();
+            $table->string("statut_dossier");
             $table->timestamps();
         });
     }

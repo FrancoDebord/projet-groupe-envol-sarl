@@ -17,7 +17,7 @@
 @endsection
 
 @section('js')
-<script src="https://cdn.kkiapay.me/k.js">
+    {{-- <script src="https://cdn.kkiapay.me/k.js"> --}}
 
     <script src="{{ asset('storage/assets/js/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('storage/assets/js/jspdf/jspdf.umd.js') }}"></script>
@@ -30,7 +30,7 @@
     <section class="contact-section p_relative pt_25 pb_20">
         <div class="auto-container">
 
-            <div class="content-box p_relative d_block z_5">
+            <div class="content-box p_relative d_block z_5 noPrint">
                 <h2 class="color-logo d_block fs_50 fw_exbold centred">Vous êtes sur le point de vous inscrire sur notre
                     plateforme </h1>
                     <h3 class="p_relative d_iblock fw_normal fs_24 lh_30 color-black pb_3 mb_25 mt_10 centred lh_10">
@@ -49,6 +49,14 @@
                         <p class="alert  text-center alert-danger">{{ session()->get('message_error') }}</p>
                     @endif
                     <p class="alert  text-center " id="zone_message"></p>
+
+
+                    @if ($errors->any())
+                        <ul class="alert alert-danger">
+
+                            {!! implode('', $errors->all('<li>:message</li>')) !!}
+                        </ul>
+                    @endif
                 </div>
 
             </div>
@@ -63,7 +71,7 @@
                 }
 
             @endphp
-            <div class="row">
+            <div class="row noPrint">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link {{ $tab == '' || $tab == 'note-information-tab' ? 'active' : '' }}"

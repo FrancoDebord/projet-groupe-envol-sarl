@@ -34,6 +34,47 @@ CREATE TABLE IF NOT EXISTS `cache_locks` (
 
 -- Listage des données de la table projet_groupe_envol_sarl.cache_locks : ~0 rows (environ)
 
+-- Listage de la structure de la table projet_groupe_envol_sarl. client_services
+CREATE TABLE IF NOT EXISTS `client_services` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `avez_vous_un_passeport` tinyint(1) NOT NULL,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prenom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sexe` enum('M','F') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_naissance` date NOT NULL,
+  `pays_naissance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ville_naissance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pays_residence` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ville_residence` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quartier_residence` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pays_nationalite` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telephone_client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `situation_matrimoniale` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `niveau_francais` enum('basique','intermediaire','avance') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `niveau_anglais` enum('basique','intermediaire','avance') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `diplome_plus_eleve` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profession` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nb_annees_experience` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nb_personnes_voyage` int DEFAULT NULL,
+  `note_information_id` int NOT NULL,
+  `consentement_signe_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `piece_identite` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attestation_diplome_plus_eleve` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `releves_notes_diplome_plus_eleve` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `client_services_note_information_id_index` (`note_information_id`),
+  KEY `client_services_consentement_signe_id_index` (`consentement_signe_id`),
+  KEY `client_services_user_id_index` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table projet_groupe_envol_sarl.client_services : ~0 rows (environ)
+INSERT INTO `client_services` (`id`, `avez_vous_un_passeport`, `nom`, `prenom`, `sexe`, `date_naissance`, `pays_naissance`, `ville_naissance`, `pays_residence`, `ville_residence`, `quartier_residence`, `pays_nationalite`, `telephone_client`, `email_client`, `situation_matrimoniale`, `niveau_francais`, `niveau_anglais`, `diplome_plus_eleve`, `profession`, `nb_annees_experience`, `nb_personnes_voyage`, `note_information_id`, `consentement_signe_id`, `user_id`, `piece_identite`, `attestation_diplome_plus_eleve`, `releves_notes_diplome_plus_eleve`, `created_at`, `updated_at`) VALUES
+	(1, 1, 'HOUEHA', 'FRANCIS', 'M', '2016-06-15', 'Aruba', 'BOHICON', 'Aruba', 'ZOBOZA', 'ZONGO', 'Autriche', '89898989', 'fhoueha@gmail.com', 'celibataire avec enfant', 'intermediaire', 'basique', 'ir,dea,dess,master', 'mecanicien auto', '5', 2, 8, 4, 17, 'piece_identite_2024-07-08_12-43-01_FID KPONOU DAVID __ ANIP_DOC_G-HWTJZDYB.pdf', 'attestation_diplome_plus_eleve_2024-07-08_12-43-01_MENAGE NATI MORSURE SERPENT BASELINE.pdf', 'releves_notes_diplome_plus_eleve_2024-07-08_12-43-01_MENAGE TCHAOUROU MORSURE SERPENT BASELINE.pdf', '2024-07-08 11:43:29', '2024-07-08 11:43:29');
+
 -- Listage de la structure de la table projet_groupe_envol_sarl. consentements_signes
 CREATE TABLE IF NOT EXISTS `consentements_signes` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -48,11 +89,14 @@ CREATE TABLE IF NOT EXISTS `consentements_signes` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `consentements_signes_note_information_id_index` (`note_information_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table projet_groupe_envol_sarl.consentements_signes : ~1 rows (environ)
+-- Listage des données de la table projet_groupe_envol_sarl.consentements_signes : ~0 rows (environ)
 INSERT INTO `consentements_signes` (`id`, `date_consentement`, `heure_consentement`, `consentement_signe`, `note_information_id`, `adresse_ip_ordinateur`, `nom_consentement`, `prenom_consentement`, `created_at`, `updated_at`) VALUES
-	(1, '2024-07-06', '10:40:39', 1, 4, '127.0.0.1', 'HOUEHA', 'Francis', '2024-07-06 09:40:39', '2024-07-06 09:40:39');
+	(1, '2024-07-06', '10:40:39', 1, 4, '127.0.0.1', 'HOUEHA', 'Francis', '2024-07-06 09:40:39', '2024-07-06 09:40:39'),
+	(2, '2024-07-07', '22:39:41', 1, 6, '127.0.0.1', 'HOUEHA', 'FRANCIS', '2024-07-07 21:39:41', '2024-07-07 21:39:41'),
+	(3, '2024-07-08', '08:03:30', 1, 7, '127.0.0.1', 'KOKOU', 'BERNICE', '2024-07-08 07:03:30', '2024-07-08 07:03:30'),
+	(4, '2024-07-08', '12:40:29', 1, 8, '127.0.0.1', 'HOUEHA', 'FRANCIS', '2024-07-08 11:40:29', '2024-07-08 11:40:29');
 
 -- Listage de la structure de la table projet_groupe_envol_sarl. documents_clients_services
 CREATE TABLE IF NOT EXISTS `documents_clients_services` (
@@ -82,6 +126,38 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table projet_groupe_envol_sarl.failed_jobs : ~0 rows (environ)
+
+-- Listage de la structure de la table projet_groupe_envol_sarl. inscriptions_clients_services
+CREATE TABLE IF NOT EXISTS `inscriptions_clients_services` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `code_inscription` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_inscription` date NOT NULL,
+  `heure_inscription` time NOT NULL,
+  `note_information_id` int NOT NULL,
+  `consentement_signe_id` int NOT NULL,
+  `piece_identite` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attestation_diplome_plus_eleve` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `releves_notes_diplome_plus_eleve` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `client_id` int NOT NULL,
+  `pays_destination` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `statut_paiement` enum('payé','remboursé','non effectué','en cours') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kkiapay_transaction_id` bigint NOT NULL DEFAULT '0',
+  `kkiapay_external_transaction_id` bigint NOT NULL DEFAULT '0',
+  `service_souscrit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statut_dossier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `inscriptions_clients_services_code_inscription_unique` (`code_inscription`),
+  KEY `inscriptions_clients_services_note_information_id_index` (`note_information_id`),
+  KEY `inscriptions_clients_services_consentement_signe_id_index` (`consentement_signe_id`),
+  KEY `inscriptions_clients_services_client_id_index` (`client_id`),
+  KEY `inscriptions_clients_services_kkiapay_transaction_id_index` (`kkiapay_transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table projet_groupe_envol_sarl.inscriptions_clients_services : ~0 rows (environ)
+INSERT INTO `inscriptions_clients_services` (`id`, `code_inscription`, `date_inscription`, `heure_inscription`, `note_information_id`, `consentement_signe_id`, `piece_identite`, `attestation_diplome_plus_eleve`, `releves_notes_diplome_plus_eleve`, `client_id`, `pays_destination`, `statut_paiement`, `kkiapay_transaction_id`, `kkiapay_external_transaction_id`, `service_souscrit`, `statut_dossier`, `created_at`, `updated_at`) VALUES
+	(1, 'GE-00001', '2024-07-08', '12:46:29', 8, 4, 'piece_identite_2024-07-08_12-43-01_FID KPONOU DAVID __ ANIP_DOC_G-HWTJZDYB.pdf', 'attestation_diplome_plus_eleve_2024-07-08_12-43-01_MENAGE NATI MORSURE SERPENT BASELINE.pdf', 'releves_notes_diplome_plus_eleve_2024-07-08_12-43-01_MENAGE TCHAOUROU MORSURE SERPENT BASELINE.pdf', 1, 'CANADA', 'payé', 9009332351902064, 7621663622, 'conseil et assistance voyage', 'en cours d\'étude', '2024-07-08 11:46:29', '2024-07-08 11:46:29');
 
 -- Listage de la structure de la table projet_groupe_envol_sarl. jobs
 CREATE TABLE IF NOT EXISTS `jobs` (
@@ -121,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table projet_groupe_envol_sarl.migrations : 6 rows
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
@@ -129,9 +205,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '0001_01_01_000000_create_users_table', 1),
 	(2, '0001_01_01_000001_create_cache_table', 1),
 	(3, '0001_01_01_000002_create_jobs_table', 1),
+	(20, '2024_07_07_221806_create_inscription_client_services_table', 4),
 	(7, '2024_07_01_093047_create_documents_clients_services_table', 2),
 	(8, '2024_07_05_085154_create_note_informations_lue_table', 3),
-	(9, '2024_07_05_085532_create_consentements_signes_table', 3);
+	(9, '2024_07_05_085532_create_consentements_signes_table', 3),
+	(19, '2024_07_01_091123_create_clients_services_table', 4),
+	(22, '2024_07_08_133830_create_services_table', 5);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Listage de la structure de la table projet_groupe_envol_sarl. note_informations_lue
@@ -145,13 +224,17 @@ CREATE TABLE IF NOT EXISTS `note_informations_lue` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table projet_groupe_envol_sarl.note_informations_lue : ~2 rows (environ)
 INSERT INTO `note_informations_lue` (`id`, `date_lecture`, `heure_lecture`, `note_lue`, `note_information_telechargee`, `adresse_ip_ordinateur`, `created_at`, `updated_at`) VALUES
 	(2, '2024-07-05', '10:21:26', 1, 1, '127.0.0.1', '2024-07-05 09:21:26', '2024-07-05 09:21:26'),
 	(3, '2024-07-05', '15:51:15', 1, 1, '127.0.0.1', '2024-07-05 14:51:15', '2024-07-05 14:51:15'),
-	(4, '2024-07-06', '10:07:06', 1, 1, '127.0.0.1', '2024-07-06 09:07:06', '2024-07-06 09:07:06');
+	(4, '2024-07-06', '10:07:06', 1, 1, '127.0.0.1', '2024-07-06 09:07:06', '2024-07-06 09:07:06'),
+	(5, '2024-07-07', '22:30:36', 1, 1, '127.0.0.1', '2024-07-07 21:30:36', '2024-07-07 21:30:36'),
+	(6, '2024-07-07', '22:31:48', 1, 1, '127.0.0.1', '2024-07-07 21:31:48', '2024-07-07 21:31:48'),
+	(7, '2024-07-08', '08:03:02', 1, 1, '127.0.0.1', '2024-07-08 07:03:02', '2024-07-08 07:03:02'),
+	(8, '2024-07-08', '12:40:10', 1, 1, '127.0.0.1', '2024-07-08 11:40:10', '2024-07-08 11:40:10');
 
 -- Listage de la structure de la table projet_groupe_envol_sarl. password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -413,6 +496,28 @@ INSERT INTO `pays` (`id`, `pays_name`, `pays_code`) VALUES
 	(237, 'La Barbad', 'bb');
 /*!40000 ALTER TABLE `pays` ENABLE KEYS */;
 
+-- Listage de la structure de la table projet_groupe_envol_sarl. services
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nom_service` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statut_service` enum('gratuit','payant') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'payant',
+  `frais_inscription` double NOT NULL DEFAULT '0',
+  `devise` enum('FCFA') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'FCFA',
+  `url_service` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table projet_groupe_envol_sarl.services : ~6 rows (environ)
+INSERT INTO `services` (`id`, `nom_service`, `statut_service`, `frais_inscription`, `devise`, `url_service`, `created_at`, `updated_at`) VALUES
+	(1, 'Conseils et assistance Visa-voyage', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49'),
+	(2, 'Intermédiation de récrutement', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49'),
+	(3, 'Négoces', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49'),
+	(4, 'Bourses d\'étude et de formation', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49'),
+	(5, 'Vente de billet d\'avion', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49'),
+	(6, 'Assurance de voyage', 'payant', 1, 'FCFA', '#', '2024-07-08 12:53:49', '2024-07-08 12:53:49');
+
 -- Listage de la structure de la table projet_groupe_envol_sarl. sessions
 CREATE TABLE IF NOT EXISTS `sessions` (
   `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -426,9 +531,10 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table projet_groupe_envol_sarl.sessions : ~1 rows (environ)
+-- Listage des données de la table projet_groupe_envol_sarl.sessions : ~2 rows (environ)
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('xr2N18uhCt9VBxWY4FMlLNOBpCKWHmBiBJw19QeF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo5OntzOjY6Il90b2tlbiI7czo0MDoiTzN3WU9WczBlZGljdE9SVXVTV1dIdG1EZHEwTk15MWx1RzNob2hBYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MjA6Im5vdGVfaW5mb3JtYXRpb25fbHVlIjtpOjE7czoyMzoibm90ZV9pbmZvcm1hdGlvbl9sdWVfaWQiO2k6NDtzOjE4OiJjb25zZW50ZW1lbnRfc2lnbmUiO2k6MTtzOjE1OiJjb25zZW50ZW1lbnRfaWQiO2k6MTtzOjMxOiJkb25uZWVzX2luZm9ybWF0aW9uc19kZXRhaWxsZWVzIjthOjI5OntzOjY6Il90b2tlbiI7czo0MDoiTzN3WU9WczBlZGljdE9SVXVTV1dIdG1EZHEwTk15MWx1RzNob2hBYSI7czoxNToiY29uc2VudGVtZW50X2lkIjtzOjE6IjEiO3M6MTI6ImVtYWlsX2NsaWVudCI7czoxNzoiZmhvdWVoYUBnbWFpbC5jb20iO3M6MTA6Im5vbV9jbGllbnQiO3M6NjoiSE9VRUhBIjtzOjEzOiJwcmVub21fY2xpZW50IjtzOjc6IkZSQU5DSVMiO3M6MTU6InBhc3N3b3JkX2NsaWVudCI7czozOiIxMjMiO3M6MjM6ImNvbmZpcm1fcGFzc3dvcmRfY2xpZW50IjtzOjM6IjEyMyI7czoyMDoiY29kZV9jbGllbnRfb3VfZW1haWwiO047czoxODoicGFzc3dvcmRfY29ubmV4aW9uIjtOO3M6Mjk6ImF2ZXpfdm91c191bl9wYXNzZXBvcnRfdmFsaWRlIjtzOjM6Im91aSI7czoxNjoicGF5c19uYXRpb25hbGl0ZSI7czoxOiIzIjtzOjk6InZvdHJlX25vbSI7czo2OiJIT1VFSEEiO3M6MTI6InZvdHJlX3ByZW5vbSI7czo3OiJGUkFOQ0lTIjtzOjE0OiJkYXRlX25haXNzYW5jZSI7czoxMDoiMjAwMS0wNi0xMyI7czoxNToidmlsbGVfbmFpc3NhbmNlIjtzOjc6IlBBUkFLT1UiO3M6MTQ6InBheXNfbmFpc3NhbmNlIjtzOjI6Ijc2IjtzOjE0OiJwYXlzX3Jlc2lkZW5jZSI7czoyOiI3MiI7czoxNToidmlsbGVfcmVzaWRlbmNlIjtzOjEwOiJQT1JUTy1OT1ZPIjtzOjE4OiJxdWFydGllcl9yZXNpZGVuY2UiO3M6NDoiUEsxMCI7czoxNjoidGVsZXBob25lX2NsaWVudCI7czo4OiI5NjA0NTM5MiI7czoxMjoiYWRyZXNzZV9tYWlsIjtzOjE3OiJmaG91ZWhhQGdtYWlsLmNvbSI7czoyMjoic2l0dWF0aW9uX21hdHJpbW9uaWFsZSI7czoyMzoiY2VsaWJhdGFpcmUgYXZlYyBlbmZhbnQiO3M6MjM6Im5vbWJyZV9wZXJzb25uZXNfdm95YWdlIjtzOjE6IjIiO3M6MTU6Im5pdmVhdV9mcmFuY2FpcyI7czoxMzoiaW50ZXJtZWRpYWlyZSI7czoxNDoibml2ZWF1X2FuZ2xhaXMiO3M6NzoiYXZhbmPDqSI7czoxODoiZGlwbG9tZV9wbHVzX2VsZXZlIjtzOjM6ImJhYyI7czoxMDoicHJvZmVzc2lvbiI7czo5OiJqYXJkaW5pZXIiO3M6MTc6ImFubmVlc19leHBlcmllbmNlIjtzOjI6IjYrIjtzOjM6InRhYiI7czoyNToiaW5mb3JtYXRpb24tZGV0YWlsbGVlLXRhYiI7fXM6MTI6InRhYl9lbl9jb3VycyI7czoxMjoicGFpZW1lbnQtdGFiIjt9', 1720281763);
+	('CpQvTtGJNwP0meio9enwvjUlF6PQGgRarY1i2MeU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaXgydzgzaUhTSXF6eVdPYW5XNVlWcVN4WEU0M0NZRHJtS0hIYlVzUCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9pbnNjcmlwdGlvbj90YWI9cGFpZW1lbnQtdGFiIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1720447236),
+	('JTG4A1JsTQHzKmTkevbvywtLJ4X0SUB1eYcWUIYK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YToxMDp7czo2OiJfdG9rZW4iO3M6NDA6IlQwYVk5YVMwSHNvbmdVYWw5NTdQM3FPcndQOVVhNDNlSUlwVHFmZlQiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjUwOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvaW5zY3JpcHRpb24/dGFiPXBhaWVtZW50LXRhYiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MjA6Im5vdGVfaW5mb3JtYXRpb25fbHVlIjtpOjE7czoyMzoibm90ZV9pbmZvcm1hdGlvbl9sdWVfaWQiO2k6NztzOjEyOiJ0YWJfZW5fY291cnMiO3M6MTI6InBhaWVtZW50LXRhYiI7czoxODoiY29uc2VudGVtZW50X3NpZ25lIjtpOjE7czoxNToiY29uc2VudGVtZW50X2lkIjtpOjM7czozMToiZG9ubmVlc19pbmZvcm1hdGlvbnNfZGV0YWlsbGVlcyI7YTozMDp7czo2OiJfdG9rZW4iO3M6NDA6IlQwYVk5YVMwSHNvbmdVYWw5NTdQM3FPcndQOVVhNDNlSUlwVHFmZlQiO3M6MTU6ImNvbnNlbnRlbWVudF9pZCI7czoxOiIzIjtzOjEyOiJlbWFpbF9jbGllbnQiO3M6MTc6ImJlcm5pY2VAZ21haWwuY29tIjtzOjEwOiJub21fY2xpZW50IjtzOjU6IktPS09VIjtzOjEzOiJwcmVub21fY2xpZW50IjtzOjc6IkJFUk5JQ0UiO3M6MTU6InBhc3N3b3JkX2NsaWVudCI7czozOiIxMjMiO3M6MjM6ImNvbmZpcm1fcGFzc3dvcmRfY2xpZW50IjtzOjM6IjEyMyI7czoyMDoiY29kZV9jbGllbnRfb3VfZW1haWwiO047czoxODoicGFzc3dvcmRfY29ubmV4aW9uIjtOO3M6Mjk6ImF2ZXpfdm91c191bl9wYXNzZXBvcnRfdmFsaWRlIjtzOjE6IjEiO3M6MTY6InBheXNfbmF0aW9uYWxpdGUiO3M6MjoiNzMiO3M6OToidm90cmVfbm9tIjtzOjU6IktPS09VIjtzOjEyOiJ2b3RyZV9wcmVub20iO3M6NzoiQkVSTklDRSI7czoxNDoiZGF0ZV9uYWlzc2FuY2UiO3M6MTA6IjIwMDQtMDYtMDkiO3M6MTU6InZpbGxlX25haXNzYW5jZSI7czo3OiJDT1RPTk9VIjtzOjE0OiJwYXlzX25haXNzYW5jZSI7czoxOiIzIjtzOjQ6InNleGUiO3M6MToiRiI7czoxNDoicGF5c19yZXNpZGVuY2UiO3M6MjoiNzMiO3M6MTU6InZpbGxlX3Jlc2lkZW5jZSI7czo3OiJQQVJBS09VIjtzOjE4OiJxdWFydGllcl9yZXNpZGVuY2UiO3M6NToiWk9OR08iO3M6MTY6InRlbGVwaG9uZV9jbGllbnQiO3M6ODoiOTA5ODk4OTgiO3M6MTI6ImFkcmVzc2VfbWFpbCI7czoxNzoiYmVybmljZUBnbWFpbC5jb20iO3M6MjI6InNpdHVhdGlvbl9tYXRyaW1vbmlhbGUiO3M6MjM6ImNlbGliYXRhaXJlIHNhbnMgZW5mYW50IjtzOjIzOiJub21icmVfcGVyc29ubmVzX3ZveWFnZSI7czoxOiI0IjtzOjE1OiJuaXZlYXVfZnJhbmNhaXMiO3M6MTM6ImludGVybWVkaWFpcmUiO3M6MTQ6Im5pdmVhdV9hbmdsYWlzIjtzOjEzOiJpbnRlcm1lZGlhaXJlIjtzOjE4OiJkaXBsb21lX3BsdXNfZWxldmUiO3M6MzoiYnRzIjtzOjEwOiJwcm9mZXNzaW9uIjtzOjE3OiJhZ2VudCBkZSBzZWN1cml0ZSI7czoxNzoiYW5uZWVzX2V4cGVyaWVuY2UiO3M6MToiMiI7czozOiJ0YWIiO3M6MjU6ImluZm9ybWF0aW9uLWRldGFpbGxlZS10YWIiO31zOjI4OiJkb25uZWVzX2luZm9ybWF0aW9uc19zZXJ2aWNlIjthOjY6e3M6NjoiX3Rva2VuIjtzOjQwOiJUMGFZOWFTMEhzb25nVWFsOTU3UDNxT3J3UDlVYTQzZUlJcFRxZmZUIjtzOjI5OiJpbmZvcm1hdGlvbl9kZXRhaWxsZWVfZm91cm5pZSI7czoxOiIxIjtzOjE5OiJzZXJ2aWNlX2luc2NyaXB0aW9uIjtzOjI4OiJjb25zZWlsIGV0IGFzc2lzdGFuY2Ugdm95YWdlIjtzOjE0OiJwaWVjZV9pZGVudGl0ZSI7czo1NjoicGllY2VfaWRlbnRpdGVfMjAyNC0wNy0wOF8wOC0wOC0yMl9QUkVVVkUgRVhQRVJJRU5DRS5wZGYiO3M6MzA6ImF0dGVzdGF0aW9uX2RpcGxvbWVfcGx1c19lbGV2ZSI7czo5NjoiYXR0ZXN0YXRpb25fZGlwbG9tZV9wbHVzX2VsZXZlXzIwMjQtMDctMDhfMDgtMDgtMjJfTUVOQUdFIFRDSEFPVVJPVSBNT1JTVVJFIFNFUlBFTlQgQkFTRUxJTkUucGRmIjtzOjMyOiJyZWxldmVzX25vdGVzX2RpcGxvbWVfcGx1c19lbGV2ZSI7czo2NToicmVsZXZlc19ub3Rlc19kaXBsb21lX3BsdXNfZWxldmVfMjAyNC0wNy0wOF8wOC0wOC0yMl9CQUMgT01FUi5wZGYiO319', 1720433023);
 
 -- Listage de la structure de la table projet_groupe_envol_sarl. users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -442,9 +548,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table projet_groupe_envol_sarl.users : ~0 rows (environ)
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+	(17, 'HOUEHA FRANCIS', 'fhoueha@gmail.com', NULL, '$2y$12$ndSVfS2PkKaLRfHIQLz4gePff1xTSxhWZkLlS7C1bX7BUZHW2Y9hC', NULL, '2024-07-08 11:43:29', '2024-07-08 11:43:29');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

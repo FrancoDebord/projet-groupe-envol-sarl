@@ -114,10 +114,18 @@
 
                 </div>
                 <div class="col-12 col-md-10 offset-md-1 mt-4 text-center">
+
                     <button type="submit" class="btn btn-outline-info" id="download-note-information-suivant">
-                        <i class="fa fa-download">&nbsp;</i>
-                        Télécharger la Note d'information et Continuer
+                        <i class="fa fa-hand-point-right">&nbsp;</i>
+                        Confirmer que vous avez lu la note d'information & Continuer
                     </button>
+                    
+                    <a href="{{ asset("storage/assets/note_infos/Note_information.pdf") }}" download="" target="_blank" class="btn btn-outline-danger">
+                        <i class="fa fa-download">&nbsp;</i>
+                        Télécharger une copie
+                    </a>
+                    
+                   
                 </div>
             </div>
         </form>
