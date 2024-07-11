@@ -28,6 +28,9 @@
                         <thead>
                             <tr>
                                 <th>
+                                    Code Inscription
+                                </th>
+                                <th>
                                     Date D'inscription
                                 </th>
                                 <th>Heure</th>
@@ -46,6 +49,7 @@
                            @if ($infos_souscription)
 
                             <tr>
+                                <td>{{ $infos_souscription->code_inscription }}</td>
                                 <td>{{ date("d/m/Y",strtotime($infos_souscription->date_inscription)) }}</td>
                                 <td>{{ $infos_souscription->heure_inscription }}</td>
                                 <td>{{ $infos_souscription->clientServiceConcerne->nom." ".$infos_souscription->clientServiceConcerne->prenom }}</td>
@@ -57,10 +61,10 @@
                                 </td>
                                 <td>{{ $infos_souscription->service_souscrit }}</td>
                                 <td>{{ $infos_souscription->pays_destination }}</td>
-                                <td>{{ $infos_souscription->statut_dossier }}</td>
                                 <td>
                                     <span class="badge p-2 {{ $infos_souscription->statut_paiement=="payé"?"bg-success":"bg-danger" }}">{{ $infos_souscription->statut_paiement }}</span>
                                 </td>
+                                <td>{{ $infos_souscription->statut_dossier }}</td>
                                 {{-- <td>
                                     <a href="#" class="btn btn-outline-primary">
                                         <i class="fa fa-eye">&nbsp;</i>
@@ -190,14 +194,21 @@
                             <tr>
                                 <th>Copie du relevé de notes </th>
                                 <td>
-                                    <span class="alert alert-light " style="font-size: 10px">
-                                        <a
-                                            href="{{ route("VisualiserPdfDocument",["document"=>$infos_souscription->releves_notes_diplome_plus_eleve ]) }}" target="_blank">
-                                            
-                                            <i class="fa fa-eye">&nbsp;</i>
-                                            Voir
-                                        </a>
-                                    </span>
+                                        @php
+                                            $route_doc = $infos_souscription->releves_notes_diplome_plus_eleve ? route("VisualiserPdfDocument",["document"=>$infos_souscription->releves_notes_diplome_plus_eleve ]):"#";
+                                        @endphp
+
+                                        @if ($route_doc !="#")
+                                        <span class="alert alert-light " style="font-size: 10px">
+                                            <a
+                                                href="{{ $route_doc }}" target="_blank">
+                                                
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Voir
+                                            </a>
+                                        </span>                                
+                                        @endif
+                                    
                                 </td>
 
                                 <th>Note d'information</th>

@@ -227,12 +227,13 @@
     <script src="{{ asset("storage/assets_vendor/js/appear.js")}}"></script>
     <script src="{{ asset("storage/assets_vendor/js/scrollbar.js")}}"></script>
 
+    @yield('js')
+    
     <!-- main-js -->
     <script src="{{ asset("storage/assets_vendor/js/script.js")}}"></script>
 
     <script src="{{ asset("storage/assets/js/javascript_general.js") }}"></script>
 
-    @yield('js')
 
 
 </body><!-- End of .page_wrapper -->

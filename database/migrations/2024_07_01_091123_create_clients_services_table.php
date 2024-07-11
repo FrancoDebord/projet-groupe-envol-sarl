@@ -32,6 +32,7 @@ return new class extends Migration
             $table->enum("niveau_anglais",["basique","intermediaire","avance"]);
             $table->string("diplome_plus_eleve");
             $table->string("profession");
+            $table->string("autre_profession")->nullable();
             $table->string("nb_annees_experience");
             $table->integer("nb_personnes_voyage")->nullable();
             $table->integer("note_information_id")->index();

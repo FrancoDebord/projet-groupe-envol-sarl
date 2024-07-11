@@ -89,7 +89,7 @@
                             <tr>
                                 <td>3</td>
                                 <td>
-                                    Je comprends que la procédure d’immigration et de recrutement implique quatre (4) frais que je dois complètement 
+                                    Je comprends que la procédure d’immigration et de recrutement implique deux (2) frais que je dois complètement 
                                     solder avant la collecte de mes données biométriques auprès des centres agréés.
                                 </td>
                                 <td class="text-center valign-center">
@@ -128,8 +128,8 @@
                                 <td>5</td>
                                 <td>
                                     Je comprends que mes informations personnelles peuvent être transférées par 
-                                    <a href="mailto:info@groupeenvol.org">info@groupeenvol.org</a> ou en main propre à mon employeur
-                                     après mon recrutement, à une ambassade ou un consulat pour l’obtention de visa.
+                                    <a href="mailto:info@groupeenvol.org">info@groupeenvol.org</a> ou en main propre à mon employeur  mon école
+                                     après mon recrutement ou mon admission, à une ambassade ou un consulat pour l’obtention de visa.
                                 </td>
                                 <td class="text-center valign-center">
                                     <input type="checkbox" class="check_consentement form-control @error("consentement_5") is-invalid @enderror" id="consentement_5" name="consentement_5" {{ $check_state }}  data-width="80" data-height="20" data-offstyle="danger" data-style="android" data-onstyle="info" data-size ="lg" data-toggle="toggle" data-onlabel="OUI" data-offlabel="NON" />

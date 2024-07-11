@@ -11,6 +11,7 @@ Route::prefix("ajax")->group(function(){
     Route::post('/add-information-detaillee', [RequeteAjaxFrontendController::class,"ValiderInformationDetailleeClient"])->name("ValiderInformationDetailleeClient");
     Route::post('/add-information-service-et-finaliser-inscription', [RequeteAjaxFrontendController::class,"ajouterInformationServiceEtFinaliserInscription"])->name("ajouterInformationServiceEtFinaliserInscription");
     Route::get('/paiement-reussi', [RequeteAjaxFrontendController::class,"effectuerPaiementKKiaPay"])->name("effectuerPaiementKKiaPay");
+    Route::get('/list-pays-service', [RequeteAjaxFrontendController::class,"getListPaysConcernesParService"])->name("getListPaysConcernesParService");
 });
 
 
@@ -62,4 +63,5 @@ Route::prefix("ajax")->group(function(){
 //   }
 
 
-//http://127.0.0.1:8000/ajax/paiement-reussi?transaction_id=1023688432083245
+//http://127.0.0.1:8000/ajax/paiement-reussi?transaction_id=5329829091947770
+// http://127.0.0.1:8000/ajax/paiement-reussi?transaction_id=7296082605744427

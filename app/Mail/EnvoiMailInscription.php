@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\ClientService;
+use App\Models\InscriptionClientService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -17,7 +19,9 @@ class EnvoiMailInscription extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(
+        public InscriptionClientService $infos_souscription
+    )
     {
         //
     }
@@ -39,7 +43,10 @@ class EnvoiMailInscription extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'frontend.mail_inscription',
+            with: [
+                'infos_souscription' => $this->infos_souscription,
+            ],
         );
     }
 

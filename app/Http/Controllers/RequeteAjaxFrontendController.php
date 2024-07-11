@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnvoiMailInscription;
 use App\Models\ClientService;
 use App\Models\ConsentementSigne;
 use App\Models\InscriptionClientService;
 use App\Models\NoteInformationLue;
+use App\Models\Pays;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RequeteAjaxFrontendController extends Controller
@@ -241,6 +244,7 @@ class RequeteAjaxFrontendController extends Controller
             "niveau_anglais" => ["required"],
             "diplome_plus_eleve" => ["required"],
             "profession" => ["required"],
+            "autre_profession" => ["required_if:profession,autre"],
             "annees_experience" => ["required"],
         ];
 
@@ -277,14 +281,16 @@ class RequeteAjaxFrontendController extends Controller
             "niveau_anglais.required" => "Veuillez nous indiquer votre niveau en anglais.",
             "diplome_plus_eleve.required" => "Veuillez nous indiquer votre diplôme le plus utilisé.",
             "profession.required" => "Veuillez nous indiquer votre profession.",
+            "autre_profession.required_if" => "Veuillez spécifier votre profession si elle ne se trouve pas dans la liste donnée.",
             "annees_experience.required" => "Veuillez nous indiquer votre nombre d'années d'expérience.",
         ];
 
+        session()->put("donnees_informations_detaillees", $request->all());
         session()->put("tab_en_cours", "information-detaillee-tab");
         $this->validate($request, $rules, $messages);
 
         try {
-            session()->put("donnees_informations_detaillees", $request->all());
+           
             session()->flash("message_succes", "Vos données ont été bien sauvegardées. Veuillez passer à l'étape suivante en choisissant le service.");
 
             session()->put("tab_en_cours", "information-service-tab");
@@ -307,7 +313,7 @@ class RequeteAjaxFrontendController extends Controller
             "piece_identite" => ["required", "mimes:pdf"],
             "attestation_diplome_plus_eleve" => ["required", "mimes:pdf"],
             "service_inscription" => ["required", "string"],
-            "releves_notes_diplome_plus_eleve" => ["mimes:pdf", "required_if:service_inscription,intermediation de recrutement"],
+            "releves_notes_diplome_plus_eleve" => ["mimes:pdf", "nullable"],
         ];
 
         $messages = [
@@ -317,7 +323,7 @@ class RequeteAjaxFrontendController extends Controller
             "attestation_diplome_plus_eleve.required" => "Votre diplôme le plus élevé est une pièce obligatoire",
             "attestation_diplome_plus_eleve.mimes" => "Votre diplôme le plus élevé doit être en PDF",
             "service_inscription.required" => "Veuillez choisir le service pour lequel vous voulez vous inscrire",
-            "releves_notes_diplome_plus_eleve.required_if" => "Votre relevé de notes est une pièce obligatoire si vous choisissez le service d'Intermédiation de recrutement",
+            // "releves_notes_diplome_plus_eleve.required_if" => "Votre relevé de notes est une pièce obligatoire si vous choisissez le service d'Intermédiation de recrutement",
             "releves_notes_diplome_plus_eleve.mimes" => "Votre relevé de notes doit être en PDF",
         ];
 
@@ -406,6 +412,17 @@ class RequeteAjaxFrontendController extends Controller
                 session()->forget("prenom_consentement");
                 session()->forget("date_consentement");
                 session()->forget("tab_en_cours");
+                session()->forget("list_pays_service");
+
+                $email_send = Mail::to(
+                    $check_inscription_existing->clientServiceConcerne->email_client,
+                    
+                )
+                ->cc(["fhoueha@gmail.com","fopisso21@gmail.com","info@groupeenvol.org"])
+                ->send(new EnvoiMailInscription($check_inscription_existing));
+
+                // dd($email_send);
+
 
                 return redirect()->route("pageDetailServiceSouscrit", ["code_inscription" => $check_inscription_existing->code_inscription])->with("message_error", "Cette inscription a déjà été enregistrée. ...");
                 // return redirect()->back()->with("message_error","Cette inscription a déjà été enregistrée. ...");
@@ -467,6 +484,7 @@ class RequeteAjaxFrontendController extends Controller
                             "niveau_anglais" => $donnees_inscription["niveau_anglais"],
                             "diplome_plus_eleve" => $donnees_inscription["diplome_plus_eleve"],
                             "profession" => $donnees_inscription["profession"],
+                            "autre_profession" => array_key_exists("autre_profession",$donnees_inscription)?$donnees_inscription["autre_profession"]:"",
                             "nb_annees_experience" => $donnees_inscription["annees_experience"],
                             "nb_personnes_voyage" => $donnees_inscription["nombre_personnes_voyage"],
                             "note_information_id" => $donnees_inscription["note_information_id"],
@@ -474,7 +492,7 @@ class RequeteAjaxFrontendController extends Controller
                             "user_id" => $create_user->id,
                             "piece_identite" => $donnees_informations_service["piece_identite"],
                             "attestation_diplome_plus_eleve" => $donnees_informations_service["attestation_diplome_plus_eleve"],
-                            "releves_notes_diplome_plus_eleve" => $donnees_informations_service["releves_notes_diplome_plus_eleve"],
+                            "releves_notes_diplome_plus_eleve" => array_key_exists("releves_notes_diplome_plus_eleve",$donnees_informations_service)?$donnees_informations_service["releves_notes_diplome_plus_eleve"]:"",
                         ]);
                     }
 
@@ -488,7 +506,7 @@ class RequeteAjaxFrontendController extends Controller
                         "client_id" => $client_service->id,
                         "piece_identite" => $donnees_informations_service["piece_identite"],
                         "attestation_diplome_plus_eleve" => $donnees_informations_service["attestation_diplome_plus_eleve"],
-                        "releves_notes_diplome_plus_eleve" => $donnees_informations_service["releves_notes_diplome_plus_eleve"],
+                        "releves_notes_diplome_plus_eleve" => array_key_exists("releves_notes_diplome_plus_eleve",$donnees_informations_service)?$donnees_informations_service["releves_notes_diplome_plus_eleve"]:"",
                         "pays_destination" => $donnees_informations_service["service_inscription"] == "intermediation de recrutement" ? "ROUMANIE" : "CANADA",
                         "service_id" => $donnees_informations_service["service_inscription"],
                         "service_souscrit" => $infos_service_selectionne->nom_service,
@@ -509,6 +527,13 @@ class RequeteAjaxFrontendController extends Controller
 
                     if ($create_user && $client_service && $inscription) {
 
+                        Mail::to(
+                            $donnees_inscription["email_client"],
+                            
+                        )
+                        ->cc(["fhoueha@gmail.com","fopisso21@gmail.com","info@groupeenvol.org"])
+                        ->send(new EnvoiMailInscription($inscription));
+
                         session()->forget("note_information_lue_id");
                         session()->forget("note_information_lue");
                         session()->forget("consentement_id");
@@ -520,6 +545,7 @@ class RequeteAjaxFrontendController extends Controller
                         session()->forget("nom_consentement");
                         session()->forget("prenom_consentement");
                         session()->forget("date_consentement");
+                        session()->forget("list_pays_service");
 
                         return redirect()->route("pageDetailServiceSouscrit", ["code_inscription" => $code_inscription])->with("message_succes", "Votre inscription a été bien enregistrée. Veuillez suivre votre dossier sur la plateforme...");
                         // return redirect()->back()->with("message_succes","Votre inscription a été bien enregistrée. Veuillez suivre votre dossier sur la plateforme...");
@@ -533,4 +559,36 @@ class RequeteAjaxFrontendController extends Controller
             dd($th);
         }
     }
+
+    /**
+     * Selectionner les pays concernés par chaque service
+     */
+
+     function getListPaysConcernesParService(Request $request){
+
+        try {
+            
+            $service_id = $request->service_id;
+
+            $service_info = Service::findOrFail($service_id);
+
+            $list_pays = Pays::all();
+
+            if($service_info->nom_service == "Visa Travailleur"){
+
+                $list_pays = Pays::whereIn("pays_name",["Canada","Roumanie"])->get();
+            }
+
+            session()->put("list_pays_service",$list_pays);
+            return response()->json([
+                "code_erreur"=>0,
+                "list_pays"=>$list_pays,
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "code_erreur"=>1,
+                "message"=>$th->getMessage(),
+            ]);
+        }
+     }
 }

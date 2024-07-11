@@ -302,7 +302,7 @@
                             }
                         }
                     @endphp
-                    <input type="date" name="date_naissance" id="date_naissance"
+                    <input  name="date_naissance" id="date_naissance" readonly
                         class="form-control @error('date_naissance') is-invalid @enderror"
                         value="{{ $date_naissance }}" />
 
@@ -707,45 +707,15 @@
                     <select name="profession" id="profession"
                         class="from-control form-select show-tick @error('profession') is-invalid @enderror">
                         <option value="">Sélectionner une option</option>
-                        <option value="maçon" {{ $profession == 'maçon' ? 'selected' : '' }}>Maçon</option>
-                        <option value="menuisier" {{ $profession == 'menuisier' ? 'selected' : '' }}>Menuisier
-                        </option>
-                        <option value="carreleur" {{ $profession == 'carreleur' ? 'selected' : '' }}>Carreleur
-                        </option>
-                        <option value="peintre" {{ $profession == 'peintre' ? 'selected' : '' }}>Peintre</option>
-                        <option value="plombier" {{ $profession == 'plombier' ? 'selected' : '' }}>Plombier</option>
-                        <option value="cuisinier" {{ $profession == 'cuisinier' ? 'selected' : '' }}>Cuisinier
-                        </option>
-                        <option value="conducteur poids lourds"
-                            {{ $profession == 'conducteur poids lourds' ? 'selected' : '' }}>Conducteur poids lourds
-                        </option>
-                        <option value="electricien tout genre"
-                            {{ $profession == 'electricien tout genre' ? 'selected' : '' }}>Électricien tout genre
-                        </option>
-                        <option value="couturier" {{ $profession == 'couturier' ? 'selected' : '' }}>Couturier
-                        </option>
-                        <option value="serveur et serveuse"
-                            {{ $profession == 'serveur et serveuse' ? 'selected' : '' }}>
-                            Serveur et serveuse</option>
-                        <option value="receptionniste" {{ $profession == 'receptionniste' ? 'selected' : '' }}>
-                            Réceptionniste</option>
-                        <option value="agent de securite" {{ $profession == 'agent de securite' ? 'selected' : '' }}>
-                            Agent
-                            de sécurité</option>
-                        <option value="vulgarisateur" {{ $profession == 'vulgarisateur' ? 'selected' : '' }}>
-                            Vulgarisateur
-                        </option>
-                        <option value="cordonnier" {{ $profession == 'cordonnier' ? 'selected' : '' }}>Cordonnier
-                        </option>
-                        <option value="agent d'entretien" {{ $profession == "agent d'entretien" ? 'selected' : '' }}>
-                            Agent
-                            d'entretien</option>
-                        <option value="mecanicien auto" {{ $profession == 'mecanicien auto' ? 'selected' : '' }}>
-                            Mécanicien auto</option>
-                        <option value="eleveur" {{ $profession == 'eleveur' ? 'selected' : '' }}>Éleveur</option>
-                        <option value="menagere" {{ $profession == 'menagere' ? 'selected' : '' }}>Ménagère</option>
-                        <option value="jardinier" {{ $profession == 'jardinier' ? 'selected' : '' }}>Jardiner</option>
-                        <option value="soudeur" {{ $profession == 'soudeur' ? 'selected' : '' }}>Soudeur</option>
+
+                        @forelse ($all_corps_metiers as $metier)
+                        
+                        <option value="{{ $metier->intitule_metier }}" {{ $profession == $metier->intitule_metier ? 'selected' : '' }}>{{ $metier->intitule_metier }}</option>
+                        @empty
+                            
+                        @endforelse
+                        <option value="autre" {{ $profession == 'autre' ? 'selected' : '' }}>Autre</option>
+                        
                     </select>
 
                     @error('profession')
@@ -754,7 +724,30 @@
                         </span>
                     @enderror
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 form-group-sm mt-3">
+                <div class="col-12 col-sm-6 form-group-sm mt-3">
+                    <label for="autre_profession">Spécifier autre profession<strong class="text-danger">(* si Autre profession)</strong></label>
+
+                    @php
+                        $autre_profession = old('autre_profession');
+                        if (!$autre_profession) {
+                            if (array_key_exists('autre_profession', $donnees_detaillees_client)) {
+                                $autre_profession = $donnees_detaillees_client['autre_profession'];
+                            }
+                        }
+                    @endphp
+
+                    <input type="text" name="autre_profession" id="autre_profession"
+                        class="form-control @error('autre_profession') is-invalid @enderror"
+                        value="{{ $autre_profession }}" />
+
+                    @error('autre_profession')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="col-12 col-sm-6 form-group-sm mt-3">
                     <label for="annees_experience">Nombre d'années d'expérience <strong class="text-danger">(*)</strong></label>
 
                     @php

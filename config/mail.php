@@ -14,7 +14,8 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' =>  'smtp',
+    // 'default' => env('MAIL_MAILER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,11 +41,11 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'mail.groupeenvol.org'),
-            'port' => env('MAIL_PORT', 465),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME',"noreply@groupeenvol.org"),
-            'password' => env('MAIL_PASSWORD',"G@envol2024bj"),
+            'host' =>  'mail.groupeenvol.org',
+            'port' =>  465,
+            'encryption' =>  'tls',
+            'username' => "noreply@groupeenvol.org",
+            'password' =>"G@envol2024bj",
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
@@ -109,8 +110,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noreply@groupeenvol.org'),
+        'name' => env('MAIL_FROM_NAME', 'Groupe Envol Sarl'),
     ],
 
 ];

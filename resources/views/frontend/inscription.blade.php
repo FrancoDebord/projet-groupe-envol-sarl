@@ -4,6 +4,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('storage/assets/intl-telinput/css/intlTelInput.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset("storage/assets/datetimepicker/css/gijgo.min.css") }}"/>
 
     <style>
         .toggle.android {
@@ -20,9 +21,9 @@
     {{-- <script src="https://cdn.kkiapay.me/k.js"> --}}
 
     <script src="{{ asset('storage/assets/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('storage/assets/js/jspdf/jspdf.umd.js') }}"></script>
     <script src="{{ asset('storage/assets/intl-telinput/js/intlTelInput.min.js') }}"></script>
-    <script src="{{ asset('storage/assets/html2pdf/html2pdf.bundle.js') }}"></script>
+    <script src="{{ asset("storage/assets/datetimepicker/js/gijgo.min.js") }}"></script>
+    <script src="{{ asset("storage/assets/datetimepicker/js/messages/messages.fr-fr.min.js") }}"></script>
 
 @endsection
 

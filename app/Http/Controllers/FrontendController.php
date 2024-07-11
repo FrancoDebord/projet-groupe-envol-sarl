@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClientService;
+use App\Models\CorpsMetier;
 use App\Models\CustomFPDF;
 use App\Models\InscriptionClientService;
 use App\Models\Pays;
@@ -44,9 +45,10 @@ class FrontendController extends Controller
             }
             $list_pays = Pays::orderBy("pays_name")->get();
             $all_services = Service::all();
+            $all_corps_metiers = CorpsMetier::orderBy("intitule_metier","asc")->get();
 
             $all_services_actifs = Service::where("etat_service",1)->get();
-            return view("frontend.inscription",compact("list_pays","service","service_id","all_services","all_services_actifs"));
+            return view("frontend.inscription",compact("list_pays","service","service_id","all_services","all_services_actifs","all_corps_metiers"));
         } catch (\Throwable $th) {
             dd($th);
         }

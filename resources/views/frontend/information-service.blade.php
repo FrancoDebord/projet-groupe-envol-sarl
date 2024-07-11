@@ -32,7 +32,7 @@
 
                         <div class="mb-3">
                             <label for="piece_identite" class="form-label">Pièce d'identité (Passeport, carte
-                                d'identité, CIP) <strong class="text-danger">(*)</strong> </label>
+                                d'identité, CIP) en PDF <strong class="text-danger">(*)</strong> </label>
                             <input class="form-control @error('piece_identite') is-invalid @enderror" type="file"
                                 id="piece_identite" name="piece_identite" accept=".pdf" />
 
@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="attestation_diplome_plus_eleve" class="form-label">Attestation de votre diplôme
-                                le plus élevé <strong class="text-danger">(*)</strong></label>
+                                le plus élevé en PDF <strong class="text-danger">(*)</strong></label>
                             <input class="form-control @error('attestation_diplome_plus_eleve') is-invalid @enderror"
                                 type="file" id="attestation_diplome_plus_eleve" name="attestation_diplome_plus_eleve"
                                 accept=".pdf" />
@@ -79,7 +79,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="releves_notes_diplome_plus_eleve" class="form-label">Relevé de notes de votre
-                                diplôme le plus élevé (optionnel)</label>
+                                diplôme le plus élevé en PDF (optionnel)</label>
                             <input class="form-control @error('releves_notes_diplome_plus_eleve') is-invalid @enderror "
                                 type="file" id="releves_notes_diplome_plus_eleve"
                                 name="releves_notes_diplome_plus_eleve" accept=".pdf" />
@@ -90,7 +90,9 @@
                                 </span>
                             @enderror
 
-                            @if (!empty($donnees_informations_detaillees) && array_key_exists("releves_notes_diplome_plus_eleve",$donnees_informations_detaillees))
+                            @if (
+                                !empty($donnees_informations_detaillees) &&
+                                    array_key_exists('releves_notes_diplome_plus_eleve', $donnees_informations_detaillees))
                                 <div class="mt-3" style="font-size: 10px">
 
                                     <span class="alert alert-light">
@@ -125,16 +127,16 @@
                                 @endphp
 
                                 @forelse ($all_services_actifs as $service)
-
-                               
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="service_inscription"
-                                        id="service_inscription_{{ $compteur_service }}" value="{{ $service->id }}"
-                                        {{ $service_inscription == $service->id ? 'checked' : '' }} />
-                                    <label class="form-check-label" for="service_inscription_{{ $compteur_service++ }}">
-                                        {{  $service->nom_service }}
-                                    </label>
-                                </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input radio_service_inscription" type="radio" name="service_inscription"
+                                            id="service_inscription_{{ $compteur_service }}"
+                                            value="{{ $service->id }}"
+                                            {{ $service_inscription == $service->id ? 'checked' : '' }} />
+                                        <label class="form-check-label"
+                                            for="service_inscription_{{ $compteur_service++ }}">
+                                            {{ $service->nom_service }}
+                                        </label>
+                                    </div>
 
                                 @empty
                                     <p class="alert alert-info p-2 text-center">Aucun service actif pour le moment.</p>
@@ -170,18 +172,46 @@
 
                         <div class="col-12 form-group-sm mt-3">
                             <label for="pays_service">Pays de destination (*)</label>
-                            {{-- <select name="pays_service" id="pays_service" class="from-control form-select show-tick @error('pays_service') is-invalid @enderror">
-                                <option value="">Sélectionner une option</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Roumanie">Roumanie</option>
-                            </select> --}}
+                            @php
+                                    $pays_service = old('pays_service');
 
-                            <p class="alert alert-info">
+                                    if (!$pays_service) {
+                                        if (!empty($donnees_informations_detaillees) && array_key_exists('pays_service', $donnees_informations_detaillees)) {
+                                            $pays_service = $donnees_informations_detaillees['pays_service'];
+                                        }
+                                    }
+
+                                    $list_pays_service = [];
+
+                                    if( session()->has("list_pays_service")){
+
+                                        $list_pays_service =  session()->get("list_pays_service");
+                                    }
+                                    else {
+                                       $list_pays_service = $list_pays;//Liste de tous les pays
+                                    }
+
+                                @endphp
+
+                            <select name="pays_service" id="pays_service"
+                                class="from-control form-select show-tick @error('pays_service') is-invalid @enderror">
+                                <option value="">Sélectionner une option</option>
+                                
+
+                                @forelse ($list_pays_service as $pays)
+                                    <option value="{{ $pays->pays_name }}"
+                                        {{ $pays_service == $pays->pays_name ? 'selected' : '' }}>
+                                        {{ $pays->pays_name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            {{-- <p class="alert alert-info">
                                 <strong>Conseil et Assistance de voyage</strong>, le pays de destination est
                                 <strong>CANADA</strong> <br>
                                 <strong>Intermédiation de recrutement</strong>, le pays de destination est
                                 <strong>ROUMANIE</strong>
-                            </p>
+                            </p> --}}
                         </div>
 
 
