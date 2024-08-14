@@ -131,16 +131,16 @@
     <!-- cta-section -->
     <section class="cta-section p_relative pb_120">
         <div class="auto-container">
-            <div class="inner-container p_relative d_block theme-color-bg b_radius_10 pt_85 pb_75 pl_60 clearfix">
+            <div class="inner-container p_relative d_block bg-color-logo b_radius_10 pt_85 pb_75 pl_60 clearfix">
                 <div class="pattern-layer p_absolute l_0 t_0"
                     style="background-image: url(assets/images/shape/shape-4.png);"></div>
                 <figure class="image-box p_absolute t_0 r_0"><img src="assets/images/resource/cta-1.jpg" alt="">
                 </figure>
                 <div class="text pull-left">
-                    <h2 class="d_block fw_exbold color-white">Are you Looking for Visa <br />Consultation?</h2>
+                    <h2 class="d_block fw_exbold color-white">Vous avez un projet de voyage ou avez besoin d'une assistance ?</h2>
                 </div>
                 <div class="btn-box pull-right mt_5">
-                    <a href="index.html" class="theme-btn">book appointment</a>
+                    <a href="{{ route("inscription") }}" class="theme-btn">Inscrivez-vous pour l'un de nos services</a>
                 </div>
             </div>
         </div>
