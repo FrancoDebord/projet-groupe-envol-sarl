@@ -52,7 +52,7 @@
                         Le rapport de votre étude de dossier vous sera adressé par email au bout de sept (7) jours calendaires à 
                         compter de la date d’inscription pour étude de dossier.
                         
-                        Si votre dossier est classé <i>positif et prêt</i>, vous disposez d’au plus soixante (60) jours 
+                        Si votre dossier est classé <i>positif et prêt</i>, vous disposez d’au plus trente (30) jours 
                         calendaires pour payer au moins les 2/3 des frais de procédures et des honoraires. 
                         Le 1/3 restant doit être soldé à la banque avant la collecte de vos données biométriques. 
                     </p>

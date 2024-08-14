@@ -496,6 +496,8 @@
                     <input type="tel" name="telephone_client" id="telephone_client"
                         class="form-control @error('telephone_client') is-invalid @enderror"
                         value="{{ $telephone_client }}" />
+                        
+                        <input type="hidden" name="full_number_intl" id="full_number_intl"/>
 
                     @error('telephone_client')
                         <span class="invalid-feedback" role="alert">

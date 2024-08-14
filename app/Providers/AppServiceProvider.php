@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
     {
         
 
-        // $all_services = Service::all();
+        $all_services = Service::all();
 
-        // view()->share("all_services",$all_services);
+        view()->share("all_services",$all_services);
     }
 }

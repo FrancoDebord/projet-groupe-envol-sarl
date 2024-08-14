@@ -107,13 +107,13 @@
                                 <li><a href="{{ route("accueil") }}">Accueil</a></li> 
                                 <li class="dropdown"><a href="#">Qui sommes-nous ?</a>
                                     <ul>
-                                        <li><a href="#">A propos de Groupe Envol SARL</a></li>
-                                        <li><a href="#">Notre Equipe</a></li>
+                                        <li><a href="{{ route("afficherPageAboutUs") }}">A propos de Groupe Envol SARL</a></li>
+                                        <li><a href="{{ route("afficherPageTeam") }}">Notre Equipe</a></li>
                                         <li><a href="#">FAQ’s</a></li>
                                        
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">NOS SERVICES</a>
+                                <li class="dropdown"><a href="{{ route("afficherPageService") }}">NOS SERVICES</a>
                                     <ul>
 
                                         @forelse ($all_services as $service)

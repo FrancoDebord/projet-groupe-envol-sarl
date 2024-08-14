@@ -6,11 +6,28 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="app_url" content="{{\Request::getSchemeAndHttpHost(); }}/" />
+<meta name="app_url" content="{{\Request::getSchemeAndHttpHost(); }}/public/" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 <title>
     @yield('title',"Groupe Envol --Accueil")
 </title>
+
+<meta name="description" content="Le site officiel de Groupe Envol Sarl spécialisé dans l'assistance voyage, l'intermédiation de recrutement aussi bien au pays qu'à l'international et bien d'autres services.">
+   
+<meta name="keywords" content="Groupe Envol SARL, Envol Bénin, Envol Benin, Envol SARL, Assistance voyage, assurance voyage, intermédiation de recrutement, recrutement, bourse d'étude et de formation, bourse, Visa étudiant, Visa travailleur, Visa Visiteur, Travailler au canada, Travailler en Roumanie, Visiter le canada, visiter d'autres pays, étudier au canada, Négoces, Vente de billet d'avion"/>
+<meta name="author" content="Groupe Envol SARL" >
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.groupeenvol.org/" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Groupe Envol SARL --Accueil" />
+<meta property="og:description" content="Le site officiel de Groupe Envol Sarl spécialisé dans l'assistance voyage, l'intermédiation de recrutement aussi bien au pays qu'à l'international et bien d'autres services. " />
+<meta property="og:url" content="https://www.groupeenvol.org/" />
+<meta property="og:site_name" content="Groupe Envol SARL --Accueil" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Le site officiel de Groupe Envol Sarl spécialisé dans l'assistance voyage, l'intermédiation de recrutement aussi bien au pays qu'à l'international et bien d'autres services. " />
+<meta name="twitter:title" content="Groupe Envol SARL --Accueil" />
+
 
 <!-- Fav Icon -->
 <link rel="icon" href="{{ asset("storage/assets_vendor/images/favicon.ico")}}" type="image/x-icon">
