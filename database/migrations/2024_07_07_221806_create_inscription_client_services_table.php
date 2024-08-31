@@ -26,6 +26,8 @@ return new class extends Migration
             $table->enum("statut_paiement",["payé","remboursé","non effectué","en cours"])->nullable();
             $table->bigInteger("kkiapay_transaction_id")->index();
             $table->bigInteger("kkiapay_external_transaction_id");
+            $table->float("montant_paye")->default(0);
+            $table->float("montant_plus_frais")->default(0);
             $table->string("service_souscrit")->nullable();;
             $table->integer("service_id")->index();
             $table->string("statut_dossier");

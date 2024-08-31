@@ -21,3 +21,4 @@ Route::get('/team-member/{id}-{slug}', [FrontendController::class,"afficherPageT
 Route::get('/our-services', [FrontendController::class,"afficherPageService"])->name("afficherPageService");
 
 require __DIR__.'/requete_ajax_frontend.php';
+require __DIR__.'/route_admin.php';

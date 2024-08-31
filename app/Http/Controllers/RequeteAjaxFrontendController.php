@@ -513,6 +513,8 @@ class RequeteAjaxFrontendController extends Controller
                         "statut_paiement" => "payé",
                         "kkiapay_transaction_id" => $transaction_id,
                         "kkiapay_external_transaction_id" => $return_check->externalTransactionId,
+                        "montant_paye" => $return_check->amount,
+                        "montant_plus_frais" => $return_check->amount+$return_check->fees,
                         "statut_dossier" => "en cours d'étude",
                     ]);
 
