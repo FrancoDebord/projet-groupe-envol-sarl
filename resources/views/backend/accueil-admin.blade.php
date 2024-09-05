@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="col-xxl-3 col-lg-6">
+        <div class="col-xxl-3 col-lg-6">
             <div class="card h-100 radius-8 border-0">
                 <div class="card-body p-24">
                     <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
@@ -175,8 +175,8 @@
 
                 </div>
             </div>
-        </div> --}}
-        <div class="col-xxl-9 col-lg-6">
+        </div>
+        <div class="col-xxl-12 col-lg-12">
             <div class="card h-100">
                 <div class="card-body p-24">
                     <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
@@ -191,16 +191,51 @@
                         <table class="table bordered-table mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col">Users</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Items</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Amount</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Code Inscription</th>
+                                    <th scope="col">Client</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col">Pays</th>
+                                    <th scope="col">Date Inscription</th>
+                                    <th scope="col">Montant</th>
                                     <th scope="col" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+
+                                @forelse ($all_clients_inscription as $inscription_client)
+                                    <tr>
+                                        <td>
+                                            <a href="{{ route("afficherDetailInscriptionPage",["inscription_code"=>$inscription_client->code_inscription]) }}" class="btn btn-outline-warning ">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Voir Détails
+                                            </a>
+                                        </td>
+                                        <td>{{  $inscription_client->code_inscription}}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/assets_backend/images/users/user2.png') }}"
+                                            alt="" class="flex-shrink-0 me-12 radius-8">
+                                        <span class="text-lg text-secondary-light fw-semibold flex-grow-1">
+                                            {{  $inscription_client->clientServiceConcerne->nom_client." ".$inscription_client->clientServiceConcerne->prenom_client}}
+                                        </span>
+                                           
+                                        </td>
+                                        <td>{{  $inscription_client->service_souscrit}}</td>
+                                        <td>{{  $inscription_client->pays_destination}}</td>
+                                        <td>{{  date("d/m/Y",strtotime($inscription_client->date_inscription)) }}</td>
+                                        <td>{{  number_format($inscription_client->montant_paye)}}</td>
+                                        <td>
+                                            <span
+                                            class="bg-warning-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">
+                                            {{  ucfirst($inscription_client->statut_paiement)}}
+                                        </span>
+                                           
+                                        </td>
+                                    </tr>
+                                @empty
+                                    
+                                @endforelse
+                                {{-- <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <img src="{{ asset('storage/assets_backend/images/users/user1.png') }}"
@@ -284,14 +319,14 @@
                                     <td class="text-center"> <span
                                             class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">Canceled</span>
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-3">
+        {{-- <div class="col-xxl-3">
             <div class="card h-100">
 
                 <div class="card-body">
@@ -383,8 +418,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xxl-4">
+        </div> --}}
+        {{-- <div class="col-xxl-4">
             <div class="card h-100 radius-8 border">
                 <div class="card-body p-24">
                     <h6 class="mb-12 fw-bold text-lg mb-0">Recent Orders</h6>
@@ -851,6 +886,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

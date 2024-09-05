@@ -10,6 +10,23 @@
     <title>
         @yield('title', 'Accueil Admin')
     </title>
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"> --}}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Groupe Envol Admin" />
+    <meta name="app_url" content="{{\Request::getSchemeAndHttpHost(); }}/" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
     <link rel="icon" type="image/png" href="{{ asset('storage/assets_backend/images/favicon.png') }}" sizes="16x16">
     <!-- remix icon font css  -->
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/remixicon.css') }}">
@@ -19,6 +36,7 @@
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/lib/apexcharts.css') }}">
     <!-- Data Table css -->
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/lib/dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets_backend/fontawesome-5/css/all.min.css') }}">
     <!-- Text Editor css -->
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/lib/editor-katex.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/lib/editor.atom-one-dark.min.css') }}">
@@ -73,9 +91,10 @@
     <!-- Bootstrap js -->
     <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.bundle.min.js') }}"></script>
     <!-- Apex Chart js -->
-    <!-- <script src="{{ asset('storage/assets_backend/js/lib/apexcharts.min.js') }}"></script> -->
+    <script src="{{ asset('storage/assets_backend/js/lib/apexcharts.min.js') }}"></script> 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Data Table js -->
+    <script src="{{ asset('storage/assets_backend/fontawesome-5/js/all.min.js') }}"></script>
     <script src="{{ asset('storage/assets_backend/js/lib/dataTables.min.js') }}"></script>
     <!-- Iconify Font js -->
     <script src="{{ asset('storage/assets_backend/js/lib/iconify-icon.min.js') }}"></script>
@@ -99,6 +118,8 @@
     <script src="{{ asset('storage/assets_backend/js/app.js') }}"></script>
 
     <script src="{{ asset('storage/assets_backend/js/homeThreeChart.js') }}"></script>
+
+    <script src="{{ asset("storage/assets_backend/js_custom/javascript_admin_accueil.js") }}"></script>
 
 </body>
 

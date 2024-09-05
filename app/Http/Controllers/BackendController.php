@@ -29,7 +29,7 @@ class BackendController extends Controller
 
             
             $all_clients = ClientService::all();
-            $all_clients_inscription = InscriptionClientService::all();
+            $all_clients_inscription = InscriptionClientService::with(["clientServiceConcerne"])->get();
             $all_services = Service::all();
             $all_users = User::all();
 
@@ -45,6 +45,21 @@ class BackendController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
 
+            dd($th);
+        }
+    }
+
+
+    public function afficherDetailInscriptionPage($inscription_code, Request $request){
+
+        try {
+            
+            $infos_souscription = InscriptionClientService::with(["clientServiceConcerne","consentementSigne","noteInformationLue"])->where("code_inscription",$inscription_code)->first();
+
+
+            return view("backend.detail-inscription-admin",compact("infos_souscription"));
+        } catch (\Throwable $th) {
+            
             dd($th);
         }
     }
