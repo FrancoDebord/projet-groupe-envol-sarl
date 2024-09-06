@@ -7,7 +7,7 @@
                 <h5 class="modal-title fs-5 " id="modal_visualiser_document_label" style="color: white">View
                     Document Content
                 </h5>
-                <button type="button" class="btn-close close-modal fa fa-close" data-bs-dismiss="modal"
+                <button type="button" class="btn-close close-modal " data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -3,7 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ImpressionDocumentPDFController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 

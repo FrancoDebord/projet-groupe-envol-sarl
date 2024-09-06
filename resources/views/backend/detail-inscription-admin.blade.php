@@ -63,7 +63,7 @@
                             <td>{{ $infos_souscription->pays_destination }}</td>
                             <td>
                                 <span
-                                    class="badge p-2 {{ $infos_souscription->statut_paiement == 'payé' ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->statut_paiement }}</span>
+                                    class="badge p-2 {{ $infos_souscription->statut_paiement == 'payé' ? 'bg-success' : 'bg-danger' }}">{{ Str::ucfirst($infos_souscription->statut_paiement) }}</span>
                             </td>
                             <td>{{ $infos_souscription->statut_dossier }}</td>
                             {{-- <td>
@@ -234,7 +234,7 @@
                             <th>Etat paiement</th>
                             <td>
                                 <span
-                                    class="badge p-2 {{ $infos_souscription->statut_paiement == 'payé' ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->statut_paiement }}</span>
+                                    class="badge p-2 {{ $infos_souscription->statut_paiement == 'payé' ? 'bg-success' : 'bg-danger' }}">{{ ucfirst($infos_souscription->statut_paiement )}}</span>
                             </td>
                         </tr>
 
