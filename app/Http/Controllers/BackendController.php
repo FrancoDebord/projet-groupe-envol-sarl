@@ -56,8 +56,24 @@ class BackendController extends Controller
             
             $infos_souscription = InscriptionClientService::with(["clientServiceConcerne","consentementSigne","noteInformationLue"])->where("code_inscription",$inscription_code)->first();
 
+            $infos_transaction = null;
 
-            return view("backend.detail-inscription-admin",compact("infos_souscription"));
+            if($infos_souscription){
+
+                $kkiapay = new \Kkiapay\Kkiapay(
+                    "182ba73163b255f793b8153eade717bb90a587e6",
+                    "pk_6dd6e3cba14c4d0a9895a0836c92fab3c3fc2a4a4040808ca21298307d0ceeb7",
+                    "sk_df5be710d1b26da8b67450b06c109952a6096ef355e9a7f71242a6cca9a75c23"
+                    // $sandbox = true
+                );
+
+                $infos_transaction =  $kkiapay->verifyTransaction($infos_souscription->kkiapay_transaction_id);
+
+            }
+         
+
+
+            return view("backend.detail-inscription-admin",compact("infos_souscription","infos_transaction"));
         } catch (\Throwable $th) {
             
             dd($th);

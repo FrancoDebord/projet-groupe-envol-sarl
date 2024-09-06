@@ -27,7 +27,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-    <link rel="icon" type="image/png" href="{{ asset('storage/assets_backend/images/favicon.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ asset('storage/assets/logo/logo_envol_petit.png') }}" sizes="16x16">
     <!-- remix icon font css  -->
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/remixicon.css') }}">
     <!-- BootStrap css -->
@@ -89,7 +89,8 @@
     <!-- jQuery library js -->
     <script src="{{ asset('storage/assets_backend/js/lib/jquery-3.7.1.min.js') }}"></script>
     <!-- Bootstrap js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.min.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.bundle.min.js') }}"></script> --}}
     <!-- Apex Chart js -->
     <script src="{{ asset('storage/assets_backend/js/lib/apexcharts.min.js') }}"></script> 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
