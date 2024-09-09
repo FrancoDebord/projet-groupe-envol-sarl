@@ -1,42 +1,82 @@
    <!-- main header -->
    <header class="main-header">
-    <div class="auto-container">
-        <!-- header-top -->
-        <div class="header-top">
-            <div class="top-inner clearfix">
-                <div class="left-column pull-left">
-                    <ul class="info-list clearfix">
-                        <li><i class="fas fa-phone-square"></i><a href="tel:+22951874777">+229 51 87 47 77</a></li>
-                        <li><i class="fas fa-envelope"></i><a href="mailto:info@groupeenvol.org">info@groupeenvol.org</a></li>
-                    </ul>
-                </div>
-                <div class="right-column pull-right">
-                    <ul class="social-links clearfix">
-                        <li><a href="#"><i class="fab fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fab fa-instagram"></i></a></li>
-                    </ul>
-                    {{-- <div class="btn-box"><a href="#">Book Appointment</a></div> --}}
-                </div>
-            </div>
-        </div>
-        <!-- header-lower -->
-        <div class="header-lower">
-            <div class="outer-box clearfix">
-                <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="{{ asset("storage/assets/logo/Logo-site1.jpg")}}" alt=""></a></figure>
-                </div>
-                <div class="menu-area clearfix">
-                    <!--Mobile Navigation Toggler-->
-                    <div class="mobile-nav-toggler">
-                        <i class="icon-bar"></i>
-                        <i class="icon-bar"></i>
-                        <i class="icon-bar"></i>
-                    </div>
-                    <nav class="main-menu navbar-expand-md navbar-light">
-                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            {{-- <ul class="navigation clearfix">
+       <div class="auto-container">
+           <!-- header-top -->
+           <div class="header-top">
+               <div class="top-inner clearfix">
+                   <div class="left-column pull-left">
+                       <ul class="info-list clearfix">
+                           <li><i class="fas fa-phone-square"></i><a href="tel:+22951874777">+229 51 87 47 77</a></li>
+                           <li><i class="fas fa-envelope"></i><a
+                                   href="mailto:info@groupeenvol.org">info@groupeenvol.org</a></li>
+                           <li>
+                               @guest
+                                   <a href="{{ route('login') }}">
+                                       <i class="fa fa-sign-in-alt">&nbsp;</i>
+                                       Se connecter
+                                   </a>
+                               @endguest
+
+                               @auth
+                                   <a href="#" onclick="document.getElementById('logout-form').submit()">
+                                       <i class="fa fa-sign-out-alt">&nbsp;</i>
+                                       Se déconnecter ({{  Auth::user()->name}})
+                                   </a>
+
+                                   <form method="POST" action="{{ route('logout', ['return_url' => route('accueil')]) }}"
+                                       id="logout-form" style="display: none;">
+                                       @csrf
+
+                                   </form>
+
+                               @endauth
+                           </li>
+
+                           @auth
+
+                           @php
+                            //    dd(Auth::user()->type_user);
+                           @endphp
+                               @if (Auth::user()->type_user != 'client')
+                                   <li>
+                                       <a href="{{ route('accueilAdminPage') }}">
+                                           <i class="fa fa-lock-alt">&nbsp;</i>
+                                           Backend
+                                       </a>
+                                   </li>
+                               @endif
+
+                           @endauth
+                       </ul>
+                   </div>
+                   <div class="right-column pull-right">
+                       <ul class="social-links clearfix">
+                           <li><a href="#"><i class="fab fab fa-twitter"></i></a></li>
+                           <li><a href="#"><i class="fab fab fa-facebook-f"></i></a></li>
+                           <li><a href="#"><i class="fab fab fa-dribbble"></i></a></li>
+                           <li><a href="#"><i class="fab fab fa-instagram"></i></a></li>
+                       </ul>
+                       {{-- <div class="btn-box"><a href="#">Book Appointment</a></div> --}}
+                   </div>
+               </div>
+           </div>
+           <!-- header-lower -->
+           <div class="header-lower">
+               <div class="outer-box clearfix">
+                   <div class="logo-box">
+                       <figure class="logo"><a href="index.html"><img
+                                   src="{{ asset('storage/assets/logo/Logo-site1.jpg') }}" alt=""></a></figure>
+                   </div>
+                   <div class="menu-area clearfix">
+                       <!--Mobile Navigation Toggler-->
+                       <div class="mobile-nav-toggler">
+                           <i class="icon-bar"></i>
+                           <i class="icon-bar"></i>
+                           <i class="icon-bar"></i>
+                       </div>
+                       <nav class="main-menu navbar-expand-md navbar-light">
+                           <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                               {{-- <ul class="navigation clearfix">
                                 <li class="current dropdown"><a href="index.html">Home</a>
                                     <ul>
                                         <li><a href="index.html">Home Page 01</a></li>
@@ -102,135 +142,142 @@
                                 </li>  
                                 <li><a href="contact.html">Contact</a></li> 
                             </ul> --}}
-                            <ul class="navigation clearfix">
+                               <ul class="navigation clearfix">
 
-                                <li><a href="{{ route("accueil") }}">Accueil</a></li> 
-                                <li class="dropdown"><a href="#">Qui sommes-nous ?</a>
-                                    <ul>
-                                        <li><a href="{{ route("afficherPageAboutUs") }}">A propos de Groupe Envol SARL</a></li>
-                                        <li><a href="{{ route("afficherPageTeam") }}">Notre Equipe</a></li>
-                                        <li><a href="#">FAQ’s</a></li>
-                                       
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="{{ route("afficherPageService") }}">NOS SERVICES</a>
-                                    <ul>
+                                   <li><a href="{{ route('accueil') }}">Accueil</a></li>
+                                   <li class="dropdown"><a href="#">Qui sommes-nous ?</a>
+                                       <ul>
+                                           <li><a href="{{ route('afficherPageAboutUs') }}">A propos de Groupe Envol
+                                                   SARL</a></li>
+                                           <li><a href="{{ route('afficherPageTeam') }}">Notre Equipe</a></li>
+                                           <li><a href="#">FAQ’s</a></li>
 
-                                        @forelse ($all_services as $service)
-                                            
-                                        <li><a href="#">{{ $service->nom_service }}</a></li>
-                                        @empty
-                                            
-                                        @endforelse
-                                        {{-- <li><a href="#">Conseils et assistance Visa-voyage</a></li>
+                                       </ul>
+                                   </li>
+                                   <li class="dropdown"><a href="{{ route('afficherPageService') }}">NOS SERVICES</a>
+                                       <ul>
+
+                                           @forelse ($all_services as $service)
+                                               <li><a href="#">{{ $service->nom_service }}</a></li>
+                                           @empty
+                                           @endforelse
+                                           {{-- <li><a href="#">Conseils et assistance Visa-voyage</a></li>
                                         <li><a href="#">Intermédiation de récrutement</a></li>
                                         <li><a href="#">Négoces</a></li>
                                         <li><a href="#">Bourses d'étude et de formation</a></li>
                                         <li><a href="#">Vente de billet d'avion</a></li>
                                         <li><a href="#">Assurance de voyage</a></li> --}}
-                                    </ul>
-                                </li> 
+                                       </ul>
+                                   </li>
 
-                                @guest
-                                <li><a href="{{ route("inscription") }}">Inscription / Connexion</a></li>   
-                                @endguest
-                                
+                                   <li><a href="{{ route('inscription') }}">Inscription / Connexion</a></li>
 
-                                <li class="dropdown"><a href="#">PAYS</a>
-                                    <ul>
-                                        <li><a href="#">Tous les pays</a></li>
-                                        <li><a href="#">France</a></li>
-                                        <li><a href="#">Etats-Unis</a></li>
-                                        <li><a href="#">Canada</a></li>
-                                        <li><a href="#">Royaume Uni</a></li>
-                                      
-                                    </ul>
-                                </li>
-                                <li><a href="#">Contact</a></li>      
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="nav-right clearfix">
-                        <div class="search-box-outer">
-                            <div class="dropdown">
-                                <button class="search-box-btn" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-magnifying-glass"></i></button>
-                                <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
-                                    <div class="form-container">
-                                        <form method="post" action="#">
-                                            <div class="form-group">
-                                                <input type="search" name="search-field" value="" placeholder="Search...." required="">
-                                                <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!--sticky Header-->
-    <div class="sticky-header">
-        <div class="auto-container">
-            <div class="outer-box clearfix">
-                {{-- <div class="logo-box pull-left">
+                                   <li class="dropdown"><a href="#">PAYS</a>
+                                       <ul>
+                                           <li><a href="#">Tous les pays</a></li>
+                                           <li><a href="#">France</a></li>
+                                           <li><a href="#">Etats-Unis</a></li>
+                                           <li><a href="#">Canada</a></li>
+                                           <li><a href="#">Royaume Uni</a></li>
+
+                                       </ul>
+                                   </li>
+                                   <li><a href="#">Contact</a></li>
+                               </ul>
+                           </div>
+                       </nav>
+                       <div class="nav-right clearfix">
+                           <div class="search-box-outer">
+                               <div class="dropdown">
+                                   <button class="search-box-btn" type="button" id="dropdownMenu3"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                           class="flaticon-magnifying-glass"></i></button>
+                                   <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
+                                       <div class="form-container">
+                                           <form method="post" action="#">
+                                               <div class="form-group">
+                                                   <input type="search" name="search-field" value=""
+                                                       placeholder="Search...." required="">
+                                                   <button type="submit" class="search-btn"><span
+                                                           class="fas fa-search"></span></button>
+                                               </div>
+                                           </form>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!--sticky Header-->
+       <div class="sticky-header">
+           <div class="auto-container">
+               <div class="outer-box clearfix">
+                   {{-- <div class="logo-box pull-left">
                     <figure class="logo"><a href="#"><img src="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" alt=""></a></figure>
                 </div> --}}
-                <div class="menu-area clearfix pull-right">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
-                    <div class="nav-right clearfix">
-                        <div class="search-box-outer">
-                            <div class="dropdown">
-                                <button class="search-box-btn" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-magnifying-glass"></i></button>
-                                <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu4">
-                                    <div class="form-container">
-                                        <form method="post" action="#">
-                                            <div class="form-group">
-                                                <input type="search" name="search-field" value="" placeholder="Search...." required="">
-                                                <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- main-header end -->
+                   <div class="menu-area clearfix pull-right">
+                       <nav class="main-menu clearfix">
+                           <!--Keep This Empty / Menu will come through Javascript-->
+                       </nav>
+                       <div class="nav-right clearfix">
+                           <div class="search-box-outer">
+                               <div class="dropdown">
+                                   <button class="search-box-btn" type="button" id="dropdownMenu4"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                           class="flaticon-magnifying-glass"></i></button>
+                                   <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu4">
+                                       <div class="form-container">
+                                           <form method="post" action="#">
+                                               <div class="form-group">
+                                                   <input type="search" name="search-field" value=""
+                                                       placeholder="Search...." required="">
+                                                   <button type="submit" class="search-btn"><span
+                                                           class="fas fa-search"></span></button>
+                                               </div>
+                                           </form>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </header>
+   <!-- main-header end -->
 
-<!-- Mobile Menu  -->
-<div class="mobile-menu">
-    <div class="menu-backdrop"></div>
-    <div class="close-btn"><i class="fas fa-times"></i></div>
-    
-    <nav class="menu-box">
-        <div class="nav-logo"><a href="#"><img src="{{ asset("storage/assets/logo/Logo-site1.jpg")}}" alt="" title=""></a></div>
-        <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-        <div class="contact-info">
-            <h4>Contact Info</h4>
-            <ul>
-                <li>Siège social : Ilot 27897, A bis Tchinagbegbo</li>
-                <li><a href="tel:+22951874777">+229 51874777</a></li>
-                <li><a href="mailto:info@groupeenvol@org">info@groupeenvol@org</a></li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                <li><a href="#"><span class="fab fa-youtube"></span></a></li>
-            </ul>
-        </div>
-    </nav>
-</div><!-- End Mobile Menu -->
+   <!-- Mobile Menu  -->
+   <div class="mobile-menu">
+       <div class="menu-backdrop"></div>
+       <div class="close-btn"><i class="fas fa-times"></i></div>
+
+       <nav class="menu-box">
+           <div class="nav-logo"><a href="#"><img src="{{ asset('storage/assets/logo/Logo-site1.jpg') }}"
+                       alt="" title=""></a></div>
+           <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+           </div>
+           <div class="contact-info">
+               <h4>Contact Info</h4>
+               <ul>
+                   <li>Siège social : Ilot 27897, A bis Tchinagbegbo</li>
+                   <li><a href="tel:+22951874777">+229 51874777</a></li>
+                   <li><a href="mailto:info@groupeenvol@org">info@groupeenvol@org</a></li>
+               </ul>
+           </div>
+           <div class="social-links">
+               <ul class="clearfix">
+                   <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                   <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                   <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                   <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                   <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+               </ul>
+           </div>
+       </nav>
+   </div><!-- End Mobile Menu -->

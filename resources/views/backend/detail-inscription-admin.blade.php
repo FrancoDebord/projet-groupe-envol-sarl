@@ -21,7 +21,21 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 table-responsive">
+        <div class="col-12 mt-2">
+
+            <p class="alert alert-info p-3">
+                <i class="fa fa-info-circle">&nbsp;</i>
+                L'état de ce dossier est actuellement sur : <strong class="text-success">{{ Str::upper($infos_souscription->statut_dossier) }}</strong>
+                <span class="float-lg-right ">
+                    <a href="{{ route("updateStateOfDossier",["inscription_code"=>$infos_souscription->code_inscription]) }}" class="btn btn-outline-danger-500 " >
+                        <i class="fa fa-pencil-alt">&nbsp;</i>
+                        Modifier l'état du dossier
+                    </a>
+                </span>
+            </p>
+        </div>
+
+        <div class="col-12 table-responsive mt-3">
             <table class="table table-bordered table-striped table-condensed">
                 <thead>
                     <tr>

@@ -44,48 +44,61 @@
 <section class="auth bg-base d-flex flex-wrap">  
     <div class="auth-left d-lg-block d-none">
         <div class="d-flex align-items-center flex-column h-100 justify-content-center">
-            <img src="{{ asset("storage/assets_backend/images/auth/auth-img.png")}}" alt="">
+            <img src="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" alt="">
         </div>
     </div>
     <div class="auth-right py-32 px-24 d-flex flex-column justify-content-center">
         <div class="max-w-464-px mx-auto w-100">
             <div>
-                <a href="index.html" class="mb-40 max-w-290-px">
+                {{-- <a href="index.html" class="mb-40 max-w-290-px">
                     <img src="{{ asset("storage/assets_backend/images/logo.png")}}" alt="">
-                </a>
+                </a> --}}
                 <h4 class="mb-12">Connectez-vous à votre compte</h4>
-                <p class="mb-32 text-secondary-light text-lg">Bienvenue! Veuillez</p>
+                <p class="mb-32 text-secondary-light text-lg">Bienvenue! Veuillez entrer vos informations de connexion</p>
             </div>
-            <form action="#">
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="icon-field mb-16">
                     <span class="icon top-50 translate-middle-y">
                         <iconify-icon icon="mage:email"></iconify-icon>
                     </span>
-                    <input type="email" class="form-control h-56-px bg-neutral-50 radius-12" placeholder="Email">
+                    <input type="email" class="form-control h-56-px bg-neutral-50 radius-12 @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
                 <div class="position-relative mb-20">
                     <div class="icon-field">
                         <span class="icon top-50 translate-middle-y">
                             <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
                         </span> 
-                        <input type="password" class="form-control h-56-px bg-neutral-50 radius-12" id="your-password" placeholder="Password">
+                        <input type="password" class="form-control h-56-px bg-neutral-50 radius-12 @error('password') is-invalid @enderror" id="your-password" placeholder="Password" name="password" required autocomplete="current-password"/>
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     <span class="toggle-password ri-eye-line cursor-pointer position-absolute end-0 top-50 translate-middle-y me-16 text-secondary-light" data-toggle="#your-password"></span>
                 </div>
                 <div class="">
                     <div class="d-flex justify-content-between gap-2">
                         <div class="form-check style-check d-flex align-items-center">
-                            <input class="form-check-input border border-neutral-300" type="checkbox" value="" id="remeber">
-                            <label class="form-check-label" for="remeber">Remember me </label>
+                            <input class="form-check-input border border-neutral-300" type="checkbox" value="" id="remember" name="remember"  {{ old('remember') ? 'checked' : ''}}>
+                            <label class="form-check-label" for="remeber">Se souvenir de moi </label>
                         </div>
-                        <a href="javascript:void(0)" class="text-primary-600 fw-medium">Forgot Password?</a>
+                        <a href="{{ route("password.request") }}" class="text-primary-600 fw-medium">Mot de passe oublié ?</a>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary text-sm btn-sm px-12 py-16 w-100 radius-12 mt-32"> Sign In</button>
+                <button type="submit" class="btn btn-danger text-sm btn-sm px-12 py-16 w-100 radius-12 mt-32"> Se connecter</button>
 
-                <div class="mt-32 center-border-horizontal text-center">
-                    <span class="bg-base z-1 px-4">Or sign in with</span>
+                {{-- <div class="mt-32 center-border-horizontal text-center">
+                    <span class="bg-base z-1 px-4">Ou Se connecter avec</span>
                 </div>
                 <div class="mt-32 d-flex align-items-center gap-3">
                     <button type="button" class="fw-semibold text-primary-light py-16 px-24 w-50 border radius-12 text-md d-flex align-items-center justify-content-center gap-12 line-height-1 bg-hover-primary-50"> 
@@ -96,9 +109,9 @@
                         <iconify-icon icon="logos:google-icon" class="text-primary-600 text-xl line-height-1"></iconify-icon>
                         Google
                     </button>
-                </div>
+                </div> --}}
                 <div class="mt-32 text-center text-sm">
-                    <p class="mb-0">Don’t have an account? <a href="sign-up.html" class="text-primary-600 fw-semibold">Sign Up</a></p>
+                    <p class="mb-0">Vous n'avez pas compte ? <a href="{{ route("register") }}" class="text-primary-600 fw-semibold">Créez-en un</a></p>
                 </div>
                 
             </form>

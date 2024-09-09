@@ -1,19 +1,19 @@
 @extends('backend.index-admin')
 
 @section('breadcrumb')
-<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-    <h6 class="fw-semibold mb-0">Dashboard</h6>
-    <ul class="d-flex align-items-center gap-2">
-        <li class="fw-medium">
-            <a href="#" class="d-flex align-items-center gap-1 hover-text-primary">
-                <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
-                Dashboard
-            </a>
-        </li>
-        <li>-</li>
-        <li class="fw-medium">Accueil</li>
-    </ul>
-</div>
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+        <h6 class="fw-semibold mb-0">Dashboard</h6>
+        <ul class="d-flex align-items-center gap-2">
+            <li class="fw-medium">
+                <a href="#" class="d-flex align-items-center gap-1 hover-text-primary">
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                    Dashboard
+                </a>
+            </li>
+            <li>-</li>
+            <li class="fw-medium">Accueil</li>
+        </ul>
+    </div>
 @endsection
 
 @section('content')
@@ -38,7 +38,8 @@
                                 <li class="d-flex align-items-center gap-2">
                                     <span class="w-12-px h-12-px radius-2 bg-primary-600"></span>
                                     <span class="text-secondary-light text-sm fw-semibold">Revenus:
-                                        <span class="text-primary-light fw-bold">{{ number_format($total_revenus,2) }} FCFA</span>
+                                        <span class="text-primary-light fw-bold">{{ number_format($total_revenus, 2) }}
+                                            FCFA</span>
                                     </span>
                                 </li>
                                 <li class="d-flex align-items-center gap-2">
@@ -83,8 +84,10 @@
                                                 <iconify-icon icon="flowbite:users-group-solid"
                                                     class="icon"></iconify-icon>
                                             </span>
-                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total Inscription</span>
-                                            <h6 class="fw-semibold text-primary-light mb-1">{{ $all_clients_inscription->count() }}</h6>
+                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total
+                                                Inscription</span>
+                                            <h6 class="fw-semibold text-primary-light mb-1">
+                                                {{ $all_clients_inscription->count() }}</h6>
                                         </div>
                                     </div>
                                     {{-- <p class="text-sm mb-0">Increase by <span
@@ -102,8 +105,10 @@
                                                 <iconify-icon icon="majesticons:shopping-cart"
                                                     class="icon"></iconify-icon>
                                             </span>
-                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total Services offerts</span>
-                                            <h6 class="fw-semibold text-primary-light mb-1">{{ $all_services->count() }}</h6>
+                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total Services
+                                                offerts</span>
+                                            <h6 class="fw-semibold text-primary-light mb-1">{{ $all_services->count() }}
+                                            </h6>
                                         </div>
                                     </div>
                                     {{-- <p class="text-sm mb-0">Increase by <span
@@ -120,7 +125,8 @@
                                                 class="mb-12 w-44-px h-44-px text-pink bg-pink-light border border-pink-light-white flex-shrink-0 d-flex justify-content-center align-items-center radius-8 h6 mb-12">
                                                 <iconify-icon icon="ri:discount-percent-fill" class="icon"></iconify-icon>
                                             </span>
-                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total Utilisateurs</span>
+                                            <span class="mb-1 fw-medium text-secondary-light text-md">Total
+                                                Utilisateurs</span>
                                             <h6 class="fw-semibold text-primary-light mb-1">{{ $all_users->count() }}</h6>
                                         </div>
                                     </div>
@@ -181,24 +187,25 @@
                 <div class="card-body p-24">
                     <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
                         <h6 class="mb-2 fw-bold text-lg mb-0">Inscriptions récentes</h6>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('afficherPageAllInscription') }}"
                             class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
-                            View All
+                            Voir toutes les inscriptions
                             <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
                         </a>
                     </div>
                     <div class="table-responsive scroll-sm">
-                        <table class="table bordered-table mb-0">
+                        <table class="table bordered-table mb-0" style="font-size: .8em" id="list-inscriptions-table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Action</th>
-                                    <th scope="col">Code Inscription</th>
+                                    <th scope="col">Détails</th>
+                                    <th scope="col">Code</th>
                                     <th scope="col">Client</th>
                                     <th scope="col">Service</th>
                                     <th scope="col">Pays</th>
-                                    <th scope="col">Date Inscription</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Montant</th>
                                     <th scope="col" class="text-center">Status</th>
+                                    <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -206,120 +213,42 @@
                                 @forelse ($all_clients_inscription as $inscription_client)
                                     <tr>
                                         <td>
-                                            <a href="{{ route("afficherDetailInscriptionPage",["inscription_code"=>$inscription_client->code_inscription]) }}" class="btn btn-outline-warning ">
+                                            <a href="{{ route('afficherDetailInscriptionPage', ['inscription_code' => $inscription_client->code_inscription]) }}"
+                                                class="btn btn-outline-warning ">
                                                 <i class="fa fa-eye">&nbsp;</i>
-                                                Voir Détails
+                                                Voir
                                             </a>
                                         </td>
-                                        <td>{{  $inscription_client->code_inscription}}</td>
+                                        <td>{{ $inscription_client->code_inscription }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/assets_backend/images/users/user2.png') }}"
-                                            alt="" class="flex-shrink-0 me-12 radius-8">
-                                        <span class="text-lg text-secondary-light fw-semibold flex-grow-1">
-                                            {{  $inscription_client->clientServiceConcerne->nom_client." ".$inscription_client->clientServiceConcerne->prenom_client}}
-                                        </span>
-                                           
+                                            {{-- <img src="{{ asset('storage/assets_backend/images/users/user2.png') }}"
+                                            alt="" class="flex-shrink-0 me-12 radius-8"> --}}
+                                            <span class="text-sm-left text-secondary-light flex-grow-1">
+                                                {{ $inscription_client->clientServiceConcerne->nom . ' ' . $inscription_client->clientServiceConcerne->prenom }}
+                                            </span>
+
                                         </td>
-                                        <td>{{  $inscription_client->service_souscrit}}</td>
-                                        <td>{{  $inscription_client->pays_destination}}</td>
-                                        <td>{{  date("d/m/Y",strtotime($inscription_client->date_inscription)) }}</td>
-                                        <td>{{  number_format($inscription_client->montant_paye)}}</td>
+                                        <td>{{ $inscription_client->service_souscrit }}</td>
+                                        <td>{{ $inscription_client->pays_destination }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($inscription_client->date_inscription)) }}</td>
+                                        <td>{{ number_format($inscription_client->montant_paye) }} FCFA</td>
                                         <td>
                                             <span
-                                            class="bg-warning-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">
-                                            {{  ucfirst($inscription_client->statut_paiement)}}
-                                        </span>
-                                           
+                                                class="bg-warning-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">
+                                                {{ ucfirst($inscription_client->statut_paiement) }}
+                                            </span>
+
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('updateStateOfDossier', ['inscription_code' => $inscription_client->code_inscription]) }}"
+                                                class="btn btn-outline-success-500">
+                                                <i class="fa fa-info-circle">&nbsp;</i>
+                                                Update
+                                            </a>
                                         </td>
                                     </tr>
                                 @empty
-                                    
                                 @endforelse
-                                {{-- <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/assets_backend/images/users/user1.png') }}"
-                                                alt="" class="flex-shrink-0 me-12 radius-8">
-                                            <span class="text-lg text-secondary-light fw-semibold flex-grow-1">Dianne
-                                                Russell</span>
-                                        </div>
-                                    </td>
-                                    <td>#6352148</td>
-                                    <td>iPhone 14 max</td>
-                                    <td>2</td>
-                                    <td>$5,000.00</td>
-                                    <td class="text-center"> <span
-                                            class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Paid</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/assets_backend/images/users/user2.png') }}"
-                                                alt="" class="flex-shrink-0 me-12 radius-8">
-                                            <span class="text-lg text-secondary-light fw-semibold flex-grow-1">Wade
-                                                Warren</span>
-                                        </div>
-                                    </td>
-                                    <td>#6352148</td>
-                                    <td>Laptop HPH </td>
-                                    <td>3</td>
-                                    <td>$1,000.00</td>
-                                    <td class="text-center"> <span
-                                            class="bg-warning-focus text-warning-main px-24 py-4 rounded-pill fw-medium text-sm">Pending</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/assets_backend/images/users/user3.png') }}"
-                                                alt="" class="flex-shrink-0 me-12 radius-8">
-                                            <span class="text-lg text-secondary-light fw-semibold flex-grow-1">Albert
-                                                Flores</span>
-                                        </div>
-                                    </td>
-                                    <td>#6352148</td>
-                                    <td>Smart Watch </td>
-                                    <td>7</td>
-                                    <td>$1,000.00</td>
-                                    <td class="text-center"> <span
-                                            class="bg-info-focus text-info-main px-24 py-4 rounded-pill fw-medium text-sm">Shipped</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/assets_backend/images/users/user4.png') }}"
-                                                alt="" class="flex-shrink-0 me-12 radius-8">
-                                            <span class="text-lg text-secondary-light fw-semibold flex-grow-1">Bessie
-                                                Cooper</span>
-                                        </div>
-                                    </td>
-                                    <td>#6352148</td>
-                                    <td>Nike Air Shoe</td>
-                                    <td>1</td>
-                                    <td>$3,000.00</td>
-                                    <td class="text-center"> <span
-                                            class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">Canceled</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/assets_backend/images/users/user5.png') }}"
-                                                alt="" class="flex-shrink-0 me-12 radius-8">
-                                            <span class="text-lg text-secondary-light fw-semibold flex-grow-1">Arlene
-                                                McCoy</span>
-                                        </div>
-                                    </td>
-                                    <td>#6352148</td>
-                                    <td>New Headphone </td>
-                                    <td>5</td>
-                                    <td>$4,000.00</td>
-                                    <td class="text-center"> <span
-                                            class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">Canceled</span>
-                                    </td>
-                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -888,4 +817,15 @@
             </div>
         </div> --}}
     </div>
+@endsection
+
+@section('js_vendor')
+     <!-- Apex Chart js -->
+     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <!-- Vector Map js -->
+    <script src="{{ asset('storage/assets_backend/js/lib/jquery-jvectormap-2.0.5.min.js') }}"></script>
+    <script src="{{ asset('storage/assets_backend/js/lib/jquery-jvectormap-world-mill-en.js') }}"></script>
+
+    <script src="{{ asset('storage/assets_backend/js/homeThreeChart.js') }}"></script>
+
 @endsection

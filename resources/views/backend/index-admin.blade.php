@@ -59,6 +59,8 @@
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/lib/audioplayer.css') }}">
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('storage/assets_backend/css/style.css') }}">
+
+    {{-- <link rel="stylesheet" href="{{ asset("storage/assets_backend/bootstrap-select/css/bootstrap-select.min.css") }}"/> --}}
 </head>
 
 <body>
@@ -71,6 +73,14 @@
 
 
         <div class="dashboard-main-body">
+
+            <div class="row mt-2">
+                <div class="col-12 col-sm-6 offset-sm-3 ">
+                    <p class="alert alert-light p-3 fs-5">
+                        Bonjour M./Mme <strong class="text-danger">{{ Auth::user()->name }}</strong>
+                    </p>
+                </div>
+            </div>
 
            @yield('breadcrumb')
             @yield('content')
@@ -90,10 +100,11 @@
     <script src="{{ asset('storage/assets_backend/js/lib/jquery-3.7.1.min.js') }}"></script>
     <!-- Bootstrap js -->
     <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.min.js') }}"></script>
-    {{-- <script src="{{ asset('storage/assets_backend/js/lib/bootstrap.bundle.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('storage/assets_backend/js/bootstrap-js/bootstrap.min.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/bootstrap-js/popper-utils.js') }}"></script> --}}
     <!-- Apex Chart js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/apexcharts.min.js') }}"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
     <!-- Data Table js -->
     <script src="{{ asset('storage/assets_backend/fontawesome-5/js/all.min.js') }}"></script>
     <script src="{{ asset('storage/assets_backend/js/lib/dataTables.min.js') }}"></script>
@@ -101,29 +112,32 @@
     <script src="{{ asset('storage/assets_backend/js/lib/iconify-icon.min.js') }}"></script>
     <!-- jQuery UI js -->
     <script src="{{ asset('storage/assets_backend/js/lib/jquery-ui.min.js') }}"></script>
-    <!-- Vector Map js -->
+    {{-- <!-- Vector Map js -->
     <script src="{{ asset('storage/assets_backend/js/lib/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script src="{{ asset('storage/assets_backend/js/lib/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('storage/assets_backend/js/lib/jquery-jvectormap-world-mill-en.js') }}"></script> --}}
     <!-- Popup js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/magnifc-popup.min.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/magnifc-popup.min.js') }}"></script> --}}
     <!-- Slick Slider js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/slick.min.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/slick.min.js') }}"></script> --}}
     <!-- prism js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/prism.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/prism.js') }}"></script> --}}
     <!-- file upload js -->
-    <script src="{{ asset('storage/assets_backend/js/lib/file-upload.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/file-upload.js') }}"></script>  --}}
     <!-- audioplayer -->
-    <script src="{{ asset('storage/assets_backend/js/lib/audioplayer.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/lib/audioplayer.js') }}"></script> --}}
+
+    @yield('js_vendor')
 
     <!-- main js -->
     <script src="{{ asset('storage/assets_backend/js/app.js') }}"></script>
 
-    <script src="{{ asset('storage/assets_backend/js/homeThreeChart.js') }}"></script>
+    {{-- <script src="{{ asset('storage/assets_backend/js/homeThreeChart.js') }}"></script> --}}
+
+ {{-- <script src="{{ asset("storage/assets_backend/bootstrap-select/js/bootstrap-select.min.js") }}"></script> --}}
 
     <script src="{{ asset("storage/assets_backend/js_custom/javascript_admin_accueil.js") }}"></script>
 
 </body>
 
-<!-- Mirrored from wowdash.wowtheme7.com/demo/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 12:12:20 GMT -->
 
 </html>

@@ -14,9 +14,16 @@
     <div class="sidebar-menu-area">
         <ul class="sidebar-menu" id="sidebar-menu">
             <li class="">
-                <a href="javascript:void(0)">
+                <a href="{{ route("accueilAdminPage") }}">
                     <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
                     <span>Dashboard</span>
+                </a>
+               
+            </li>
+            <li class="">
+                <a href="{{ route("afficherPageAllInscription") }}">
+                    <i class="fa fa-user-friends">&nbsp;</i>
+                    <span class="pb-2">Toutes les inscriptions</span>
                 </a>
                
             </li>
@@ -62,6 +69,18 @@
                                 class="ri-circle-fill circle-icon text-warning-main w-auto"></i> Assign Role</a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="">
+                <a href="#" class="nav-link"
+                onclick="document.getElementById('logout-form').submit()">Se déconnecter</a>
+
+                <form method="POST" action="{{ route('logout', ['return_url' => route('accueil')]) }}" id="logout-form"
+                    style="display: none;">
+                    @csrf
+                
+                </form>
+               
             </li>
         
         </ul>
