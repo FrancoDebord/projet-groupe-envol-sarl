@@ -21,7 +21,7 @@
                             <ul class="categories-list clearfix">
 
                                 @forelse ($all_services as $service)
-                                    <li><a href="/our-services/{{ $service->url_service }}" class="{{ $service->url_service == request()->segment(2)?"active":"" }}">{{ $service->nom_service }}<i
+                                    <li><a href="{{ route($service->url_service) }}" class="{{ $service->url_name == request()->segment(2)?"active":"" }}">{{ $service->nom_service }}<i
                                                 class="flaticon-right-arrow"></i></a></li>
                                 @empty
                                 @endforelse
