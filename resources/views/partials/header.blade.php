@@ -158,7 +158,7 @@
                                        <ul>
 
                                            @forelse ($all_services as $service)
-                                               <li><a href="#">{{ $service->nom_service }}</a></li>
+                                               <li><a href="/our-services/{{ $service->url_service  }}">{{ $service->nom_service }}</a></li>
                                            @empty
                                            @endforelse
                                            {{-- <li><a href="#">Conseils et assistance Visa-voyage</a></li>

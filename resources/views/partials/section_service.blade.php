@@ -15,9 +15,9 @@
                             <figure class="image-box p_relative d_block"><img src="{{ asset("storage/assets/services/education.jpg")}}" alt=""></figure>
                             <div class="lower-content p_relative d_block pt_25 pr_30 pb_30 pl_40">
                                 <div class="icon-box p_absolute r_20 w_100 h_100 lh_110 centred fs_65 bg-white theme-color b_radius_10 tran_5 z_2"><i class="flaticon-family"></i></div>
-                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="#" class="d_iblock black-color hov-color">Bourse d'étude et de formation</a></h3>
+                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="{{ route("afficherDetailServiceBourse") }}" class="d_iblock black-color hov-color">Bourse d'étude et de formation</a></h3>
                                 <p class="mb_15">Votre éducation est très importante pour nous. Nous cherchons des bourses d'étude et de formation pour vous.</p>
-                                <div class="link"><a href="#" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
+                                <div class="link"><a href="{{ route("afficherDetailServiceBourse") }}" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
                             </div>
                         </div>
                     </div>
@@ -28,9 +28,9 @@
                             <figure class="image-box p_relative d_block"><img src="{{ asset("storage/assets/services/billet_avion.jpg")}}" alt=""></figure>
                             <div class="lower-content p_relative d_block pt_25 pr_30 pb_30 pl_40">
                                 <div class="icon-box p_absolute r_20 w_100 h_100 lh_110 centred fs_65 bg-white theme-color b_radius_10 tran_5 z_2"><i class="flaticon-work-from-home"></i></div>
-                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="#" class="d_iblock black-color hov-color">Vente de billet d'avion</a></h3>
+                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="{{ route("afficherDetailServiceVenteBilletAvion") }}" class="d_iblock black-color hov-color">Vente de billet d'avion</a></h3>
                                 <p class="mb_15">Nous faisons les courses pour vous alléger votre voyage. Nous pouvons vous vendre les billets d'avion et vous l'apporter chez vous en toute tranquillité. </p>
-                                <div class="link"><a href="#" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
+                                <div class="link"><a href="{{ route("afficherDetailServiceVenteBilletAvion") }}" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
                             </div>
                         </div>
                     </div>
@@ -41,9 +41,9 @@
                             <figure class="image-box p_relative d_block"><img src="{{ asset("storage/assets/services/assurance_voyage.jpg")}}" alt=""></figure>
                             <div class="lower-content p_relative d_block pt_25 pr_30 pb_30 pl_40">
                                 <div class="icon-box p_absolute r_20 w_100 h_100 lh_110 centred fs_65 bg-white theme-color b_radius_10 tran_5 z_2"><i class="flaticon-travel"></i></div>
-                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="#" class="d_iblock black-color hov-color">Assurance voyage</a></h3>
+                                <h3 class="d_block fs_24 lh_30 mb_25"><a href="{{ route("afficherDetailServiceAssuranceVoyage") }}" class="d_iblock black-color hov-color">Assurance voyage</a></h3>
                                 <p class="mb_15">Nous sommes dans l'assurance des voyage. Nous assurons vos arrières pour vous permettre de profiter à fond de vos voyage et d'atteindre pleinement vos obectifs..</p>
-                                <div class="link"><a href="#" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
+                                <div class="link"><a href="{{ route("afficherDetailServiceAssuranceVoyage") }}" class="p_relative d_iblock fs_14 fw_sbold black-color hov-color pl_12"><i class="fa fa-angle-right"></i>En savoir plus</a></div>
                             </div>
                         </div>
                     </div>

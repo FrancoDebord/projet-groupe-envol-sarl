@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\CheckAccessToBackend;
 use App\Models\ClientService;
 use App\Models\InscriptionClientService;
 use App\Models\Pays;
@@ -15,7 +16,7 @@ class BackendController extends Controller
 
     function __construct()
     {
-        $this->middleware(["auth"]);
+        $this->middleware(["auth", CheckAccessToBackend::class]);
     }
 
     function accueilAdminPage(Request $request)

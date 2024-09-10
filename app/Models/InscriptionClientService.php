@@ -43,4 +43,14 @@ class InscriptionClientService extends Model
     {
         return $this->belongsTo(NoteInformationLue::class, 'note_information_id', 'id');
     }
+
+    /**
+     * Get the serviceConcerne that owns the InscriptionClientService
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function serviceConcerne(): BelongsTo
+    {
+        return $this->belongsTo(Service::class, 'service_id', 'id');
+    }
 }

@@ -147,4 +147,94 @@ class FrontendController extends Controller
         } catch (\Throwable $th) {
         }
     }
+
+
+    function afficherDetailServiceConseilAssistanceVoyage(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-conseil-assistance");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    function afficherDetailServiceIntermediationRecrutement(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-intermediation-recrutement");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    function afficherDetailServiceNegoces(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-negoces");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    function afficherDetailServiceBourse(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-bourses-etudes-formation");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    function afficherDetailServiceVenteBilletAvion(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-vente-billet-avion");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
+    }
+
+
+    function afficherDetailServiceAssuranceVoyage(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-assurance-voyage");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+
+    function afficherDetailServiceVisaEtudiant(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-visa-etudiant");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    function afficherDetailServiceVisaTravailleur(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-visa-travailleur");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    function afficherDetailServiceVisaVisiteur(Request $request){
+
+
+        try {
+            return view("frontend.services.detail-visa-visiteur");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
 }
