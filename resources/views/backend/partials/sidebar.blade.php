@@ -27,6 +27,13 @@
                 </a>
                
             </li>
+            <li class="">
+                <a href="https://mail79.lwspanel.com/roundcube/" target="_blank">
+                    <i class="fa fa-mailbox">&nbsp;</i>
+                    <span class="pb-2">Webmail</span>
+                </a>
+               
+            </li>
           
           
             <li class="dropdown">
