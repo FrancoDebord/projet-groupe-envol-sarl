@@ -89,6 +89,7 @@
 
 @include('partials.section_service')
 @include('partials.section-feature')
+@include('partials.section_services_visa')
 
 
 @endsection

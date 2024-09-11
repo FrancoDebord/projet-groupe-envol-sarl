@@ -30,7 +30,7 @@
 
 
 <!-- Fav Icon -->
-<link rel="icon" href="{{ asset("storage/assets_vendor/images/favicon.ico")}}" type="image/x-icon">
+<link rel="icon" href="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" type="image/x-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -127,10 +127,10 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
-                                        <li><a href="#">Nos Services</a></li>
-                                        <li><a href="#">Qui sommes-nous ?</a></li>
+                                        <li><a href="{{ route("afficherPageService") }}">Nos Services</a></li>
+                                        <li><a href="{{ route("afficherPageAboutUs") }}">Qui sommes-nous ?</a></li>
                                         <li><a href="#">Nos pays de destination</a></li>
-                                        <li><a href="#">Notre équipe</a></li>
+                                        <li><a href="{{ route("afficherPageTeam")  }}">Notre équipe</a></li>
                                         <li><a href="#">Contact</a></li>
                                     </ul>
                                 </div>
