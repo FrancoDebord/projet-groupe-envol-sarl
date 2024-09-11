@@ -20,7 +20,7 @@
                                @auth
                                    <a href="#" onclick="document.getElementById('logout-form').submit()">
                                        <i class="fa fa-sign-out-alt">&nbsp;</i>
-                                       Se déconnecter ({{  Auth::user()->name}})
+                                       Logout ({{  Auth::user()->name}})
                                    </a>
 
                                    <form method="POST" action="{{ route('logout', ['return_url' => route('accueil')]) }}"
@@ -34,9 +34,7 @@
 
                            @auth
 
-                           @php
-                            //    dd(Auth::user()->type_user);
-                           @endphp
+                          
                                @if (Auth::user()->type_user != 'client')
                                    <li>
                                        <a href="{{ route('accueilAdminPage') }}">
@@ -45,6 +43,13 @@
                                        </a>
                                    </li>
                                @endif
+
+                               <li>
+                                   <a href="{{ route('afficherPageListeInscriptionsClient') }}">
+                                       <i class="fa fa-paper-plane">&nbsp;</i>
+                                       Vos inscriptions
+                                   </a>
+                               </li>
 
                            @endauth
                        </ul>
@@ -173,9 +178,9 @@
                                    <li><a href="{{ route('inscription') }}">Inscription / Connexion</a></li>
 
 
-                                   <li class="dropdown"><a href="#">PAYS</a>
+                                   <li class="dropdown"><a href="{{ route("afficherListePaysDestination") }}">PAYS</a>
                                        <ul>
-                                           <li><a href="#">Tous les pays</a></li>
+                                           <li><a href="{{ route("afficherListePaysDestination") }}">Tous les pays</a></li>
                                            <li><a href="#">France</a></li>
                                            <li><a href="#">Etats-Unis</a></li>
                                            <li><a href="#">Canada</a></li>
@@ -183,7 +188,7 @@
 
                                        </ul>
                                    </li>
-                                   <li><a href="#">Contactez-nous</a></li>
+                                   <li><a href="{{ route("afficherPageContact") }}">Contactez-nous</a></li>
                                </ul>
                            </div>
                        </nav>

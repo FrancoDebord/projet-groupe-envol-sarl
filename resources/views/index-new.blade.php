@@ -129,9 +129,9 @@
                                     <ul class="links-list clearfix">
                                         <li><a href="{{ route("afficherPageService") }}">Nos Services</a></li>
                                         <li><a href="{{ route("afficherPageAboutUs") }}">Qui sommes-nous ?</a></li>
-                                        <li><a href="#">Nos pays de destination</a></li>
+                                        <li><a href="{{ route("afficherListePaysDestination") }}">Nos pays de destination</a></li>
                                         <li><a href="{{ route("afficherPageTeam")  }}">Notre équipe</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="{{ route("afficherPageContact") }}">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

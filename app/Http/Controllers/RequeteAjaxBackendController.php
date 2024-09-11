@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 
 class RequeteAjaxBackendController extends Controller
@@ -13,22 +14,36 @@ class RequeteAjaxBackendController extends Controller
         $this->middleware("auth");
     }
 
-    function modifierEtatDossier(Request $request){
+
+    function mettreAjourEtatMessageContact(Request $request)
+    {
 
         try {
-            $rules = [
-                "inscription_id"=>"required|integer|exists:inscriptions_clients_services,id",
-                "statut_dossier"=>"required|string",
-                "service_id"=>"required|exists:services,id",
-                "pays_destination"=>"required|exists:pays,id",
-                "piece_identite"=>"nullabe|mimes:pdf",
-                "attestation_diplome_plus_eleve"=>"nullabe|mimes:pdf",
-                "releves_notes_diplome_plus_eleve"=>"nullabe|mimes:pdf",
-            ];
+            $contact_id = $request->contact_id;
 
-            $this->validate($request,$rules);
+            $contact = ContactMessage::findOrFail($contact_id);
+
+            $update = $contact->update(["lu" => 1]);
+
+            if ($update) {
+
+                return response()->json([
+                    "code_erreur" => 0,
+                    "message" => "Mise à jour effectuée... "
+                ]);
+            } else {
+
+                return response()->json([
+                    "code_erreur" => 1,
+                    "message" => "Une erreur est survenue lors de la mise à jour "
+                ]);
+            }
         } catch (\Throwable $th) {
-            //throw $th;
+
+            return response()->json([
+                "code_erreur" => 1,
+                "message" => "Une erreur est survenue lors de la mise à jour : " . $th->getMessage(),
+            ]);
         }
     }
 }

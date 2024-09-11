@@ -28,6 +28,12 @@ Route::get('/our-services/assurance-voyage', [FrontendController::class,"affiche
 Route::get('/our-services/visa-etudiant', [FrontendController::class,"afficherDetailServiceVisaEtudiant"])->name("afficherDetailServiceVisaEtudiant");
 Route::get('/our-services/visa-travailleur', [FrontendController::class,"afficherDetailServiceVisaTravailleur"])->name("afficherDetailServiceVisaTravailleur");
 Route::get('/our-services/visa-visiteur', [FrontendController::class,"afficherDetailServiceVisaVisiteur"])->name("afficherDetailServiceVisaVisiteur");
+Route::get('/list-pays-destination', [FrontendController::class,"afficherListePaysDestination"])->name("afficherListePaysDestination");
+Route::get('/contactez-nous', [FrontendController::class,"afficherPageContact"])->name("afficherPageContact");
+Route::post('/soumettre-message-contact', [FrontendController::class,"enregistrerContactMessage"])->name("enregistrerContactMessage");
+Route::get('/list-inscriptions-client', [FrontendController::class,"afficherPageListeInscriptionsClient"])
+->middleware("auth")
+->name("afficherPageListeInscriptionsClient");
 
 require __DIR__.'/requete_ajax_frontend.php';
 require __DIR__.'/route_admin.php';

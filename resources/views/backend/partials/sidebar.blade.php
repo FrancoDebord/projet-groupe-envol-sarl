@@ -29,8 +29,16 @@
             </li>
             <li class="">
                 <a href="https://mail79.lwspanel.com/roundcube/" target="_blank">
-                    <i class="fa fa-mailbox">&nbsp;</i>
+                    <i class="fa fa-mail-bulk">&nbsp;</i>
                     <span class="pb-2">Webmail</span>
+                </a>
+               
+            </li>
+          
+            <li class="">
+                <a href="{{ route("afficherPageListeMessagesContact") }}" >
+                    <i class="fa fa-envelope">&nbsp;</i>
+                    <span class="pb-2">Les Messages de contact</span>
                 </a>
                
             </li>
@@ -89,6 +97,16 @@
                 </form>
                
             </li>
+
+             
+            <li class="">
+                <a href="{{ route("accueil") }}" target="_blank">
+                    <i class="fa fa-envelope">&nbsp;</i>
+                    <span class="pb-2">Frontend</span>
+                </a>
+               
+            </li>
+          
         
         </ul>
     </div>

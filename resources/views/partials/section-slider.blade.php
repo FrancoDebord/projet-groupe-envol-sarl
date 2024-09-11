@@ -8,7 +8,7 @@
                     <h3 class="p_relative d_iblock fw_normal fs_24 lh_30 color-white pb_3 mb_25">Vous avez envie d'immigrer ? </h3>
                     <h1 class="color-logo d_block fs_85 lh_90 mb_45 fw_exbold">Voyagez avec NOUS </h1>
                     <div class="btn-box clearfix">
-                        <a href="#" class="theme-btn btn-one">Découvrir comment</a>
+                        <a href="{{ route("afficherDetailServiceConseilAssistanceVoyage") }}" class="theme-btn btn-one">Découvrir comment</a>
                     </div>
                 </div> 
             </div>
@@ -20,7 +20,7 @@
                     <h3 class="p_relative d_iblock fw_normal fs_24 lh_30 color-white pb_3 mb_25">Nous sommes fidèles à nos engagements</h3>
                     <h1 class="color-logo d_block fs_85 lh_90 mb_45 fw_exbold">Laissez-nous  <br /> vous représenter</h1>
                     <div class="btn-box clearfix">
-                        <a href="#" class="theme-btn btn-one">En savoir plus</a>
+                        <a href="{{ route("afficherPageService") }}" class="theme-btn btn-one">En savoir plus</a>
                     </div>
                 </div> 
             </div>
@@ -32,7 +32,7 @@
                     <h3 class="p_relative d_iblock fw_normal fs_24 lh_30 color-white pb_3 mb_25">Vous rêvez de travailler à l'international ? Nous faisons de  </h3>
                     <h1 class="color-logo d_block fs_85 lh_90 mb_45 fw_exbold">l'Intermédiation <br />  de recrutement</h1>
                     <div class="btn-box clearfix">
-                        <a href="#" class="theme-btn btn-one">En savoir plus</a>
+                        <a href="{{ route("afficherDetailServiceIntermediationRecrutement") }}" class="theme-btn btn-one">En savoir plus</a>
                     </div>
                 </div> 
             </div>

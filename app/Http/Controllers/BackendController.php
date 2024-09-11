@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\CheckAccessToBackend;
 use App\Models\ClientService;
+use App\Models\ContactMessage;
 use App\Models\InscriptionClientService;
 use App\Models\Pays;
 use App\Models\Service;
@@ -197,6 +198,20 @@ class BackendController extends Controller
             $code_message = "error";
 
             return redirect()->route("updateStateOfDossier", ["inscription_code" => $inscription_code])->with($code_message, $message);
+        }
+    }
+
+    function afficherPageListeMessagesContact(Request $request){
+
+        try {
+            $all_messages_contact = ContactMessage::
+            orderBy("created_at","desc")
+            ->get();
+
+            return view("backend.page-list-messages-contact-admin",compact("all_messages_contact"));
+            
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 }

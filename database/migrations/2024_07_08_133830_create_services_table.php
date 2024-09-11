@@ -18,6 +18,7 @@ return new class extends Migration
             $table->float("frais_inscription")->default(0.0);
             $table->enum("devise",["FCFA"])->default("FCFA");
             $table->string("url_service")->nullable();
+            $table->string("url_name")->nullable();
             $table->boolean("etat_service")->default(0);
             $table->timestamps();
         });
