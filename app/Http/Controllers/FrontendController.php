@@ -6,6 +6,7 @@ use App\Models\ClientService;
 use App\Models\ContactMessage;
 use App\Models\CorpsMetier;
 use App\Models\CustomFPDF;
+use App\Models\GE_PaysDestination;
 use App\Models\GE_Team;
 use App\Models\InscriptionClientService;
 use App\Models\Pays;
@@ -26,7 +27,10 @@ class FrontendController extends Controller
         try {
 
             $all_services = Service::all();
-            return view("frontend.accueil", compact("all_services"));
+            $all_teams_member = GE_Team::all();
+
+            // return view("frontend.accueil", compact("all_services","all_teams_member"));
+            return view("frontend_visapo.accueil-visapo", compact("all_services","all_teams_member"));
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -50,7 +54,8 @@ class FrontendController extends Controller
             $all_corps_metiers = CorpsMetier::orderBy("intitule_metier", "asc")->get();
 
             $all_services_actifs = Service::where("etat_service", 1)->get();
-            return view("frontend.inscription", compact("list_pays", "service", "service_id", "all_services", "all_services_actifs", "all_corps_metiers"));
+            return view("frontend_visapo.inscription-visapo", compact("list_pays", "service", "service_id", "all_services", "all_services_actifs", "all_corps_metiers"));
+            // return view("frontend.inscription", compact("list_pays", "service", "service_id", "all_services", "all_services_actifs", "all_corps_metiers"));
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -62,7 +67,8 @@ class FrontendController extends Controller
         try {
             //code...
             $all_services = Service::all();
-            return view("frontend.view-document-pdf", compact("all_services"));
+            // return view("frontend.view-document-pdf", compact("all_services"));
+            return view("frontend_visapo.view-document-pdf-visapo", compact("all_services"));
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -75,7 +81,8 @@ class FrontendController extends Controller
 
             $all_services = Service::all();
             $infos_souscription = InscriptionClientService::with(["clientServiceConcerne", "consentementSigne", "noteInformationLue"])->where("code_inscription", $code_inscription)->first();
-            return view("frontend.page-visualiser-service", compact("infos_souscription", "all_services"));
+            // return view("frontend.page-visualiser-service", compact("infos_souscription", "all_services"));
+            return view("frontend_visapo.page-detail-inscription-visapo", compact("infos_souscription", "all_services"));
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -127,7 +134,8 @@ class FrontendController extends Controller
 
         try {
             $all_teams_member = GE_Team::all();
-            return view("frontend.page-team", compact("all_teams_member"));
+            // return view("frontend.page-team", compact("all_teams_member"));
+            return view("frontend_visapo.page-team-visapo", compact("all_teams_member"));
         } catch (\Throwable $th) {
         }
     }
@@ -140,7 +148,8 @@ class FrontendController extends Controller
         try {
             $all_teams_member = GE_Team::where("id", "<>", $member_id)->get();
             $team_member_detail = GE_Team::findOrFail($member_id);
-            return view("frontend.detail-team", compact("all_teams_member", "team_member_detail"));
+            return view("frontend_visapo.page-detail-team-member-visapo", compact("all_teams_member", "team_member_detail"));
+            // return view("frontend.detail-team", compact("all_teams_member", "team_member_detail"));
         } catch (\Throwable $th) {
         }
     }
@@ -150,8 +159,22 @@ class FrontendController extends Controller
 
 
         try {
-            return view("frontend.page-nos-services");
+            // return view("frontend.page-nos-services");
+            return view("frontend_visapo.page-service-visapo");
         } catch (\Throwable $th) {
+        }
+    }
+
+    function afficherDetailService($service_id, $slug, Request $request){
+
+        try {
+            
+            $all_services = Service::all();
+            $service_affiche = Service::findOrFail($service_id);
+
+            return view("frontend_visapo.page-detail-service-visapo",compact("service_affiche","all_services"));
+        } catch (\Throwable $th) {
+            dd($th);
         }
     }
 
@@ -258,27 +281,42 @@ class FrontendController extends Controller
 
 
         try {
-            return view("frontend.page-list-pays");
+            $all_pays_destination = GE_PaysDestination::all();
+            // return view("frontend.page-list-pays");
+            return view("frontend_visapo.page-country-visapo",compact("all_pays_destination"));
         } catch (\Throwable $th) {
             //throw $th;
         }
     }
+
+    
+    function pageDetailPaysDestination($pays_id, $slug, Request $request){
+
+        try {
+            $pays_visualiser = GE_PaysDestination::findOrFail($pays_id);
+
+            $all_pays_destination = GE_PaysDestination::all();
+            
+            return view("frontend_visapo.page-detail-country-visapo",compact("pays_visualiser","all_pays_destination"));
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+        }
+    }
+
     function afficherPageContact(Request $request)
     {
 
-
-      
-
-            return view("frontend.contact");
+            return view("frontend_visapo.page-contactez-nous-visapo");
         
     }
-
 
     function enregistrerContactMessage(Request $request){
 
         $rules = [
             "contact_name" => "required|string",
             "contact_email" => "required|email",
+            "contact_subject" => "required|string",
             "contact_message" => "required|string",
         ];
 
@@ -319,11 +357,15 @@ class FrontendController extends Controller
                 ->orderBy("date_inscription","desc")->get();
             }
 
-            return view("frontend.page-list-inscriptions-clients",compact("list_inscriptions_clients"));
+            // return view("frontend.page-list-inscriptions-clients",compact("list_inscriptions_clients"));
+            return view("frontend_visapo.page-list-inscriptions-clients-visapo",compact("list_inscriptions_clients"));
         } catch (\Throwable $th) {
             //throw $th;
 
             dd($th);
         }
     }
+
+
+    
 }

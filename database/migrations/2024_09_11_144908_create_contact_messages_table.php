@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("contact_name");
             $table->string("contact_email");
+            $table->text("contact_subject")->nullable();
             $table->text("contact_message");
             $table->boolean("lu")->default(false);
             $table->timestamps();

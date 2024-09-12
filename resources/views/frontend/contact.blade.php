@@ -48,9 +48,7 @@
                                 </div>
                             @endif
 
-                            @php
-                                // dd(session()->has('message'));
-                            @endphp
+                           
                             @if (session()->has('message_contact'))
                                 <div class="row mt-3">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1 ">
