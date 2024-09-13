@@ -27,7 +27,7 @@ class FrontendController extends Controller
         try {
 
             $all_services = Service::all();
-            $all_teams_member = GE_Team::all();
+            $all_teams_member = GE_Team::orderBy("niveau_member","asc")->get();
 
             // return view("frontend.accueil", compact("all_services","all_teams_member"));
             return view("frontend_visapo.accueil-visapo", compact("all_services","all_teams_member"));
@@ -124,7 +124,7 @@ class FrontendController extends Controller
 
         try {
             // return view("frontend.page-about-us");
-            $all_teams_member = GE_Team::all();
+            $all_teams_member = GE_Team::orderBy("niveau_member","asc")->get();
             return view("frontend_visapo.page-about-us-visapo",compact("all_teams_member"));
         } catch (\Throwable $th) {
         }
@@ -135,7 +135,7 @@ class FrontendController extends Controller
 
 
         try {
-            $all_teams_member = GE_Team::all();
+            $all_teams_member = GE_Team::orderBy("niveau_member","asc")->get();
             // return view("frontend.page-team", compact("all_teams_member"));
             return view("frontend_visapo.page-team-visapo", compact("all_teams_member"));
         } catch (\Throwable $th) {
@@ -148,7 +148,7 @@ class FrontendController extends Controller
 
 
         try {
-            $all_teams_member = GE_Team::where("id", "<>", $member_id)->get();
+            $all_teams_member = GE_Team::where("id", "<>", $member_id)->orderBy("niveau_member","asc")->get();
             $team_member_detail = GE_Team::findOrFail($member_id);
             return view("frontend_visapo.page-detail-team-member-visapo", compact("all_teams_member", "team_member_detail"));
             // return view("frontend.detail-team", compact("all_teams_member", "team_member_detail"));

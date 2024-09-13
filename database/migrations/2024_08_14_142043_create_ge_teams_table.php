@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("nom_member");
             $table->string("prenom_member");
             $table->string("poste_member");
+            $table->integer("niveau_member")->default(1);
             $table->enum("sexe",["M",'F']);
             $table->string("telephone",255)->nullable();
             $table->string("email_member",255)->nullable();
