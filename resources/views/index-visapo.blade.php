@@ -40,8 +40,8 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('storage/assets/logo/logo_envol_petit.png') }}">
 
-    {{-- <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/bootstrap.min.css') }}"> --}}
-<link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-5.3.3/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/bootstrap.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset("storage/assets/bootstrap-5.3.3/css/bootstrap.min.css") }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/all-fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/flaticon.css') }}">
@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets_visapo/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/alertifyjs/css/alertify.min.css') }}">
     @yield('css_vendor')
 
     @yield('css')
@@ -198,8 +199,8 @@
     {{-- <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
     <script src="{{ asset('storage/assets_visapo/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('storage/assets_visapo/js/modernizr.min.js') }}"></script>
-    {{-- <script src="{{ asset('storage/assets_visapo/js/bootstrap.bundle.min.js') }}"></script> --}}
-    <script src="{{ asset("storage/assets/bootstrap-5.3.3/js/bootstrap.min.js")}}"></script>
+    <script src="{{ asset('storage/assets_visapo/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset("storage/assets/bootstrap-5.3.3/js/bootstrap.min.js")}}"></script> --}}
     <script src="{{ asset('storage/assets_visapo/js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('storage/assets_visapo/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('storage/assets_visapo/js/isotope.pkgd.min.js') }}"></script>
@@ -209,6 +210,9 @@
     <script src="{{ asset('storage/assets_visapo/js/counter-up.js') }}"></script>
     <script src="{{ asset('storage/assets_visapo/js/wow.min.js') }}"></script>
     <script src="{{ asset('storage/assets_visapo/js/main.js') }}"></script>
+    
+    <script src="{{ asset('storage/assets/notify/notify.min.js') }}"></script>
+    <script src="{{ asset('storage/assets/alertifyjs/alertify.min.js') }}"></script>
 
 
     @yield('js_vendor')

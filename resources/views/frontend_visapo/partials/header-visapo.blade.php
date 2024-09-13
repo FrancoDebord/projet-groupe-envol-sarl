@@ -78,7 +78,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="{{ route("accueil") }}">
-                    <img src="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" alt="logo">
+                    <img src="{{ asset("storage/assets/logo/logo_envol_petit.png")}}" alt="logo" style=" width: 113px;">
                 </a>
                 <div class="mobile-menu-right">
                     <a href="#" class="mobile-search-btn search-box-outer"><i class="far fa-search"></i></a>

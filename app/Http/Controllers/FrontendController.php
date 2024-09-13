@@ -123,7 +123,9 @@ class FrontendController extends Controller
 
 
         try {
-            return view("frontend.page-about-us");
+            // return view("frontend.page-about-us");
+            $all_teams_member = GE_Team::all();
+            return view("frontend_visapo.page-about-us-visapo",compact("all_teams_member"));
         } catch (\Throwable $th) {
         }
     }

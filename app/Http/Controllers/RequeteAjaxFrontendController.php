@@ -220,6 +220,7 @@ class RequeteAjaxFrontendController extends Controller
         // try {
         $rules = [
             "consentement_id" => ["required", "integer"],
+            "note_information_lue_id_2" => ["required", "integer"],
             "email_client" => ["required", "email"],
             "adresse_mail" => ["required", "email"],
             "nom_client" => ["required", "string"],
@@ -249,6 +250,7 @@ class RequeteAjaxFrontendController extends Controller
         ];
 
         $messages = [
+            "note_information_lue_id_2.required" => "Vous devez d'abord lire la note d'information avant de chercher à signer le consentement...",
             "consentement_id.required" => "Vous devez d'abord signer le consentement avant de chercher à vous inscrire...",
             "email_client.required" => "Veuillez fournir votre adresse Mail...",
             "email_client.email" => "Veuillez donner une adresse mail valide. Ex : xxxx@email.com...",
@@ -310,13 +312,19 @@ class RequeteAjaxFrontendController extends Controller
 
         $rules = [
             "information_detaillee_fournie" => ["required", "integer"],
+            "consentement_id_3" => ["required", "integer"],
+            "note_information_lue_id_3" => ["required", "integer"],
             "piece_identite" => ["required", "mimes:pdf"],
             "attestation_diplome_plus_eleve" => ["required", "mimes:pdf"],
             "service_inscription" => ["required", "string"],
             "releves_notes_diplome_plus_eleve" => ["mimes:pdf", "nullable"],
+            // "consentement_id" => ["required", "integer"],
+            // "note_information_lue_id_2" => ["required", "integer"],
         ];
 
         $messages = [
+            "note_information_lue_id_3.required" => "Vous devez d'abord lire la note d'information avant de chercher à signer le consentement...",
+            "consentement_id_3.required" => "Vous devez d'abord signer le consentement avant de chercher à vous inscrire...",
             "information_detaillee_fournie.required" => "Veuillez d'abord remplir le formulaire précédent; les informations détaillées",
             "piece_identite.required" => "Votre pièce d'identité est obligatoire",
             "piece_identite.mimes" => "Votre pièce d'identité doit être en PDF",
@@ -451,6 +459,12 @@ class RequeteAjaxFrontendController extends Controller
                     if ($create_user) {
 
                         // on verra quoi faire
+
+                        $create_user = $create_user->update([
+                            "name" => $donnees_inscription["nom_client"] . " " . $donnees_inscription["prenom_client"],
+                            "email" => $donnees_inscription["email_client"],
+                            "password" => $donnees_inscription["password_client"],
+                        ]);
                     } else {
 
                         $create_user = User::create([
@@ -559,6 +573,80 @@ class RequeteAjaxFrontendController extends Controller
             }
         } catch (\Throwable $th) {
             dd($th);
+        }
+    }
+
+    /**
+     * Suppression des données et annulation d'inscription
+     */
+
+    function annulerInscriptionEtEffacerDonnees(Request $request){
+
+        try {
+            
+            $consentement_id = session()->get("consentement_id");
+            $del_consentement = 1; // Vrai par défaut
+
+            if($consentement_id){
+
+                $delete_consentement = ConsentementSigne::findOrFail($consentement_id);
+                $del_consentement = $delete_consentement->delete();
+            }
+
+            $note_information_id = session()->get("note_information_lue_id");
+
+            $del_note = 1; //Vrai par défaut
+            if($note_information_id){
+
+                $note_information_delete = NoteInformationLue::findOrFail($note_information_id);
+                $del_note = $note_information_delete->delete();
+            }
+
+           
+
+            if($del_consentement && $del_note ){
+
+                session()->forget("note_information_lue_id");
+                session()->forget("note_information_lue");
+                session()->forget("consentement_id");
+                session()->forget("consentement_signe");
+                session()->forget("donnees_informations_service");
+                session()->forget("donnees_informations_service_fourni");
+                session()->forget("donnees_informations_detaillees");
+                session()->forget("tab_en_cours");
+                session()->forget("nom_consentement");
+                session()->forget("prenom_consentement");
+                session()->forget("date_consentement");
+                session()->forget("list_pays_service");
+
+
+                session()->flash("message_succes","Vos données ont été supprimées avec succcès");
+
+                return response()->json([
+                    "code_erreur"=>0,
+                    "message"=>"Vos données ont été supprimées avec succcès"
+                ]);
+            }
+            else{
+
+                session()->flash("message_error","Une erreur s'est produite lors de la suppression");
+
+                return response()->json([
+                    "code_erreur"=>1,
+                    "message"=>"Une erreur s'est produite lors de la suppression"
+                ]);
+            }
+
+
+        } catch (\Throwable $th) {
+
+            session()->flash("message_error","Une exception s'est produite : ".$th->getMessage());
+
+
+            return response()->json([
+                "code_erreur"=>1,
+                "message"=>"Une exception s'est produite : ".$th->getMessage()
+            ]);
         }
     }
 

@@ -7,6 +7,8 @@
 
             <input type="hidden" name="consentement_id" id="consentement_id"
                 value="{{ session()->has('consentement_signe') ? session()->get('consentement_id') : '' }}">
+                <input type="hidden" name="note_information_lue_id_2" id="note_information_lue_id_2" value="{{ session()->has("note_information_lue_id")?session()->get("note_information_lue_id"):"" }}"/>
+
 
             @php
 

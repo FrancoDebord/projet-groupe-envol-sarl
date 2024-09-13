@@ -15,6 +15,11 @@
                 </div>
             @enderror
 
+            <input type="hidden" name="consentement_id_3" id="consentement_id_3"
+            value="{{ session()->has('consentement_signe') ? session()->get('consentement_id') : '' }}">
+            <input type="hidden" name="note_information_lue_id_3" id="note_information_lue_id_3" value="{{ session()->has("note_information_lue_id")?session()->get("note_information_lue_id"):"" }}"/>
+
+
             <div class="row">
                 <div class="col-12 col-md-10 offset-md-1">
                     <h2 class="text-center mt-4">Inscription au service et renseignements complémentaires</h2>

@@ -4,14 +4,14 @@
             <div class="col-lg-6">
                 <div class="about-left">
                     <div class="about-img">
-                        <img src="{{ asset("storage/assets_visap/img/about/01.jpg")}}" alt>
+                        <img src="{{ asset("storage/assets_visapo/img/about/01.jpg")}}" alt>
                     </div>
                     <div class="about-experience">
                         <h1>03 <span>+</span></h1>
                         <span class="about-experience-text">Années d'expérience</span>
                     </div>
                     <div class="about-shape">
-                        <img src="{{ asset("storage/assets_visap/img/about/shape.svg")}}" alt>
+                        <img src="{{ asset("storage/assets_visapo/img/about/shape.svg")}}" alt>
                     </div>
                 </div>
             </div>

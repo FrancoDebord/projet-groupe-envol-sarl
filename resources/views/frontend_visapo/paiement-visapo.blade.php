@@ -30,6 +30,12 @@
             </div>
         @endif
 
+        <a class="btn btn-outline-warning btn-lg " href="#" id="annuler-inscription">
+            <i class="fa fa-trash-alt">&nbsp;</i>
+
+           Annuler l'inscription et effacer vos données
+        </a>
+
         {{-- <kkiapay-widget  amount="1" key="182ba73163b255f793b8153eade717bb90a587e6"
             callback="https://kkiapay-redirect.com" /> --}}
 

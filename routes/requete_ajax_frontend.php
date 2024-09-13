@@ -12,6 +12,7 @@ Route::prefix("ajax")->group(function(){
     Route::post('/add-information-service-et-finaliser-inscription', [RequeteAjaxFrontendController::class,"ajouterInformationServiceEtFinaliserInscription"])->name("ajouterInformationServiceEtFinaliserInscription");
     Route::get('/paiement-reussi', [RequeteAjaxFrontendController::class,"effectuerPaiementKKiaPay"])->name("effectuerPaiementKKiaPay");
     Route::get('/list-pays-service', [RequeteAjaxFrontendController::class,"getListPaysConcernesParService"])->name("getListPaysConcernesParService");
+    Route::post('/annuler-inscription', [RequeteAjaxFrontendController::class,"annulerInscriptionEtEffacerDonnees"])->name("annulerInscriptionEtEffacerDonnees");
 });
 
 
