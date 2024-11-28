@@ -102,7 +102,7 @@ class BackendController extends Controller
         }
     }
 
-    public function updateStateOfDossier($inscription_code, Request $request)
+        public function updateStateOfDossier($inscription_code, Request $request)
     {
 
         try {
@@ -212,6 +212,36 @@ class BackendController extends Controller
             
         } catch (\Throwable $th) {
             //throw $th;
+        }
+    }
+
+    function ImprimerConsentementClientInscritHTML($inscription_code, Request $request)
+    {
+
+        try {
+
+            $infos_souscription = InscriptionClientService::where("code_inscription",$inscription_code)->first();
+
+            $client_service = null;
+
+            if($infos_souscription){
+
+                $client_service = $infos_souscription->clientServiceConcerne;
+            }
+
+            if (!$client_service) {
+                return redirect()->route("afficherDetailInscriptionPage",["inscription_code"=>$inscription_code])->with("message_error", "Ce consentement n'existe pas. Quelque s'est mal passé. Veuillez reessayer.");
+            } else {
+
+                $nom_consentement = $client_service->nom;
+                $prenom_consentement = $client_service->prenom;
+                $date_consentement = $infos_souscription->date_inscription;
+
+                return view("frontend.consentement-print", compact("nom_consentement", "prenom_consentement", "date_consentement"));
+            }
+        } catch (\Throwable $th) {
+
+            dd($th);
         }
     }
 }

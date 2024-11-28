@@ -71,7 +71,17 @@
                             </td>
                             <td>
                                 <span
-                                    class="badge {{ $infos_souscription->consentementSigne ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->consentementSigne ? 'Signé' : 'Non Signé' }}</span>
+                                    class="badge {{ $infos_souscription->consentementSigne ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->consentementSigne ? 'Signé' : 'Non Signé' }}
+                                </span>
+
+                                @if ($infos_souscription->consentementSigne)
+                                    
+                                <span>
+                                    <a href="{{ route("ImprimerConsentementClientInscritHTML",["inscription_code"=>$infos_souscription->code_inscription ]) }}" target="_blank" class="btn btn-sm btn-outline-warning">
+                                        <i class="fa fa-print">&nbsp;</i>
+                                    </a>
+                                </span>
+                                @endif
                             </td>
                             <td>{{ $infos_souscription->service_souscrit }}</td>
                             <td>{{ $infos_souscription->pays_destination }}</td>
@@ -243,7 +253,17 @@
                             <th>Consentement</th>
                             <td>
                                 <span
-                                    class="badge p-2 {{ $infos_souscription->consentementSigne ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->consentementSigne ? 'Signé' : 'Non Signé' }}</span>
+                                    class="badge p-2 {{ $infos_souscription->consentementSigne ? 'bg-success' : 'bg-danger' }}">{{ $infos_souscription->consentementSigne ? 'Signé' : 'Non Signé' }}
+                                </span>
+
+                                @if ($infos_souscription->consentementSigne)
+                                    
+                                <span>
+                                    <a href="{{ route("ImprimerConsentementClientInscritHTML",["inscription_code"=>$infos_souscription->code_inscription ]) }}" target="_blank" class="btn btn-sm btn-outline-warning">
+                                        <i class="fa fa-print">&nbsp;</i>
+                                    </a>
+                                </span>
+                                @endif
                             </td>
                             <th>Etat paiement</th>
                             <td>

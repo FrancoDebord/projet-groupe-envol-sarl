@@ -13,6 +13,7 @@ Route::prefix("admin")->group(function(){
     Route::get('/update-state-dossier/{inscription_code}', [BackendController::class,"updateStateOfDossier"])->name("updateStateOfDossier");
     Route::post('/soumettre-update-state-dossier/{inscription_code}', [BackendController::class,"soumettreFormulaireModifierEtat"])->name("soumettreFormulaireModifierEtat");
     Route::get('/all-messages-contact', [BackendController::class,"afficherPageListeMessagesContact"])->name("afficherPageListeMessagesContact");
+    Route::get('/imprimer-consentement-client/{inscription_code}', [BackendController::class,"ImprimerConsentementClientInscritHTML"])->name("ImprimerConsentementClientInscritHTML");
     
     
     Route::post('/ajax/mettre-ajour-contact-message', [RequeteAjaxBackendController::class,"mettreAjourEtatMessageContact"])->name("mettreAjourEtatMessageContact");
