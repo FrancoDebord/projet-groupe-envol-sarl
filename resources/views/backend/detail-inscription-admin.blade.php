@@ -369,7 +369,7 @@
                         <td> <strong>Numéro de la transaction :</strong>  {{ $infos_transaction->client->phone }}</td>
                         <td> <strong>Nom du payeur :</strong>  {{ $infos_transaction->client->fullname }}</td>
                         <td> <strong>Email du payeur :</strong>  {{ $infos_transaction->client->email }}</td>
-                        <td> <strong>Pays du payeur :</strong>  {{ $infos_transaction->client->country }}</td>
+                        <td> <strong>Pays du payeur :</strong>  {{ $infos_transaction->client->country ??"Non fourni" }}</td>
                         <td> <strong>Date du paiement :</strong>  {{ $infos_transaction->performedAt }}</td>
                         
                     </tr>
